@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Go69 Pizzza Areraj - Order Online</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#004c8a",
+          "secondary": "#e31f35",
+          "surface": "#ffffff",
+          "background": "#f4f4f4",
+          "on-surface": "#1a1c1c",
+          "on-primary": "#ffffff",
+          "surface-variant": "#f0f0f0",
+          "outline": "#717783"
+        },
+        borderRadius: {
+          DEFAULT: "4px",
+          lg: "12px",
+          xl: "16px",
+          full: "9999px"
+        },
+        fontFamily: {
+          headline: ["Lexend"],
+          body: ["Plus Jakarta Sans"],
+          label: ["Inter"]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
+  .icon-fill { font-variation-settings: 'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24; }
+  .hide-scrollbar::-webkit-scrollbar { display: none; }
+  .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  body { min-height: 100dvh; }
+  button, a { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+  .safe-bottom { padding-bottom: max(0.75rem, env(safe-area-inset-bottom)); }
+</style>
+</head>
+<body class="bg-background font-body text-on-surface antialiased" style="padding-bottom: calc(3.5rem + env(safe-area-inset-bottom))">
+
+<!-- ── Brand Header ─────────────────────────────────────────── -->
+<header class="bg-white shadow-sm sticky top-0 z-50 px-4 py-3 flex justify-between items-center">
+  <div>
+    <h1 class="text-lg font-headline font-extrabold text-primary tracking-tight leading-none">Go69 Pizzza</h1>
+    <div class="flex items-center gap-1 text-gray-500 mt-0.5">
+      <span class="material-symbols-outlined text-[13px]">near_me</span>
+      <span class="text-[10px] font-semibold">Areraj, near Motihari Road</span>
+    </div>
+  </div>
+  <div class="flex items-center gap-3">
+    <button id="cart-icon-btn" class="relative">
+      <span class="material-symbols-outlined text-gray-600 text-2xl">shopping_cart</span>
+      <span data-cart-badge class="absolute -top-1 -right-1 bg-secondary text-white text-[8px] font-extrabold w-4 h-4 items-center justify-center rounded-full hidden">0</span>
+    </button>
+  </div>
+</header>
+
+<main> 
+
+<!-- ── "What are you craving for?" Category Icons ───────────── -->
+<section class="bg-white pt-3 pb-2">
+  <p class="px-4 text-[10px] font-extrabold text-gray-600 uppercase tracking-widest mb-2">What are you craving for?</p>
+  <div class="flex overflow-x-auto hide-scrollbar gap-4 px-4 pb-1">
+
+    <div class="flex flex-col items-center min-w-[56px] gap-1.5 cursor-pointer">
+      <div class="w-14 h-14 rounded-full overflow-hidden bg-gray-100 border-2 border-transparent hover:border-secondary transition-all shadow-sm">
+        <img class="w-full h-full object-cover" alt="Cashew Lava" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUuC9bWPnFkWGrK-M0xXMvWQhe8eYefY07xu4ikCSkYUavFI0lKPIsLwO2d0G5gPFjm4NBqwtW7InxtFOgHtQdY4DXyPfvMydjipm1vB112Di1UN39Wu4ehWQTtE4WddSxtlaAYuETuvnseuMBlmwk7EhjS4nj_4pN0CYSEbRtVSSNV_h_aOQSuacqduXbxE-pjGaNpxVRJUyCpFlw_bNAWsvk9JYCWriZDHg7tR-MhgbXf0wVHDzVSqVy4ZnCz17zC30eYbIqqJts"/>
+      </div>
+      <span class="text-[9px] font-bold text-gray-700 leading-tight text-center">Cashew Lava</span>
+    </div>
+
+    <div class="flex flex-col items-center min-w-[56px] gap-1.5 cursor-pointer">
+      <div class="w-14 h-14 rounded-full overflow-hidden bg-gray-100 border-2 border-transparent hover:border-secondary transition-all shadow-sm">
+        <img class="w-full h-full object-cover" alt="Big Bite" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWDBiotCN32P0J8TpU4E-fX9T6W6xthLS3K77_3d_i2SneMjgC8UQaZMHUF11WS_pk4tI6GwjaLRUyhW6vhIPA9T6aKXbjAVAwgcsIMrlZ297OUdTFrsx7V_9CBpRrh62y59D-0UBVwhGRkGTpI6vEwj8yjWI02tjJ09R_eKEkkUu9_QWsqwjKEzjW4b2V9rde5l7uLT-UWxr7k1jxw9XUL67P9w1Jhrh8iZ673Ln0Rfy0RDPeS0f3RaMZfj8W59Msx5n92cJhjS4f"/>
+      </div>
+      <span class="text-[9px] font-bold text-gray-700 leading-tight text-center">Big Bite</span>
+    </div>
+
+    <div class="flex flex-col items-center min-w-[56px] gap-1.5 cursor-pointer">
+      <div class="w-14 h-14 rounded-full overflow-hidden bg-gray-100 border-2 border-transparent hover:border-secondary transition-all shadow-sm">
+        <img class="w-full h-full object-cover" alt="Veg Pizza" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP4tq65AUWDCx455Pm2vojS9ZzVn-bGObpVflGkMVxpCImFQO5buZLSrBu7D_-DNd7SlIfQRqC61TV0ttSYCwnI2H0RMjx686bb2DMGh4gqciDroYcwmsBwFR1RFEhXt9nFVTKru7ecI2j91PcZFo_D5szebGW9gcDwYmWDFvHFS7jiuk4qxqKVwoV5x-o9WLX-ygcG-v3Yz0qWSGADmc0wbJllDLlwnTzOLUXJCv7Q5XVHxBmAUN6ymMUxT42AU9D01hRQqjsVND1"/>
+      </div>
+      <span class="text-[9px] font-bold text-gray-700 leading-tight text-center">Veg Pizza</span>
+    </div>
+
+    <div class="flex flex-col items-center min-w-[56px] gap-1.5 cursor-pointer">
+      <div class="w-14 h-14 rounded-full overflow-hidden bg-gray-100 border-2 border-transparent hover:border-secondary transition-all shadow-sm">
+        <img class="w-full h-full object-cover" alt="Peppy Paneer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWdhvfvxjzJ01HBsMTGayHCkt3cRlhfhBaRFCc39WORMFJzLqannbbafEtfHfsQbFwX8SczVafxTmJ6QPyhxxQVvQv3tG0Fjq0PsUmzEB4KUta76qo53mqq8am-NyZ2AHUva79WFTaLggP_7VJn3PRtiix13pJFt3syiMu_HvFdoVbvAtqO4YyTNaFU8jWddjXFeE6wL-VeNYWg0qFnsCPeGlVlLI6BLkFfnUN2hoNyVuUUUdZ6XJv8UB1HxArd9Hjzum4zXiQhO5l"/>
+      </div>
+      <span class="text-[9px] font-bold text-gray-700 leading-tight text-center">Peppy Paneer</span>
+    </div>
+
+    <div class="flex flex-col items-center min-w-[56px] gap-1.5 cursor-pointer">
+      <div class="w-14 h-14 rounded-full overflow-hidden bg-gray-100 border-2 border-transparent hover:border-secondary transition-all shadow-sm">
+        <img class="w-full h-full object-cover" alt="Chicken" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCA_LGyoFJyhvRW8N71NlW52kUxXknlBbL2BmgU9aKy29BM6AqmShzvGqpIC9whOP1sL776TxtxJ0MOiaDrB7vd7VXfrSUpgwl7eT9lBviGD_YXSxEG4-SVtUbd9JDm6rXZdjUG6Yua4M39vXIAZGZLpEyJEeCX5adRtb2VLRz9f8284zb4sr5xD3KriPAshCSD_9GScH6_R3m5BmIIH1jZ5P6z-CednO7Drr8aDvY81RjgGaWujPxZnYhvTnr581zYTlIIilLjHj9"/>
+      </div>
+      <span class="text-[9px] font-bold text-gray-700 leading-tight text-center">Chicken</span>
+    </div>
+
+    <div class="flex flex-col items-center min-w-[56px] gap-1.5 cursor-pointer">
+      <div class="w-14 h-14 rounded-full overflow-hidden bg-gray-100 border-2 border-transparent hover:border-secondary transition-all shadow-sm">
+        <img class="w-full h-full object-cover" alt="Garlic Bread" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWDBiotCN32P0J8TpU4E-fX9T6W6xthLS3K77_3d_i2SneMjgC8UQaZMHUF11WS_pk4tI6GwjaLRUyhW6vhIPA9T6aKXbjAVAwgcsIMrlZ297OUdTFrsx7V_9CBpRrh62y59D-0UBVwhGRkGTpI6vEwj8yjWI02tjJ09R_eKEkkUu9_QWsqwjKEzjW4b2V9rde5l7uLT-UWxr7k1jxw9XUL67P9w1Jhrh8iZ673Ln0Rfy0RDPeS0f3RaMZfj8W59Msx5n92cJhjS4f"/>
+      </div>
+      <span class="text-[9px] font-bold text-gray-700 leading-tight text-center">Garlic Bread</span>
+    </div>
+
+    <div class="flex flex-col items-center min-w-[56px] gap-1.5 cursor-pointer">
+      <div class="w-14 h-14 rounded-full overflow-hidden bg-gray-100 border-2 border-transparent hover:border-secondary transition-all shadow-sm">
+        <img class="w-full h-full object-cover" alt="Desserts" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCA_LGyoFJyhvRW8N71NlW52kUxXknlBbL2BmgU9aKy29BM6AqmShzvGqpIC9whOP1sL776TxtxJ0MOiaDrB7vd7VXfrSUpgwl7eT9lBviGD_YXSxEG4-SVtUbd9JDm6rXZdjUG6Yua4M39vXIAZGZLpEyJEeCX5adRtb2VLRz9f8284zb4sr5xD3KriPAshCSD_9GScH6_R3m5BmIIH1jZ5P6z-CednO7Drr8aDvY81RjgGaWujPxZnYhvTnr581zYTlIIilLjHj9"/>
+      </div>
+      <span class="text-[9px] font-bold text-gray-700 leading-tight text-center">Desserts</span>
+    </div>
+
+    <div class="flex flex-col items-center min-w-[56px] gap-1.5 cursor-pointer">
+      <div class="w-14 h-14 rounded-full overflow-hidden bg-gray-100 border-2 border-transparent hover:border-secondary transition-all shadow-sm flex items-center justify-center">
+        <span class="material-symbols-outlined text-primary text-2xl icon-fill">local_drink</span>
+      </div>
+      <span class="text-[9px] font-bold text-gray-700 leading-tight text-center">Beverages</span>
+    </div>
+
+    <div class="flex flex-col items-center min-w-[56px] gap-1.5 cursor-pointer">
+      <div class="w-14 h-14 rounded-full overflow-hidden bg-gray-100 border-2 border-transparent hover:border-secondary transition-all shadow-sm flex items-center justify-center">
+        <span class="material-symbols-outlined text-secondary text-2xl icon-fill">stars</span>
+      </div>
+      <span class="text-[9px] font-bold text-gray-700 leading-tight text-center">Combos</span>
+    </div>
+
+    <div class="flex flex-col items-center min-w-[56px] gap-1.5 cursor-pointer">
+      <div class="w-14 h-14 rounded-full overflow-hidden bg-gray-100 border-2 border-transparent hover:border-secondary transition-all shadow-sm flex items-center justify-center">
+        <span class="material-symbols-outlined text-orange-500 text-2xl icon-fill">icecream</span>
+      </div>
+      <span class="text-[9px] font-bold text-gray-700 leading-tight text-center">Treats</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Promotional Banners Carousel ─────────────────────────── -->
+<section class="bg-white pb-3 pt-2">
+  <div class="flex overflow-x-auto hide-scrollbar gap-3 px-4">
+
+    <div class="min-w-[200px] h-28 sm:min-w-[240px] rounded-lg overflow-hidden relative shadow-sm flex-shrink-0">
+      <img alt="Cheese Burst" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUuC9bWPnFkWGrK-M0xXMvWQhe8eYefY07xu4ikCSkYUavFI0lKPIsLwO2d0G5gPFjm4NBqwtW7InxtFOgHtQdY4DXyPfvMydjipm1vB112Di1UN39Wu4ehWQTtE4WddSxtlaAYuETuvnseuMBlmwk7EhjS4nj_4pN0CYSEbRtVSSNV_h_aOQSuacqduXbxE-pjGaNpxVRJUyCpFlw_bNAWsvk9JYCWriZDHg7tR-MhgbXf0wVHDzVSqVy4ZnCz17zC30eYbIqqJts"/>
+      <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent"></div>
+      <div class="absolute bottom-2 left-2">
+        <p class="text-white text-[10px] font-extrabold uppercase">Cheese Burst</p>
+        <p class="text-white/80 text-[9px]">Starting ₹149</p>
+      </div>
+      <div class="absolute top-2 left-2 bg-secondary text-white text-[8px] font-extrabold px-1.5 py-0.5 rounded uppercase">Must Try</div>
+    </div>
+
+    <div class="min-w-[200px] h-28 sm:min-w-[240px] rounded-lg overflow-hidden relative shadow-sm flex-shrink-0">
+      <img alt="Cheese Volcano" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWdhvfvxjzJ01HBsMTGayHCkt3cRlhfhBaRFCc39WORMFJzLqannbbafEtfHfsQbFwX8SczVafxTmJ6QPyhxxQVvQv3tG0Fjq0PsUmzEB4KUta76qo53mqq8am-NyZ2AHUva79WFTaLggP_7VJn3PRtiix13pJFt3syiMu_HvFdoVbvAtqO4YyTNaFU8jWddjXFeE6wL-VeNYWg0qFnsCPeGlVlLI6BLkFfnUN2hoNyVuUUUdZ6XJv8UB1HxArd9Hjzum4zXiQhO5l"/>
+      <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent"></div>
+      <div class="absolute bottom-2 left-2">
+        <p class="text-white text-[10px] font-extrabold uppercase">Cheese Volcano</p>
+        <p class="text-white/80 text-[9px]">Starting ₹179</p>
+      </div>
+      <div class="absolute top-2 left-2 bg-orange-500 text-white text-[8px] font-extrabold px-1.5 py-0.5 rounded uppercase">New Flavor</div>
+    </div>
+
+    <div class="min-w-[200px] h-28 sm:min-w-[240px] rounded-lg overflow-hidden relative shadow-sm flex-shrink-0">
+      <img alt="Lavalicious" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCA_LGyoFJyhvRW8N71NlW52kUxXknlBbL2BmgU9aKy29BM6AqmShzvGqpIC9whOP1sL776TxtxJ0MOiaDrB7vd7VXfrSUpgwl7eT9lBviGD_YXSxEG4-SVtUbd9JDm6rXZdjUG6Yua4M39vXIAZGZLpEyJEeCX5adRtb2VLRz9f8284zb4sr5xD3KriPAshCSD_9GScH6_R3m5BmIIH1jZ5P6z-CednO7Drr8aDvY81RjgGaWujPxZnYhvTnr581zYTlIIilLjHj9"/>
+      <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent"></div>
+      <div class="absolute bottom-2 left-2">
+        <p class="text-white text-[10px] font-extrabold uppercase">Lavalicious</p>
+        <p class="text-white/80 text-[9px]">Starting ₹99</p>
+      </div>
+      <div class="absolute top-2 left-2 bg-primary text-white text-[8px] font-extrabold px-1.5 py-0.5 rounded uppercase">Bestseller</div>
+    </div>
+
+    <div class="min-w-[200px] h-28 sm:min-w-[240px] rounded-lg overflow-hidden relative shadow-sm flex-shrink-0">
+      <img alt="Combo Deal" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWDBiotCN32P0J8TpU4E-fX9T6W6xthLS3K77_3d_i2SneMjgC8UQaZMHUF11WS_pk4tI6GwjaLRUyhW6vhIPA9T6aKXbjAVAwgcsIMrlZ297OUdTFrsx7V_9CBpRrh62y59D-0UBVwhGRkGTpI6vEwj8yjWI02tjJ09R_eKEkkUu9_QWsqwjKEzjW4b2V9rde5l7uLT-UWxr7k1jxw9XUL67P9w1Jhrh8iZ673Ln0Rfy0RDPeS0f3RaMZfj8W59Msx5n92cJhjS4f"/>
+      <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent"></div>
+      <div class="absolute bottom-2 left-2">
+        <p class="text-white text-[10px] font-extrabold uppercase">Combo Deal</p>
+        <p class="text-white/80 text-[9px]">Save up to ₹100</p>
+      </div>
+      <div class="absolute top-2 left-2 bg-green-600 text-white text-[8px] font-extrabold px-1.5 py-0.5 rounded uppercase">Limited Time</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Top 10 Bestsellers (Veg) ──────────────────────────────── -->
+<div class="mt-2">
+  <!-- Section Header -->
+  <div class="flex flex-col items-center py-3 bg-[#fff8e7] border-y border-[#f5e09a]">
+    <div class="flex items-center gap-1.5 mb-0.5">
+      <span class="text-yellow-500 text-lg">&#128081;</span>
+      <h2 class="text-[#7a5a1e] font-headline font-extrabold text-sm tracking-wide uppercase">Top 10 Bestsellers</h2>
+      <span class="text-yellow-500 text-lg">&#128081;</span>
+    </div>
+    <div class="flex items-center gap-1 text-[#7a5a1e]/60">
+      <span class="material-symbols-outlined text-[11px]">location_on</span>
+      <span class="text-[10px] font-bold uppercase tracking-wide">In Your Locality</span>
+    </div>
+  </div>
+
+  <!-- 4-column grid -->
+  <div class="bg-[#fffdf5] px-3 py-3 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+
+    <!-- Card: Margherita -->
+    <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+      <div class="relative">
+        <img class="w-full h-28 object-cover" alt="Margherita" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP4tq65AUWDCx455Pm2vojS9ZzVn-bGObpVflGkMVxpCImFQO5buZLSrBu7D_-DNd7SlIfQRqC61TV0ttSYCwnI2H0RMjx686bb2DMGh4gqciDroYcwmsBwFR1RFEhXt9nFVTKru7ecI2j91PcZFo_D5szebGW9gcDwYmWDFvHFS7jiuk4qxqKVwoV5x-o9WLX-ygcG-v3Yz0qWSGADmc0wbJllDLlwnTzOLUXJCv7Q5XVHxBmAUN6ymMUxT42AU9D01hRQqjsVND1"/>
+        <div class="absolute top-1.5 right-1.5 bg-white/90 text-[8px] font-extrabold text-[#7a5a1e] px-1.5 py-0.5 rounded uppercase border border-yellow-200">Top 10</div>
+      </div>
+      <div class="p-2">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border border-green-600 flex items-center justify-center rounded-[1px] flex-shrink-0">
+            <div class="w-1.5 h-1.5 rounded-full bg-green-600"></div>
+          </div>
+          <span class="text-[11px] font-extrabold truncate">Margherita</span>
+        </div>
+        <p class="text-[9px] text-gray-400 leading-tight mb-1.5">Classic mozzarella cheese</p>
+        <div class="flex justify-between items-center">
+          <span class="text-[11px] font-extrabold text-primary">₹109</span>
+          <button class="bg-secondary text-white text-[9px] font-extrabold px-3 py-1 rounded uppercase">Add +</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card: Farmhouse -->
+    <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+      <div class="relative">
+        <img class="w-full h-28 object-cover" alt="Farmhouse" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWdhvfvxjzJ01HBsMTGayHCkt3cRlhfhBaRFCc39WORMFJzLqannbbafEtfHfsQbFwX8SczVafxTmJ6QPyhxxQVvQv3tG0Fjq0PsUmzEB4KUta76qo53mqq8am-NyZ2AHUva79WFTaLggP_7VJn3PRtiix13pJFt3syiMu_HvFdoVbvAtqO4YyTNaFU8jWddjXFeE6wL-VeNYWg0qFnsCPeGlVlLI6BLkFfnUN2hoNyVuUUUdZ6XJv8UB1HxArd9Hjzum4zXiQhO5l"/>
+        <div class="absolute top-1.5 right-1.5 bg-white/90 text-[8px] font-extrabold text-[#7a5a1e] px-1.5 py-0.5 rounded uppercase border border-yellow-200">Top 10</div>
+      </div>
+      <div class="p-2">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border border-green-600 flex items-center justify-center rounded-[1px] flex-shrink-0">
+            <div class="w-1.5 h-1.5 rounded-full bg-green-600"></div>
+          </div>
+          <span class="text-[11px] font-extrabold truncate">Farmhouse</span>
+        </div>
+        <p class="text-[9px] text-gray-400 leading-tight mb-1.5">Onion, Capsicum, Tomato</p>
+        <div class="flex justify-between items-center">
+          <span class="text-[11px] font-extrabold text-primary">₹259</span>
+          <button class="bg-secondary text-white text-[9px] font-extrabold px-3 py-1 rounded uppercase">Add +</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card: Peppy Paneer -->
+    <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+      <div class="relative">
+        <img class="w-full h-28 object-cover" alt="Peppy Paneer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP4tq65AUWDCx455Pm2vojS9ZzVn-bGObpVflGkMVxpCImFQO5buZLSrBu7D_-DNd7SlIfQRqC61TV0ttSYCwnI2H0RMjx686bb2DMGh4gqciDroYcwmsBwFR1RFEhXt9nFVTKru7ecI2j91PcZFo_D5szebGW9gcDwYmWDFvHFS7jiuk4qxqKVwoV5x-o9WLX-ygcG-v3Yz0qWSGADmc0wbJllDLlwnTzOLUXJCv7Q5XVHxBmAUN6ymMUxT42AU9D01hRQqjsVND1"/>
+        <div class="absolute top-1.5 right-1.5 bg-white/90 text-[8px] font-extrabold text-[#7a5a1e] px-1.5 py-0.5 rounded uppercase border border-yellow-200">Top 10</div>
+      </div>
+      <div class="p-2">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border border-green-600 flex items-center justify-center rounded-[1px] flex-shrink-0">
+            <div class="w-1.5 h-1.5 rounded-full bg-green-600"></div>
+          </div>
+          <span class="text-[11px] font-extrabold truncate">Peppy Paneer</span>
+        </div>
+        <p class="text-[9px] text-gray-400 leading-tight mb-1.5">Chunky paneer & capsicum</p>
+        <div class="flex justify-between items-center">
+          <span class="text-[11px] font-extrabold text-primary">₹269</span>
+          <button class="bg-secondary text-white text-[9px] font-extrabold px-3 py-1 rounded uppercase">Add +</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card: Veggie Paradise -->
+    <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+      <div class="relative">
+        <img class="w-full h-28 object-cover" alt="Veggie Paradise" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWdhvfvxjzJ01HBsMTGayHCkt3cRlhfhBaRFCc39WORMFJzLqannbbafEtfHfsQbFwX8SczVafxTmJ6QPyhxxQVvQv3tG0Fjq0PsUmzEB4KUta76qo53mqq8am-NyZ2AHUva79WFTaLggP_7VJn3PRtiix13pJFt3syiMu_HvFdoVbvAtqO4YyTNaFU8jWddjXFeE6wL-VeNYWg0qFnsCPeGlVlLI6BLkFfnUN2hoNyVuUUUdZ6XJv8UB1HxArd9Hjzum4zXiQhO5l"/>
+        <div class="absolute top-1.5 right-1.5 bg-white/90 text-[8px] font-extrabold text-[#7a5a1e] px-1.5 py-0.5 rounded uppercase border border-yellow-200">Top 10</div>
+      </div>
+      <div class="p-2">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border border-green-600 flex items-center justify-center rounded-[1px] flex-shrink-0">
+            <div class="w-1.5 h-1.5 rounded-full bg-green-600"></div>
+          </div>
+          <span class="text-[11px] font-extrabold truncate">Veggie Paradise</span>
+        </div>
+        <p class="text-[9px] text-gray-400 leading-tight mb-1.5">Corn, Olives, Capsicum</p>
+        <div class="flex justify-between items-center">
+          <span class="text-[11px] font-extrabold text-primary">₹269</span>
+          <button class="bg-secondary text-white text-[9px] font-extrabold px-3 py-1 rounded uppercase">Add +</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card: Margherita (row 2) -->
+    <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+      <div class="relative">
+        <img class="w-full h-28 object-cover" alt="Margherita" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUuC9bWPnFkWGrK-M0xXMvWQhe8eYefY07xu4ikCSkYUavFI0lKPIsLwO2d0G5gPFjm4NBqwtW7InxtFOgHtQdY4DXyPfvMydjipm1vB112Di1UN39Wu4ehWQTtE4WddSxtlaAYuETuvnseuMBlmwk7EhjS4nj_4pN0CYSEbRtVSSNV_h_aOQSuacqduXbxE-pjGaNpxVRJUyCpFlw_bNAWsvk9JYCWriZDHg7tR-MhgbXf0wVHDzVSqVy4ZnCz17zC30eYbIqqJts"/>
+        <div class="absolute top-1.5 right-1.5 bg-white/90 text-[8px] font-extrabold text-[#7a5a1e] px-1.5 py-0.5 rounded uppercase border border-yellow-200">Top 10</div>
+      </div>
+      <div class="p-2">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border border-green-600 flex items-center justify-center rounded-[1px] flex-shrink-0">
+            <div class="w-1.5 h-1.5 rounded-full bg-green-600"></div>
+          </div>
+          <span class="text-[11px] font-extrabold truncate">Margherita</span>
+        </div>
+        <p class="text-[9px] text-gray-400 leading-tight mb-1.5">Classic mozzarella cheese</p>
+        <div class="flex justify-between items-center">
+          <span class="text-[11px] font-extrabold text-primary">₹109</span>
+          <button class="bg-secondary text-white text-[9px] font-extrabold px-3 py-1 rounded uppercase">Add +</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card: Farmhouse (row 2) -->
+    <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+      <div class="relative">
+        <img class="w-full h-28 object-cover" alt="Farmhouse" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWDBiotCN32P0J8TpU4E-fX9T6W6xthLS3K77_3d_i2SneMjgC8UQaZMHUF11WS_pk4tI6GwjaLRUyhW6vhIPA9T6aKXbjAVAwgcsIMrlZ297OUdTFrsx7V_9CBpRrh62y59D-0UBVwhGRkGTpI6vEwj8yjWI02tjJ09R_eKEkkUu9_QWsqwjKEzjW4b2V9rde5l7uLT-UWxr7k1jxw9XUL67P9w1Jhrh8iZ673Ln0Rfy0RDPeS0f3RaMZfj8W59Msx5n92cJhjS4f"/>
+        <div class="absolute top-1.5 right-1.5 bg-white/90 text-[8px] font-extrabold text-[#7a5a1e] px-1.5 py-0.5 rounded uppercase border border-yellow-200">Top 10</div>
+      </div>
+      <div class="p-2">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border border-green-600 flex items-center justify-center rounded-[1px] flex-shrink-0">
+            <div class="w-1.5 h-1.5 rounded-full bg-green-600"></div>
+          </div>
+          <span class="text-[11px] font-extrabold truncate">Farmhouse</span>
+        </div>
+        <p class="text-[9px] text-gray-400 leading-tight mb-1.5">Onion, Capsicum, Tomato</p>
+        <div class="flex justify-between items-center">
+          <span class="text-[11px] font-extrabold text-primary">₹259</span>
+          <button class="bg-secondary text-white text-[9px] font-extrabold px-3 py-1 rounded uppercase">Add +</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card: Tandoori Paneer -->
+    <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+      <div class="relative">
+        <img class="w-full h-28 object-cover" alt="Tandoori Paneer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP4tq65AUWDCx455Pm2vojS9ZzVn-bGObpVflGkMVxpCImFQO5buZLSrBu7D_-DNd7SlIfQRqC61TV0ttSYCwnI2H0RMjx686bb2DMGh4gqciDroYcwmsBwFR1RFEhXt9nFVTKru7ecI2j91PcZFo_D5szebGW9gcDwYmWDFvHFS7jiuk4qxqKVwoV5x-o9WLX-ygcG-v3Yz0qWSGADmc0wbJllDLlwnTzOLUXJCv7Q5XVHxBmAUN6ymMUxT42AU9D01hRQqjsVND1"/>
+        <div class="absolute top-1.5 right-1.5 bg-white/90 text-[8px] font-extrabold text-[#7a5a1e] px-1.5 py-0.5 rounded uppercase border border-yellow-200">Top 10</div>
+      </div>
+      <div class="p-2">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border border-green-600 flex items-center justify-center rounded-[1px] flex-shrink-0">
+            <div class="w-1.5 h-1.5 rounded-full bg-green-600"></div>
+          </div>
+          <span class="text-[11px] font-extrabold truncate">Tandoori Paneer</span>
+        </div>
+        <p class="text-[9px] text-gray-400 leading-tight mb-1.5">Tandoori paneer & paprika</p>
+        <div class="flex justify-between items-center">
+          <span class="text-[11px] font-extrabold text-primary">₹299</span>
+          <button class="bg-secondary text-white text-[9px] font-extrabold px-3 py-1 rounded uppercase">Add +</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card: Veggie Supreme -->
+    <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+      <div class="relative">
+        <img class="w-full h-28 object-cover" alt="Veggie Supreme" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWdhvfvxjzJ01HBsMTGayHCkt3cRlhfhBaRFCc39WORMFJzLqannbbafEtfHfsQbFwX8SczVafxTmJ6QPyhxxQVvQv3tG0Fjq0PsUmzEB4KUta76qo53mqq8am-NyZ2AHUva79WFTaLggP_7VJn3PRtiix13pJFt3syiMu_HvFdoVbvAtqO4YyTNaFU8jWddjXFeE6wL-VeNYWg0qFnsCPeGlVlLI6BLkFfnUN2hoNyVuUUUdZ6XJv8UB1HxArd9Hjzum4zXiQhO5l"/>
+        <div class="absolute top-1.5 right-1.5 bg-white/90 text-[8px] font-extrabold text-[#7a5a1e] px-1.5 py-0.5 rounded uppercase border border-yellow-200">Top 10</div>
+      </div>
+      <div class="p-2">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border border-green-600 flex items-center justify-center rounded-[1px] flex-shrink-0">
+            <div class="w-1.5 h-1.5 rounded-full bg-green-600"></div>
+          </div>
+          <span class="text-[11px] font-extrabold truncate">Veggie Supreme</span>
+        </div>
+        <p class="text-[9px] text-gray-400 leading-tight mb-1.5">Loaded veg toppings</p>
+        <div class="flex justify-between items-center">
+          <span class="text-[11px] font-extrabold text-primary">₹299</span>
+          <button class="bg-secondary text-white text-[9px] font-extrabold px-3 py-1 rounded uppercase">Add +</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── Top 10 Bestsellers (Non-Veg) ─────────────────────────── -->
+<div class="mt-2">
+  <div class="flex flex-col items-center py-3 bg-[#fff8e7] border-y border-[#f5e09a]">
+    <div class="flex items-center gap-1.5 mb-0.5">
+      <span class="text-yellow-500 text-lg">&#128081;</span>
+      <h2 class="text-[#7a5a1e] font-headline font-extrabold text-sm tracking-wide uppercase">Top 10 Bestsellers</h2>
+      <span class="text-yellow-500 text-lg">&#128081;</span>
+    </div>
+    <div class="flex items-center gap-1 text-[#7a5a1e]/60">
+      <span class="material-symbols-outlined text-[11px]">location_on</span>
+      <span class="text-[10px] font-bold uppercase tracking-wide">In Your Locality</span>
+    </div>
+  </div>
+
+  <div class="bg-[#fffdf5] px-3 py-3 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+
+    <!-- Card: Chicken Tikka -->
+    <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+      <div class="relative">
+        <img class="w-full h-28 object-cover" alt="Chicken Tikka" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUuC9bWPnFkWGrK-M0xXMvWQhe8eYefY07xu4ikCSkYUavFI0lKPIsLwO2d0G5gPFjm4NBqwtW7InxtFOgHtQdY4DXyPfvMydjipm1vB112Di1UN39Wu4ehWQTtE4WddSxtlaAYuETuvnseuMBlmwk7EhjS4nj_4pN0CYSEbRtVSSNV_h_aOQSuacqduXbxE-pjGaNpxVRJUyCpFlw_bNAWsvk9JYCWriZDHg7tR-MhgbXf0wVHDzVSqVy4ZnCz17zC30eYbIqqJts"/>
+        <div class="absolute top-1.5 right-1.5 bg-white/90 text-[8px] font-extrabold text-[#7a5a1e] px-1.5 py-0.5 rounded uppercase border border-yellow-200">Top 10</div>
+      </div>
+      <div class="p-2">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border border-red-600 flex items-center justify-center rounded-[1px] flex-shrink-0">
+            <div class="w-1.5 h-1.5 rounded-full bg-red-600"></div>
+          </div>
+          <span class="text-[11px] font-extrabold truncate">Chicken Tikka</span>
+        </div>
+        <p class="text-[9px] text-gray-400 leading-tight mb-1.5">Tender chicken tikka</p>
+        <div class="flex justify-between items-center">
+          <span class="text-[11px] font-extrabold text-primary">₹329</span>
+          <button class="bg-secondary text-white text-[9px] font-extrabold px-3 py-1 rounded uppercase">Add +</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card: Margherita -->
+    <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+      <div class="relative">
+        <img class="w-full h-28 object-cover" alt="Margherita" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP4tq65AUWDCx455Pm2vojS9ZzVn-bGObpVflGkMVxpCImFQO5buZLSrBu7D_-DNd7SlIfQRqC61TV0ttSYCwnI2H0RMjx686bb2DMGh4gqciDroYcwmsBwFR1RFEhXt9nFVTKru7ecI2j91PcZFo_D5szebGW9gcDwYmWDFvHFS7jiuk4qxqKVwoV5x-o9WLX-ygcG-v3Yz0qWSGADmc0wbJllDLlwnTzOLUXJCv7Q5XVHxBmAUN6ymMUxT42AU9D01hRQqjsVND1"/>
+        <div class="absolute top-1.5 right-1.5 bg-white/90 text-[8px] font-extrabold text-[#7a5a1e] px-1.5 py-0.5 rounded uppercase border border-yellow-200">Top 10</div>
+      </div>
+      <div class="p-2">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border border-green-600 flex items-center justify-center rounded-[1px] flex-shrink-0">
+            <div class="w-1.5 h-1.5 rounded-full bg-green-600"></div>
+          </div>
+          <span class="text-[11px] font-extrabold truncate">Margherita</span>
+        </div>
+        <p class="text-[9px] text-gray-400 leading-tight mb-1.5">Classic mozzarella</p>
+        <div class="flex justify-between items-center">
+          <span class="text-[11px] font-extrabold text-primary">₹109</span>
+          <button class="bg-secondary text-white text-[9px] font-extrabold px-3 py-1 rounded uppercase">Add +</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card: Farmhouse -->
+    <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+      <div class="relative">
+        <img class="w-full h-28 object-cover" alt="Farmhouse" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWdhvfvxjzJ01HBsMTGayHCkt3cRlhfhBaRFCc39WORMFJzLqannbbafEtfHfsQbFwX8SczVafxTmJ6QPyhxxQVvQv3tG0Fjq0PsUmzEB4KUta76qo53mqq8am-NyZ2AHUva79WFTaLggP_7VJn3PRtiix13pJFt3syiMu_HvFdoVbvAtqO4YyTNaFU8jWddjXFeE6wL-VeNYWg0qFnsCPeGlVlLI6BLkFfnUN2hoNyVuUUUdZ6XJv8UB1HxArd9Hjzum4zXiQhO5l"/>
+        <div class="absolute top-1.5 right-1.5 bg-white/90 text-[8px] font-extrabold text-[#7a5a1e] px-1.5 py-0.5 rounded uppercase border border-yellow-200">Top 10</div>
+      </div>
+      <div class="p-2">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border border-green-600 flex items-center justify-center rounded-[1px] flex-shrink-0">
+            <div class="w-1.5 h-1.5 rounded-full bg-green-600"></div>
+          </div>
+          <span class="text-[11px] font-extrabold truncate">Farmhouse</span>
+        </div>
+        <p class="text-[9px] text-gray-400 leading-tight mb-1.5">Onion, Capsicum, Tomato</p>
+        <div class="flex justify-between items-center">
+          <span class="text-[11px] font-extrabold text-primary">₹259</span>
+          <button class="bg-secondary text-white text-[9px] font-extrabold px-3 py-1 rounded uppercase">Add +</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card: Peppy Paneer -->
+    <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+      <div class="relative">
+        <img class="w-full h-28 object-cover" alt="Peppy Paneer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP4tq65AUWDCx455Pm2vojS9ZzVn-bGObpVflGkMVxpCImFQO5buZLSrBu7D_-DNd7SlIfQRqC61TV0ttSYCwnI2H0RMjx686bb2DMGh4gqciDroYcwmsBwFR1RFEhXt9nFVTKru7ecI2j91PcZFo_D5szebGW9gcDwYmWDFvHFS7jiuk4qxqKVwoV5x-o9WLX-ygcG-v3Yz0qWSGADmc0wbJllDLlwnTzOLUXJCv7Q5XVHxBmAUN6ymMUxT42AU9D01hRQqjsVND1"/>
+        <div class="absolute top-1.5 right-1.5 bg-white/90 text-[8px] font-extrabold text-[#7a5a1e] px-1.5 py-0.5 rounded uppercase border border-yellow-200">Top 10</div>
+      </div>
+      <div class="p-2">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border border-green-600 flex items-center justify-center rounded-[1px] flex-shrink-0">
+            <div class="w-1.5 h-1.5 rounded-full bg-green-600"></div>
+          </div>
+          <span class="text-[11px] font-extrabold truncate">Peppy Paneer</span>
+        </div>
+        <p class="text-[9px] text-gray-400 leading-tight mb-1.5">Chunky paneer & capsicum</p>
+        <div class="flex justify-between items-center">
+          <span class="text-[11px] font-extrabold text-primary">₹269</span>
+          <button class="bg-secondary text-white text-[9px] font-extrabold px-3 py-1 rounded uppercase">Add +</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── Popular Veg Delights ───────────────────────────────────── -->
+<section class="mt-3 px-3">
+  <div class="flex items-center justify-between mb-2.5">
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 bg-orange-100 rounded-full flex items-center justify-center">
+        <span class="material-symbols-outlined text-orange-500 text-base icon-fill">emoji_events</span>
+      </div>
+      <div>
+        <h3 class="font-headline text-sm font-extrabold tracking-tight leading-none">Popular Veg Delights</h3>
+        <p class="text-[9px] text-gray-400 font-bold uppercase mt-0.5">FREE Delivery Above ₹149</p>
+      </div>
+    </div>
+    <a class="text-[10px] font-extrabold text-primary uppercase border-b border-primary/30" href="#">See All</a>
+  </div>
+
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+
+    <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+      <div class="relative">
+        <img class="w-full h-28 object-cover" alt="Margherita" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP4tq65AUWDCx455Pm2vojS9ZzVn-bGObpVflGkMVxpCImFQO5buZLSrBu7D_-DNd7SlIfQRqC61TV0ttSYCwnI2H0RMjx686bb2DMGh4gqciDroYcwmsBwFR1RFEhXt9nFVTKru7ecI2j91PcZFo_D5szebGW9gcDwYmWDFvHFS7jiuk4qxqKVwoV5x-o9WLX-ygcG-v3Yz0qWSGADmc0wbJllDLlwnTzOLUXJCv7Q5XVHxBmAUN6ymMUxT42AU9D01hRQqjsVND1"/>
+      </div>
+      <div class="p-2">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border border-green-600 flex items-center justify-center rounded-[1px] flex-shrink-0">
+            <div class="w-1.5 h-1.5 rounded-full bg-green-600"></div>
+          </div>
+          <span class="text-[11px] font-extrabold truncate">Margherita</span>
+        </div>
+        <p class="text-[9px] text-gray-400 leading-tight mb-1.5">Classic mozzarella</p>
+        <div class="flex justify-between items-center">
+          <span class="text-[11px] font-extrabold text-primary">₹109</span>
+          <button class="bg-secondary text-white text-[9px] font-extrabold px-3 py-1 rounded uppercase">Add +</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+      <div class="relative">
+        <img class="w-full h-28 object-cover" alt="Farmhouse" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWdhvfvxjzJ01HBsMTGayHCkt3cRlhfhBaRFCc39WORMFJzLqannbbafEtfHfsQbFwX8SczVafxTmJ6QPyhxxQVvQv3tG0Fjq0PsUmzEB4KUta76qo53mqq8am-NyZ2AHUva79WFTaLggP_7VJn3PRtiix13pJFt3syiMu_HvFdoVbvAtqO4YyTNaFU8jWddjXFeE6wL-VeNYWg0qFnsCPeGlVlLI6BLkFfnUN2hoNyVuUUUdZ6XJv8UB1HxArd9Hjzum4zXiQhO5l"/>
+      </div>
+      <div class="p-2">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border border-green-600 flex items-center justify-center rounded-[1px] flex-shrink-0">
+            <div class="w-1.5 h-1.5 rounded-full bg-green-600"></div>
+          </div>
+          <span class="text-[11px] font-extrabold truncate">Farmhouse</span>
+        </div>
+        <p class="text-[9px] text-gray-400 leading-tight mb-1.5">Onion, Capsicum, Tomato</p>
+        <div class="flex justify-between items-center">
+          <span class="text-[11px] font-extrabold text-primary">₹259</span>
+          <button class="bg-secondary text-white text-[9px] font-extrabold px-3 py-1 rounded uppercase">Add +</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+      <div class="relative">
+        <img class="w-full h-28 object-cover" alt="Peppy Paneer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP4tq65AUWDCx455Pm2vojS9ZzVn-bGObpVflGkMVxpCImFQO5buZLSrBu7D_-DNd7SlIfQRqC61TV0ttSYCwnI2H0RMjx686bb2DMGh4gqciDroYcwmsBwFR1RFEhXt9nFVTKru7ecI2j91PcZFo_D5szebGW9gcDwYmWDFvHFS7jiuk4qxqKVwoV5x-o9WLX-ygcG-v3Yz0qWSGADmc0wbJllDLlwnTzOLUXJCv7Q5XVHxBmAUN6ymMUxT42AU9D01hRQqjsVND1"/>
+      </div>
+      <div class="p-2">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border border-green-600 flex items-center justify-center rounded-[1px] flex-shrink-0">
+            <div class="w-1.5 h-1.5 rounded-full bg-green-600"></div>
+          </div>
+          <span class="text-[11px] font-extrabold truncate">Peppy Paneer</span>
+        </div>
+        <p class="text-[9px] text-gray-400 leading-tight mb-1.5">Chunky paneer & capsicum</p>
+        <div class="flex justify-between items-center">
+          <span class="text-[11px] font-extrabold text-primary">₹269</span>
+          <button class="bg-secondary text-white text-[9px] font-extrabold px-3 py-1 rounded uppercase">Add +</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+      <div class="relative">
+        <img class="w-full h-28 object-cover" alt="Veggie Paradise" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWdhvfvxjzJ01HBsMTGayHCkt3cRlhfhBaRFCc39WORMFJzLqannbbafEtfHfsQbFwX8SczVafxTmJ6QPyhxxQVvQv3tG0Fjq0PsUmzEB4KUta76qo53mqq8am-NyZ2AHUva79WFTaLggP_7VJn3PRtiix13pJFt3syiMu_HvFdoVbvAtqO4YyTNaFU8jWddjXFeE6wL-VeNYWg0qFnsCPeGlVlLI6BLkFfnUN2hoNyVuUUUdZ6XJv8UB1HxArd9Hjzum4zXiQhO5l"/>
+      </div>
+      <div class="p-2">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border border-green-600 flex items-center justify-center rounded-[1px] flex-shrink-0">
+            <div class="w-1.5 h-1.5 rounded-full bg-green-600"></div>
+          </div>
+          <span class="text-[11px] font-extrabold truncate">Veggie Paradise</span>
+        </div>
+        <p class="text-[9px] text-gray-400 leading-tight mb-1.5">Corn, Olives, Capsicum</p>
+        <div class="flex justify-between items-center">
+          <span class="text-[11px] font-extrabold text-primary">₹269</span>
+          <button class="bg-secondary text-white text-[9px] font-extrabold px-3 py-1 rounded uppercase">Add +</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Garlic Breads & Dips ───────────────────────────────────── -->
+<section class="mt-4 px-3 pb-4">
+  <div class="flex items-center gap-2 mb-2.5">
+    <span class="material-symbols-outlined text-yellow-600 text-lg">bakery_dining</span>
+    <h3 class="font-headline text-sm font-extrabold tracking-tight">Garlic Breads &amp; Dips</h3>
+  </div>
+
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+
+    <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+      <img class="w-full h-24 object-cover" alt="Garlic Breadsticks" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCA_LGyoFJyhvRW8N71NlW52kUxXknlBbL2BmgU9aKy29BM6AqmShzvGqpIC9whOP1sL776TxtxJ0MOiaDrB7vd7VXfrSUpgwl7eT9lBviGD_YXSxEG4-SVtUbd9JDm6rXZdjUG6Yua4M39vXIAZGZLpEyJEeCX5adRtb2VLRz9f8284zb4sr5xD3KriPAshCSD_9GScH6_R3m5BmIIH1jZ5P6z-CednO7Drr8aDvY81RjgGaWujPxZnYhvTnr581zYTlIIilLjHj9"/>
+      <div class="p-2">
+        <p class="text-[10px] font-bold truncate">Garlic Breadsticks</p>
+        <div class="flex justify-between items-center mt-1">
+          <span class="text-[10px] font-extrabold text-primary">₹119</span>
+          <button class="bg-secondary text-white text-[8px] font-extrabold px-2.5 py-1 rounded uppercase">Add +</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+      <img class="w-full h-24 object-cover" alt="Cheesy Dip" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWDBiotCN32P0J8TpU4E-fX9T6W6xthLS3K77_3d_i2SneMjgC8UQaZMHUF11WS_pk4tI6GwjaLRUyhW6vhIPA9T6aKXbjAVAwgcsIMrlZ297OUdTFrsx7V_9CBpRrh62y59D-0UBVwhGRkGTpI6vEwj8yjWI02tjJ09R_eKEkkUu9_QWsqwjKEzjW4b2V9rde5l7uLT-UWxr7k1jxw9XUL67P9w1Jhrh8iZ673Ln0Rfy0RDPeS0f3RaMZfj8W59Msx5n92cJhjS4f"/>
+      <div class="p-2">
+        <p class="text-[10px] font-bold truncate">Cheesy Dip</p>
+        <div class="flex justify-between items-center mt-1">
+          <span class="text-[10px] font-extrabold text-primary">₹30</span>
+          <button class="bg-secondary text-white text-[8px] font-extrabold px-2.5 py-1 rounded uppercase">Add +</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+      <img class="w-full h-24 object-cover" alt="Stuffed Garlic Bread" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCA_LGyoFJyhvRW8N71NlW52kUxXknlBbL2BmgU9aKy29BM6AqmShzvGqpIC9whOP1sL776TxtxJ0MOiaDrB7vd7VXfrSUpgwl7eT9lBviGD_YXSxEG4-SVtUbd9JDm6rXZdjUG6Yua4M39vXIAZGZLpEyJEeCX5adRtb2VLRz9f8284zb4sr5xD3KriPAshCSD_9GScH6_R3m5BmIIH1jZ5P6z-CednO7Drr8aDvY81RjgGaWujPxZnYhvTnr581zYTlIIilLjHj9"/>
+      <div class="p-2">
+        <p class="text-[10px] font-bold truncate">Stuffed Garlic Bread</p>
+        <div class="flex justify-between items-center mt-1">
+          <span class="text-[10px] font-extrabold text-primary">₹149</span>
+          <button class="bg-secondary text-white text-[8px] font-extrabold px-2.5 py-1 rounded uppercase">Add +</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+      <img class="w-full h-24 object-cover" alt="Salsa Dip" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWDBiotCN32P0J8TpU4E-fX9T6W6xthLS3K77_3d_i2SneMjgC8UQaZMHUF11WS_pk4tI6GwjaLRUyhW6vhIPA9T6aKXbjAVAwgcsIMrlZ297OUdTFrsx7V_9CBpRrh62y59D-0UBVwhGRkGTpI6vEwj8yjWI02tjJ09R_eKEkkUu9_QWsqwjKEzjW4b2V9rde5l7uLT-UWxr7k1jxw9XUL67P9w1Jhrh8iZ673Ln0Rfy0RDPeS0f3RaMZfj8W59Msx5n92cJhjS4f"/>
+      <div class="p-2">
+        <p class="text-[10px] font-bold truncate">Salsa Dip</p>
+        <div class="flex justify-between items-center mt-1">
+          <span class="text-[10px] font-extrabold text-primary">₹36</span>
+          <button class="bg-secondary text-white text-[8px] font-extrabold px-2.5 py-1 rounded uppercase">Add +</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ── Bottom Nav Bar ────────────────────────────────────────── -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-white border-t border-gray-100 shadow-[0_-2px_10px_rgba(0,0,0,0.06)] safe-bottom">
+  <div class="flex justify-around items-center h-14">
+    <a class="flex flex-col items-center gap-0.5 text-primary" href="#">
+      <span class="material-symbols-outlined text-2xl icon-fill">home</span>
+      <span class="text-[9px] font-extrabold">Home</span>
+    </a>
+    <a class="flex flex-col items-center gap-0.5 text-gray-400" href="menu.html">
+      <span class="material-symbols-outlined text-2xl">restaurant_menu</span>
+      <span class="text-[9px] font-bold">Menu</span>
+    </a>
+    <button id="cart-nav-btn" class="flex flex-col items-center gap-0.5 text-gray-400 relative">
+      <span class="material-symbols-outlined text-2xl">shopping_cart</span>
+      <span class="text-[9px] font-bold">Cart</span>
+      <span data-cart-badge class="absolute -top-1 right-0 bg-secondary text-white text-[8px] font-extrabold w-4 h-4 items-center justify-center rounded-full border-2 border-white hidden">0</span>
+    </button>
+    <a class="flex flex-col items-center gap-0.5 text-gray-400" href="#">
+      <span class="material-symbols-outlined text-2xl">track_changes</span>
+      <span class="text-[9px] font-bold">Orders</span>
+    </a>
+  </div>
+</nav>
+
+<!-- ── Cart Drawer ───────────────────────────────────────────── -->
+<div id="cart-overlay" class="fixed inset-0 bg-black/40 z-[60] hidden" aria-hidden="true"></div>
+<div id="cart-drawer" class="fixed bottom-0 left-0 w-full z-[70] bg-white rounded-t-2xl shadow-2xl transform translate-y-full transition-transform duration-300 ease-in-out max-h-[85vh] flex flex-col" style="padding-bottom: env(safe-area-inset-bottom)">
+  <div class="flex justify-center pt-3 pb-1 flex-shrink-0">
+    <div class="w-10 h-1 bg-gray-200 rounded-full"></div>
+  </div>
+  <div class="flex items-center justify-between px-4 py-2 border-b border-gray-100 flex-shrink-0">
+    <h2 class="font-headline font-extrabold text-base text-on-surface">Your Cart</h2>
+    <button id="cart-close-btn" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100">
+      <span class="material-symbols-outlined text-lg text-gray-600">close</span>
+    </button>
+  </div>
+  <div id="cart-empty" class="flex flex-col items-center justify-center py-12 px-4 hidden">
+    <span class="material-symbols-outlined text-5xl text-gray-300 mb-3">shopping_cart</span>
+    <p class="font-headline font-bold text-gray-400 text-sm">Your cart is empty</p>
+    <p class="text-[11px] text-gray-400 mt-1">Add items to get started</p>
+  </div>
+  <div id="cart-items" class="overflow-y-auto flex-1 px-4 py-2 divide-y divide-gray-50"></div>
+  <div id="cart-footer" class="px-4 pt-3 pb-4 border-t border-gray-100 flex-shrink-0 hidden">
+    <div class="flex justify-between items-center mb-3">
+      <span class="font-label text-sm font-semibold text-gray-600">Subtotal</span>
+      <span id="cart-total" class="font-headline font-extrabold text-base text-on-surface">₹0</span>
+    </div>
+    <button id="checkout-btn" class="w-full bg-secondary text-white font-headline font-extrabold text-sm py-3 rounded-xl flex items-center justify-center gap-2">
+      <span class="material-symbols-outlined text-sm">shopping_cart_checkout</span>
+      Proceed to Checkout
+    </button>
+  </div>
+</div>
+
+<script>
+  const cart = {};
+
+  function updateCartBadges() {
+    const totalQty = Object.values(cart).reduce((sum, item) => sum + item.qty, 0);
+    document.querySelectorAll('[data-cart-badge]').forEach(function(badge) {
+      badge.textContent = totalQty;
+      if (totalQty > 0) {
+        badge.classList.remove('hidden');
+        badge.classList.add('flex');
+      } else {
+        badge.classList.add('hidden');
+        badge.classList.remove('flex');
+      }
+    });
+  }
+
+  function renderCartDrawer() {
+    var items = Object.entries(cart);
+    var emptyEl = document.getElementById('cart-empty');
+    var itemsEl = document.getElementById('cart-items');
+    var footerEl = document.getElementById('cart-footer');
+    var totalEl = document.getElementById('cart-total');
+
+    if (items.length === 0) {
+      emptyEl.classList.remove('hidden');
+      itemsEl.innerHTML = '';
+      footerEl.classList.add('hidden');
+      return;
+    }
+
+    emptyEl.classList.add('hidden');
+    footerEl.classList.remove('hidden');
+
+    var total = 0;
+    itemsEl.innerHTML = items.map(function(entry) {
+      var name = entry[0], item = entry[1];
+      total += item.qty * item.price;
+      return '<div class="flex items-center py-3" data-drawer-item="' + name.replace(/"/g, '&quot;') + '">' +
+        '<div class="flex-1 min-w-0 pr-3">' +
+          '<p class="text-[12px] font-bold text-on-surface truncate">' + name + '</p>' +
+          '<p class="text-[11px] text-gray-400">\u20b9' + item.price + ' each</p>' +
+        '</div>' +
+        '<div class="flex items-center gap-2">' +
+          '<button class="drawer-qty-btn drawer-minus w-7 h-7 bg-secondary text-white font-extrabold rounded flex items-center justify-center leading-none">\u2212</button>' +
+          '<span class="drawer-qty-count text-[13px] font-extrabold w-5 text-center">' + item.qty + '</span>' +
+          '<button class="drawer-qty-btn drawer-plus w-7 h-7 bg-secondary text-white font-extrabold rounded flex items-center justify-center leading-none">+</button>' +
+        '</div>' +
+        '<span class="ml-3 text-[12px] font-extrabold text-primary w-14 text-right">\u20b9' + (item.qty * item.price) + '</span>' +
+      '</div>';
+    }).join('');
+
+    totalEl.textContent = '\u20b9' + total;
+  }
+
+  function openCart() {
+    renderCartDrawer();
+    document.getElementById('cart-overlay').classList.remove('hidden');
+    requestAnimationFrame(function() {
+      document.getElementById('cart-drawer').classList.remove('translate-y-full');
+    });
+  }
+
+  function closeCart() {
+    document.getElementById('cart-drawer').classList.add('translate-y-full');
+    document.getElementById('cart-overlay').classList.add('hidden');
+  }
+
+  document.getElementById('cart-icon-btn').addEventListener('click', openCart);
+  document.getElementById('cart-nav-btn').addEventListener('click', openCart);
+  document.getElementById('cart-close-btn').addEventListener('click', closeCart);
+  document.getElementById('cart-overlay').addEventListener('click', closeCart);
+
+  document.getElementById('checkout-btn').addEventListener('click', function() {
+    var entries = Object.entries(cart).filter(function(e) { return e[1].qty > 0; });
+    if (!entries.length) return;
+    var cartItems = entries.map(function(e) {
+      return { name: e[0], price: e[1].price, qty: e[1].qty, img: e[1].img || '' };
+    });
+    localStorage.setItem('go69_cart', JSON.stringify(cartItems));
+    window.location.href = 'checkout.html';
+  });
+
+  function getItemInfo(btn) {
+    var card = btn.closest('.rounded-xl');
+    var nameEl = card.querySelector('.truncate');
+    var priceEl = card.querySelector('.text-primary');
+    var imgEl = card.querySelector('img');
+    var name = nameEl ? nameEl.textContent.trim() : 'Item';
+    var price = parseInt((priceEl ? priceEl.textContent : '0').replace(/[^\d]/g, '')) || 0;
+    var img = imgEl ? imgEl.src : '';
+    return { name: name, price: price, img: img };
+  }
+
+  function makeQtyControl(name, price, qty, originalClass) {
+    var div = document.createElement('div');
+    div.className = 'flex items-center gap-1';
+    div.dataset.itemName = name;
+    div.dataset.itemPrice = price;
+    div.dataset.btnClass = originalClass;
+    div.innerHTML =
+      '<button class="qty-btn minus bg-secondary text-white font-extrabold w-6 h-6 rounded flex items-center justify-center leading-none">\u2212</button>' +
+      '<span class="qty-count text-[11px] font-extrabold w-5 text-center">' + qty + '</span>' +
+      '<button class="qty-btn plus bg-secondary text-white font-extrabold w-6 h-6 rounded flex items-center justify-center leading-none">+</button>';
+    return div;
+  }
+
+  function syncCardControls(name) {
+    document.querySelectorAll('[data-item-name="' + name + '"]').forEach(function(container) {
+      if (cart[name]) {
+        container.querySelector('.qty-count').textContent = cart[name].qty;
+      } else {
+        var newBtn = document.createElement('button');
+        newBtn.className = container.dataset.btnClass;
+        newBtn.textContent = 'Add +';
+        container.replaceWith(newBtn);
+      }
+    });
+  }
+
+  document.addEventListener('click', function(e) {
+    var btn = e.target.closest('button');
+    if (!btn) return;
+
+    // Add + button on cards
+    if (btn.textContent.trim() === 'Add +' && !btn.classList.contains('drawer-qty-btn')) {
+      var info = getItemInfo(btn);
+      if (!cart[info.name]) cart[info.name] = { qty: 0, price: info.price, img: info.img };
+      cart[info.name].qty++;
+      btn.replaceWith(makeQtyControl(info.name, info.price, cart[info.name].qty, btn.className));
+      updateCartBadges();
+      return;
+    }
+
+    // Qty controls on cards
+    if (btn.classList.contains('qty-btn') && !btn.classList.contains('drawer-qty-btn')) {
+      var container = btn.closest('[data-item-name]');
+      if (!container) return;
+      var name = container.dataset.itemName;
+      if (btn.classList.contains('plus')) {
+        cart[name].qty++;
+      } else {
+        cart[name].qty--;
+      }
+      if (cart[name].qty <= 0) {
+        delete cart[name];
+        syncCardControls(name);
+      } else {
+        container.querySelector('.qty-count').textContent = cart[name].qty;
+        syncCardControls(name);
+      }
+      updateCartBadges();
+      return;
+    }
+
+    // Qty controls inside cart drawer
+    if (btn.classList.contains('drawer-qty-btn')) {
+      var row = btn.closest('[data-drawer-item]');
+      if (!row) return;
+      var dname = row.dataset.drawerItem;
+      if (btn.classList.contains('drawer-plus')) {
+        cart[dname].qty++;
+      } else {
+        cart[dname].qty--;
+      }
+      if (cart[dname].qty <= 0) {
+        delete cart[dname];
+      }
+      syncCardControls(dname);
+      updateCartBadges();
+      renderCartDrawer();
+    }
+  });
+</script>
+</body>
+</html>

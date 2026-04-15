@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout | Go69Pizza Areraj</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Work_Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#000000",
+                        "surface": "#f6f6f6",
+                        "primary": "#ba0027",
+                        "on-primary": "#ffefee",
+                        "on-surface-variant": "#5a5c5c",
+                        "on-background": "#2d2f2f",
+                        "on-tertiary-container": "#005e44",
+                        "tertiary-container": "#9ef4d0",
+                        "on-error-container": "#520c00",
+                        "surface-container-highest": "#dbdddd",
+                        "primary-container": "#ff7577",
+                        "primary-dim": "#a30021",
+                        "on-surface": "#2d2f2f",
+                        "secondary-dim": "#504f4f",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#b02500",
+                        "error-dim": "#b92902",
+                        "inverse-on-surface": "#9c9d9d",
+                        "surface-variant": "#dbdddd",
+                        "surface-tint": "#ba0027",
+                        "surface-container-high": "#e1e3e3",
+                        "tertiary": "#00694d",
+                        "on-tertiary-fixed-variant": "#00694d",
+                        "surface-container-low": "#f0f1f1",
+                        "surface-container": "#e7e8e8",
+                        "on-tertiary": "#c7ffe5",
+                        "on-secondary": "#f5f2f1",
+                        "surface-dim": "#d3d5d5",
+                        "surface-bright": "#f6f6f6",
+                        "on-secondary-container": "#525151",
+                        "on-primary-fixed-variant": "#60000f",
+                        "tertiary-dim": "#005b43",
+                        "secondary": "#5c5b5b",
+                        "on-primary-container": "#4e000a",
+                        "on-secondary-fixed": "#403f3f",
+                        "inverse-primary": "#ff525b",
+                        "tertiary-fixed-dim": "#91e5c2",
+                        "secondary-fixed-dim": "#d6d4d3",
+                        "primary-fixed": "#ff7577",
+                        "on-error": "#ffefec",
+                        "secondary-container": "#e5e2e1",
+                        "background": "#f6f6f6",
+                        "inverse-surface": "#0c0f0f",
+                        "primary-fixed-dim": "#ff5960",
+                        "outline-variant": "#acadad",
+                        "outline": "#767777",
+                        "error-container": "#f95630",
+                        "on-tertiary-fixed": "#004935",
+                        "tertiary-fixed": "#9ef4d0",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-secondary-fixed-variant": "#5c5b5b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Work Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Work Sans', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .custom-scrollbar::-webkit-scrollbar { height: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #dbdddd; border-radius: 10px; }
+        button, a { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+        .safe-bottom { padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- Top Navigation Anchor -->
+<header class="bg-surface-container-lowest border-b border-zinc-100 dark:border-zinc-900 sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<button onclick="window.location.href='index.html'" class="p-2 hover:bg-zinc-50 rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<span class="text-2xl font-black text-red-700 italic font-headline leading-tight">Go69Pizza Areraj</span>
+<span class="text-xs text-on-surface-variant font-medium" id="headerSubtitle">Checkout • 0 Items</span>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-8 font-headline font-bold tracking-tight">
+<a class="text-zinc-500 hover:text-zinc-800 transition-colors" href="#">Menu</a>
+<a class="text-zinc-500 hover:text-zinc-800 transition-colors" href="#">Offers</a>
+<a class="text-zinc-500 hover:text-zinc-800 transition-colors" href="#">Locations</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface p-2 hover:bg-zinc-50 rounded-full transition-colors">shopping_bag</button>
+<button class="material-symbols-outlined text-on-surface p-2 hover:bg-zinc-50 rounded-full transition-colors">person</button>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-4 py-6 flex flex-col lg:flex-row gap-8 pb-28 md:pb-8">
+<!-- Left Side: Navigation Anchor (Checkout Steps) & Main Content -->
+<div class="flex flex-col lg:w-2/3 gap-8">
+<!-- SideNav-inspired Step Progress (Horizontal for Mobile/Main Content) -->
+<div class="flex items-center gap-2 overflow-x-auto pb-2 custom-scrollbar">
+<div class="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm text-red-700 font-semibold border border-red-100 shrink-0">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+<span class="text-sm font-headline">Cart</span>
+</div>
+<div class="h-px w-8 bg-zinc-200"></div>
+<div class="flex items-center gap-2 text-zinc-400 px-4 py-2 shrink-0">
+<span class="material-symbols-outlined text-sm">local_shipping</span>
+<span class="text-sm font-headline">Delivery</span>
+</div>
+<div class="h-px w-8 bg-zinc-200"></div>
+<div class="flex items-center gap-2 text-zinc-400 px-4 py-2 shrink-0">
+<span class="material-symbols-outlined text-sm">payments</span>
+<span class="text-sm font-headline">Payment</span>
+</div>
+</div>
+<!-- Cart Section -->
+<section class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+<h2 class="text-xl font-extrabold font-headline mb-6">Your Order</h2>
+<!-- Empty cart state -->
+<div id="checkoutEmpty" class="hidden py-12 flex flex-col items-center text-on-surface-variant gap-3">
+  <span class="material-symbols-outlined text-5xl">shopping_cart</span>
+  <p class="font-bold">Your cart is empty</p>
+  <a href="menu.html" class="text-primary font-bold text-sm hover:underline">Go back to Menu</a>
+</div>
+<!-- Dynamic items list -->
+<div id="checkoutItemsList" class="space-y-8"></div>
+<a href="menu.html" class="mt-8 w-full py-3 border-2 border-dashed border-zinc-200 rounded-xl text-on-surface-variant font-bold text-sm hover:border-primary-container hover:bg-surface-container-low transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">add_circle</span>
+                    Add more items
+                </a>
+</section>
+<!-- Upsell Section -->
+<section class="space-y-6">
+<div class="flex items-center justify-between">
+<h2 class="text-xl font-extrabold font-headline leading-none">Complete Your Meal With</h2>
+<div class="flex items-center gap-4 overflow-x-auto pb-1 custom-scrollbar">
+<span class="text-primary border-b-2 border-primary pb-1 font-bold text-sm cursor-pointer whitespace-nowrap">All</span>
+<span class="text-secondary font-medium text-sm hover:text-on-surface cursor-pointer whitespace-nowrap">Breads &amp; Dips</span>
+<span class="text-secondary font-medium text-sm hover:text-on-surface cursor-pointer whitespace-nowrap">Beverages</span>
+<span class="text-secondary font-medium text-sm hover:text-on-surface cursor-pointer whitespace-nowrap">Desserts</span>
+</div>
+</div>
+<div class="flex gap-4 overflow-x-auto pb-4 custom-scrollbar snap-x">
+<!-- Upsell Card 1 -->
+<div class="min-w-[180px] w-1/4 snap-start bg-inverse-surface rounded-xl overflow-hidden shadow-lg group">
+<div class="h-32 overflow-hidden">
+<img alt="Garlic Breadsticks" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Golden brown oven-baked garlic breadsticks sprinkled with herbs on a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn8Q4-atPeIs5NfVLGO0Bb01hCI2SQNNbyae4kfwyxahjLNhoNAlYQgGoCSFhtqFolq4wlyNfEyB0DJt0D9qRhwFKzwYMGYEtqHkzH9PYt8AbzPKWrwM_OiyGPGk7wggdacco6rK93suSXWExx17aRf0XYL9RyyAOBmBno7gbp63vlJJAospWwb0XR0bj6UpNNbTFgW3-VQh8sGVaLyL3cKSKOr1eOC7dpIM-_vHj9WwelOjSbVhWJPIdqLP3qjRp89I5C78xXf0o"/>
+</div>
+<div class="p-4 bg-gradient-to-t from-inverse-surface via-inverse-surface/80 to-transparent">
+<h4 class="text-white font-bold text-sm font-headline mb-1 leading-tight">Garlic Breadsticks</h4>
+<div class="flex items-center justify-between mt-4">
+<span class="text-white font-black text-sm">₹119</span>
+<button onclick="addUpsell(this)" data-name="Garlic Breadsticks" data-price="119" data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuBn8Q4-atPeIs5NfVLGO0Bb01hCI2SQNNbyae4kfwyxahjLNhoNAlYQgGoCSFhtqFolq4wlyNfEyB0DJt0D9qRhwFKzwYMGYEtqHkzH9PYt8AbzPKWrwM_OiyGPGk7wggdacco6rK93suSXWExx17aRf0XYL9RyyAOBmBno7gbp63vlJJAospWwb0XR0bj6UpNNbTFgW3-VQh8sGVaLyL3cKSKOr1eOC7dpIM-_vHj9WwelOjSbVhWJPIdqLP3qjRp89I5C78xXf0o" class="bg-primary text-on-primary px-3 py-1 rounded-lg text-xs font-bold shadow-md hover:bg-primary-container transition-colors">Add +</button>
+</div>
+</div>
+</div>
+<!-- Upsell Card 2 -->
+<div class="min-w-[180px] w-1/4 snap-start bg-inverse-surface rounded-xl overflow-hidden shadow-lg group">
+<div class="h-32 overflow-hidden">
+<img alt="Cheesy Dip" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Smooth creamy white cheese sauce in a small ramekin bowl with a swirl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAplC17PX6efzCnpD3gXUQm1NryodezromNxlKdv7B48q5QlyYkeD30goHAWxjxfa2f271rL1UQIr5lN2DKSkJ6Mw88kT5JKNo_XCRGg7e7csazGAxre7xVHAvP2jqtV3DZsj525Tfwzs3r99f98kXVjr2ZSKew4wTXJjNxyctKVlpGVvPc905hHQexiRQjS_JfnQ18nmX3FtZZwIW2rUg4-Gsh0SwPeRd3wObqErlHHvTp82qZcqehTVa36KzNHs0YaUidta59nD8"/>
+</div>
+<div class="p-4">
+<h4 class="text-white font-bold text-sm font-headline mb-1 leading-tight">Cheesy Dip</h4>
+<div class="flex items-center justify-between mt-4">
+<span class="text-white font-black text-sm">₹28.57</span>
+<button onclick="addUpsell(this)" data-name="Cheesy Dip" data-price="29" data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuAplC17PX6efzCnpD3gXUQm1NryodezromNxlKdv7B48q5QlyYkeD30goHAWxjxfa2f271rL1UQIr5lN2DKSkJ6Mw88kT5JKNo_XCRGg7e7csazGAxre7xVHAvP2jqtV3DZsj525Tfwzs3r99f98kXVjr2ZSKew4wTXJjNxyctKVlpGVvPc905hHQexiRQjS_JfnQ18nmX3FtZZwIW2rUg4-Gsh0SwPeRd3wObqErlHHvTp82qZcqehTVa36KzNHs0YaUidta59nD8" class="bg-primary text-on-primary px-3 py-1 rounded-lg text-xs font-bold shadow-md hover:bg-primary-container transition-colors">Add +</button>
+</div>
+</div>
+</div>
+<!-- Upsell Card 3 -->
+<div class="min-w-[180px] w-1/4 snap-start bg-inverse-surface rounded-xl overflow-hidden shadow-lg group">
+<div class="h-32 overflow-hidden">
+<img alt="Combo Meal" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Artisan garlic breadsticks next to a cold sparkling beverage in a tall glass with ice" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIN_rU28fM_WIkatpXihM37dNUoxa8acYgr6HoR1udtvPjNibF1C1qeQ7Ab0gDTS8v7Gsr6PMoFHRUn3jAxHsSMRwl4X3S7aMQPe80FvJjLc7M63q3lc72Z1BFstZ1F8xgKYQrhKRJk0CybsAz9hdImDehsjqz2RiMImRXSoI267wUYMGKb6tXflX-thOT_hhDTqLJBmQ_6LcnnSNI_sDDwNFiyN0XT6VQxhb58ZdiANaX6HpjmT9Ve58drn-NC50T-rV03ev5d5A"/>
+</div>
+<div class="p-4">
+<h4 class="text-white font-bold text-sm font-headline mb-1 leading-tight">Garlic Sticks + Coke</h4>
+<div class="flex items-center justify-between mt-4">
+<span class="text-white font-black text-sm">₹169</span>
+<button onclick="addUpsell(this)" data-name="Garlic Sticks + Coke" data-price="169" data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuBIN_rU28fM_WIkatpXihM37dNUoxa8acYgr6HoR1udtvPjNibF1C1qeQ7Ab0gDTS8v7Gsr6PMoFHRUn3jAxHsSMRwl4X3S7aMQPe80FvJjLc7M63q3lc72Z1BFstZ1F8xgKYQrhKRJk0CybsAz9hdImDehsjqz2RiMImRXSoI267wUYMGKb6tXflX-thOT_hhDTqLJBmQ_6LcnnSNI_sDDwNFiyN0XT6VQxhb58ZdiANaX6HpjmT9Ve58drn-NC50T-rV03ev5d5A" class="bg-primary text-on-primary px-3 py-1 rounded-lg text-xs font-bold shadow-md hover:bg-primary-container transition-colors">Add +</button>
+</div>
+</div>
+</div>
+<!-- Upsell Card 4 -->
+<div class="min-w-[180px] w-1/4 snap-start bg-inverse-surface rounded-xl overflow-hidden shadow-lg group">
+<div class="h-32 overflow-hidden">
+<img alt="Stuffed Bread" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Cross-section of golden baked bread stuffed with melted mozzarella cheese and corn kernels" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtqqGgLqqw8EEVI_7oOZ3swEuDbdSKO5mSKqBCh7ZgZM-7P39dK4DcHOuMgRUta0gweVUnRoFSH-nuszDXjHJYKTtMkogsZ9teJJKw84TnvGrTMe7H127-JbMUaoUHC0x-cX6QhUND518zncp1OYyoyw2XwmfUaASQ61h1IrXbMPPhsCuS85HQrs7avEKPsXQAWcZw-PaVyqzvGOCkf9kxWwIYnLp3Ezv4WlVtQkEzrQfq0yr1fONI-mZ1JRLjC2Jc8mgX7SDBohI"/>
+</div>
+<div class="p-4">
+<h4 class="text-white font-bold text-sm font-headline mb-1 leading-tight">Stuffed Bread</h4>
+<div class="flex items-center justify-between mt-4">
+<span class="text-white font-black text-sm">₹159</span>
+<button onclick="addUpsell(this)" data-name="Stuffed Bread" data-price="159" data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuDtqqGgLqqw8EEVI_7oOZ3swEuDbdSKO5mSKqBCh7ZgZM-7P39dK4DcHOuMgRUta0gweVUnRoFSH-nuszDXjHJYKTtMkogsZ9teJJKw84TnvGrTMe7H127-JbMUaoUHC0x-cX6QhUND518zncp1OYyoyw2XwmfUaASQ61h1IrXbMPPhsCuS85HQrs7avEKPsXQAWcZw-PaVyqzvGOCkf9kxWwIYnLp3Ezv4WlVtQkEzrQfq0yr1fONI-mZ1JRLjC2Jc8mgX7SDBohI" class="bg-primary text-on-primary px-3 py-1 rounded-lg text-xs font-bold shadow-md hover:bg-primary-container transition-colors">Add +</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Side: Sidebar -->
+<aside class="lg:w-1/3 space-y-6">
+<!-- Savings Banner -->
+<div class="bg-tertiary-container text-on-tertiary-container p-4 rounded-xl flex items-center gap-3">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">celebration</span>
+<p class="text-sm font-bold font-headline">You saved ₹45 with FREE Delivery</p>
+</div>
+<!-- Coupons Section -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-zinc-50">
+<h3 class="font-extrabold font-headline mb-4">Offers &amp; Rewards</h3>
+<div id="couponBox" class="flex items-center justify-between bg-surface-container-low p-4 rounded-xl border border-dashed border-primary-container">
+<div class="flex flex-col">
+<span class="text-xs font-bold uppercase tracking-wider text-primary">GET30</span>
+<span class="text-xs text-on-surface font-medium">Save up to ₹30 on this order</span>
+</div>
+<button id="couponApplyBtn" onclick="toggleCoupon()" class="text-primary font-black text-sm hover:opacity-80 transition-opacity">APPLY</button>
+</div>
+<button class="w-full text-center text-xs font-bold text-on-surface-variant mt-4 hover:text-on-surface">View all coupons</button>
+</div>
+<!-- Bill Summary -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm space-y-4">
+<h3 class="font-extrabold font-headline border-b border-zinc-50 pb-4">Bill Details</h3>
+<div class="space-y-3">
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Item(s) Total</span>
+<span class="font-medium" id="billSubtotal">₹0.00</span>
+</div>
+<div class="flex justify-between text-sm items-center">
+<span class="text-on-surface-variant">Delivery Charges</span>
+<div class="flex items-center gap-2">
+<span class="line-through text-xs text-on-surface-variant">₹45</span>
+<span class="text-tertiary font-bold">FREE</span>
+</div>
+</div>
+<div class="flex justify-between text-sm hidden" id="couponDiscountRow">
+<div class="flex items-center gap-1">
+<span class="text-tertiary font-bold">Coupon (GET30)</span>
+<span class="material-symbols-outlined text-[14px] text-tertiary" style="font-variation-settings: 'FILL' 1;">sell</span>
+</div>
+<span class="font-bold text-tertiary" id="billDiscount">-₹0.00</span>
+</div>
+<div class="flex justify-between text-sm">
+<div class="flex items-center gap-1">
+<span class="text-on-surface-variant">Taxes &amp; Charges</span>
+<span class="material-symbols-outlined text-[14px] text-zinc-400">info</span>
+</div>
+<span class="font-medium" id="billTax">₹0.00</span>
+</div>
+</div>
+<div class="pt-4 border-t border-zinc-100 flex justify-between items-end">
+<div class="flex flex-col">
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-tighter">Grand Total</span>
+<span class="text-2xl font-black font-headline text-on-surface" id="billGrand">₹0.00</span>
+</div>
+</div>
+</div>
+<!-- Trust Badge -->
+<div class="bg-white/50 p-4 rounded-xl flex items-center justify-center gap-4 border border-zinc-100">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[10px] font-bold uppercase text-on-surface-variant tracking-widest">Safe &amp; Secure</span>
+</div>
+<div class="h-4 w-px bg-zinc-200"></div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">eco</span>
+<span class="text-[10px] font-bold uppercase text-on-surface-variant tracking-widest">Eco-friendly</span>
+</div>
+</div>
+</aside></main>
+<!-- Footer Action -->
+<footer class="fixed bottom-0 left-0 right-0 bg-surface-container-lowest p-4 safe-bottom border-t border-zinc-100 md:hidden">
+<a href="info.html" class="w-full bg-primary text-on-primary py-4 rounded-xl font-black font-headline flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined">location_on</span>
+            Set Location &amp; Add Address
+        </a>
+</footer>
+<!-- Desktop Persistent Footer / Action Bar -->
+<div class="hidden md:block sticky bottom-0 bg-surface-container-lowest/80 backdrop-blur-md border-t border-zinc-100 py-6 mt-12 safe-bottom">
+<div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-xs text-on-surface-variant font-bold uppercase tracking-wider">Checkout amount</span>
+<span class="text-xl font-black font-headline" id="footerGrand">₹0.00</span>
+</div>
+<a href="info.html" class="bg-primary text-on-primary px-12 py-4 rounded-xl font-black font-headline flex items-center justify-center gap-3 shadow-xl hover:bg-primary-dim transition-all active:scale-95">
+<span class="material-symbols-outlined">location_on</span>
+                Set Location &amp; Add Address
+                <span class="material-symbols-outlined text-sm">arrow_forward_ios</span>
+</a>
+</div>
+</div>
+
+<script>
+  // ── Checkout Cart Logic ───────────────────────────────────
+  const TAX_RATE = 0.062; // ~6.2%
+  let couponApplied = false;
+  const COUPON_CODE = 'GET30';
+  const COUPON_MAX_DISCOUNT = 30;
+
+  function loadCart() {
+    try { return JSON.parse(localStorage.getItem('go69_cart') || '[]'); }
+    catch(e) { return []; }
+  }
+  function saveCart(items) {
+    localStorage.setItem('go69_cart', JSON.stringify(items));
+  }
+
+  function toggleCoupon() {
+    couponApplied = !couponApplied;
+    const btn = document.getElementById('couponApplyBtn');
+    const box = document.getElementById('couponBox');
+    if (couponApplied) {
+      btn.textContent = 'REMOVE';
+      btn.classList.remove('text-primary');
+      btn.classList.add('text-error');
+      box.classList.add('border-tertiary');
+      box.classList.remove('border-primary-container');
+    } else {
+      btn.textContent = 'APPLY';
+      btn.classList.add('text-primary');
+      btn.classList.remove('text-error');
+      box.classList.remove('border-tertiary');
+      box.classList.add('border-primary-container');
+    }
+    renderCheckout();
+  }
+
+  function renderCheckout() {
+    let items = loadCart();
+    const list = document.getElementById('checkoutItemsList');
+    const empty = document.getElementById('checkoutEmpty');
+
+    if (!items.length) {
+      empty.classList.remove('hidden');
+      list.innerHTML = '';
+      updateTotals(0);
+      document.getElementById('headerSubtitle').textContent = 'Checkout • 0 Items';
+      return;
+    }
+
+    empty.classList.add('hidden');
+    const totalCount = items.reduce((s, i) => s + i.qty, 0);
+    document.getElementById('headerSubtitle').textContent =
+      'Checkout • ' + totalCount + (totalCount === 1 ? ' Item' : ' Items');
+
+    list.innerHTML = items.map((item, idx) => `
+      <div class="flex items-start justify-between" id="item-row-${idx}">
+        <div class="flex gap-4">
+          <div class="w-20 h-20 bg-zinc-100 rounded-lg overflow-hidden shrink-0">
+            ${item.img
+              ? `<img alt="${item.name}" class="w-full h-full object-cover" src="${item.img}"/>`
+              : `<div class="w-full h-full flex items-center justify-center text-zinc-400"><span class="material-symbols-outlined">local_pizza</span></div>`}
+          </div>
+          <div>
+            <h3 class="font-bold text-lg font-headline">${item.name}</h3>
+            <p class="text-sm text-on-surface-variant font-medium">₹${item.price} each</p>
+            <button onclick="removeItem(${idx})" class="text-red-600 text-xs font-bold mt-1 flex items-center gap-1 hover:underline">
+              Remove <span class="material-symbols-outlined text-xs">delete</span>
+            </button>
+          </div>
+        </div>
+        <div class="flex flex-col items-end gap-3">
+          <span class="font-bold font-headline text-lg" id="item-total-${idx}">₹${item.price * item.qty}</span>
+          <div class="flex items-center border border-outline-variant rounded-lg overflow-hidden">
+            <button onclick="changeQty(${idx}, -1)" class="px-3 py-1 hover:bg-surface-container-low text-primary transition-colors">
+              <span class="material-symbols-outlined text-sm">remove</span>
+            </button>
+            <span class="px-3 py-1 font-bold text-sm" id="item-qty-${idx}">${item.qty}</span>
+            <button onclick="changeQty(${idx}, 1)" class="px-3 py-1 hover:bg-surface-container-low text-primary transition-colors">
+              <span class="material-symbols-outlined text-sm">add</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+    const subtotal = items.reduce((s, i) => s + i.price * i.qty, 0);
+    updateTotals(subtotal);
+  }
+
+  function updateTotals(subtotal) {
+    const discount = couponApplied ? Math.min(COUPON_MAX_DISCOUNT, subtotal) : 0;
+    const discountedSubtotal = subtotal - discount;
+    const tax = Math.round(discountedSubtotal * TAX_RATE);
+    const grand = discountedSubtotal + tax;
+
+    document.getElementById('billSubtotal').textContent = '₹' + subtotal.toFixed(2);
+    document.getElementById('billTax').textContent = '₹' + tax.toFixed(2);
+    document.getElementById('billGrand').textContent = '₹' + grand.toFixed(2);
+    document.getElementById('footerGrand').textContent = '₹' + grand.toFixed(2);
+
+    const discountRow = document.getElementById('couponDiscountRow');
+    if (couponApplied && discount > 0) {
+      discountRow.classList.remove('hidden');
+      document.getElementById('billDiscount').textContent = '-₹' + discount.toFixed(2);
+    } else {
+      discountRow.classList.add('hidden');
+    }
+  }
+
+  function changeQty(idx, delta) {
+    let items = loadCart();
+    items[idx].qty = Math.max(1, items[idx].qty + delta);
+    saveCart(items);
+    renderCheckout();
+  }
+
+  function removeItem(idx) {
+    let items = loadCart();
+    items.splice(idx, 1);
+    saveCart(items);
+    renderCheckout();
+  }
+
+
+  function addUpsell(btn) {
+    const name  = btn.dataset.name;
+    const price = parseInt(btn.dataset.price);
+    const img   = btn.dataset.img || '';
+    let items = loadCart();
+    const existing = items.find(i => i.name === name);
+    if (existing) {
+      existing.qty++;
+    } else {
+      items.push({ name, price, qty: 1, img });
+    }
+    saveCart(items);
+    renderCheckout();
+    // Visual feedback on the button
+    btn.textContent = 'Added!';
+    btn.disabled = true;
+    setTimeout(() => { btn.textContent = 'Add +'; btn.disabled = false; }, 1200);
+  }
+  // Initial render
+  renderCheckout();
+</script>
+</body></html>

@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Work+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#403f3f",
+                    "secondary-fixed": "#e5e2e1",
+                    "primary-fixed": "#ff7577",
+                    "secondary-fixed-dim": "#d6d4d3",
+                    "error-dim": "#b92902",
+                    "surface": "#f6f6f6",
+                    "error": "#b02500",
+                    "on-primary-container": "#4e000a",
+                    "error-container": "#f95630",
+                    "surface-dim": "#d3d5d5",
+                    "tertiary-container": "#9ef4d0",
+                    "inverse-on-surface": "#9c9d9d",
+                    "on-secondary": "#f5f2f1",
+                    "on-primary-fixed": "#000000",
+                    "on-error-container": "#520c00",
+                    "on-tertiary": "#c7ffe5",
+                    "on-surface-variant": "#5a5c5c",
+                    "surface-container-highest": "#dbdddd",
+                    "inverse-surface": "#0c0f0f",
+                    "primary-container": "#ff7577",
+                    "tertiary-fixed": "#9ef4d0",
+                    "secondary-dim": "#504f4f",
+                    "on-tertiary-fixed-variant": "#00694d",
+                    "surface-container-low": "#f0f1f1",
+                    "on-secondary-fixed-variant": "#5c5b5b",
+                    "primary-dim": "#a30021",
+                    "on-secondary-container": "#525151",
+                    "on-tertiary-container": "#005e44",
+                    "tertiary-fixed-dim": "#91e5c2",
+                    "surface-bright": "#f6f6f6",
+                    "on-primary": "#ffefee",
+                    "inverse-primary": "#ff525b",
+                    "primary": "#ba0027",
+                    "surface-container-high": "#e1e3e3",
+                    "outline-variant": "#acadad",
+                    "background": "#f6f6f6",
+                    "on-tertiary-fixed": "#004935",
+                    "outline": "#767777",
+                    "on-surface": "#2d2f2f",
+                    "secondary": "#5c5b5b",
+                    "on-background": "#2d2f2f",
+                    "tertiary": "#00694d",
+                    "primary-fixed-dim": "#ff5960",
+                    "secondary-container": "#e5e2e1",
+                    "on-primary-fixed-variant": "#60000f",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-dim": "#005b43",
+                    "on-error": "#ffefec",
+                    "surface-variant": "#dbdddd",
+                    "surface-tint": "#ba0027",
+                    "surface-container": "#e7e8e8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Work Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        button, a { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+        .safe-bottom { padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-white shadow-sm flex flex-col max-w-full">
+  <!-- Top bar -->
+  <div class="flex justify-between items-center px-6 py-3">
+    <span class="text-xl font-black tracking-tight text-red-700 font-headline">Go69 Pizzza — Menu</span>
+    <div class="flex items-center gap-4">
+      <button id="searchToggleBtn" class="text-gray-500 hover:text-red-600 transition-colors">
+        <span class="material-symbols-outlined">search</span>
+      </button>
+      <button id="cartNavBtn" class="relative text-gray-500 hover:text-red-600 transition-colors">
+        <span class="material-symbols-outlined">shopping_cart</span>
+        <span id="cartBadge" class="hidden absolute -top-1 -right-1 bg-red-600 text-white text-[8px] font-extrabold w-4 h-4 flex items-center justify-center rounded-full border-2 border-white">0</span>
+      </button>
+    </div>
+  </div>
+  <!-- Search bar (hidden by default) -->
+  <div id="searchBar" class="hidden px-6 pb-3">
+    <div class="relative">
+      <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg">search</span>
+      <input id="searchInput" type="text" placeholder="Search pizzas, sides, beverages…"
+        class="w-full pl-10 pr-10 py-2 rounded-lg border border-gray-200 bg-gray-50 text-sm focus:outline-none focus:ring-2 focus:ring-red-600/30 focus:border-red-600"/>
+      <button id="searchClearBtn" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
+        <span class="material-symbols-outlined text-lg">close</span>
+      </button>
+    </div>
+    <p id="searchNoResult" class="hidden mt-2 text-xs text-gray-400 text-center">No items match your search.</p>
+  </div>
+</header>
+<main class="pt-16 pb-28" id="mainContent">
+<!-- Category & Filter Section -->
+<section class="bg-surface-container-lowest sticky z-40" id="filterBar" style="top:64px">
+<div class="max-w-7xl mx-auto px-6 py-4">
+  <!-- Filters Row -->
+  <div class="flex flex-wrap items-center gap-3 mb-4">
+    <button id="filterVeg" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container-low text-on-surface-variant font-label text-xs font-semibold hover:bg-surface-container-high transition-colors">
+      <span class="w-2 h-2 rounded-full bg-green-600"></span> Veg Only
+    </button>
+    <button id="filterNonVeg" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container-low text-on-surface-variant font-label text-xs font-semibold hover:bg-surface-container-high transition-colors">
+      <span class="w-2 h-2 rounded-full bg-red-600"></span> Non Veg Only
+    </button>
+    <button id="filterAll" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container-low text-on-surface-variant font-label text-xs font-semibold hover:bg-surface-container-high transition-colors">
+      All
+    </button>
+  </div>
+  <!-- Horizontal Tabs -->
+  <nav class="flex items-center gap-8 overflow-x-auto hide-scrollbar border-b-0">
+    <a class="text-red-700 font-bold border-b-2 border-red-700 pb-2 whitespace-nowrap flex items-center gap-2" href="#sec-veg">
+      <span class="material-symbols-outlined text-[20px]">local_pizza</span> Veg Pizza
+    </a>
+    <a class="text-gray-500 font-medium hover:text-red-600 transition-colors pb-2 whitespace-nowrap flex items-center gap-2" href="#sec-nonveg">
+      <span class="material-symbols-outlined text-[20px]">room_service</span> Non-Veg Pizza
+    </a>
+  </nav>
+</div>
+</section>
+
+<!-- ── Veg Pizza Section ───────────────────────────────────── -->
+<section id="sec-veg" class="max-w-7xl mx-auto px-6 mt-8">
+  <h2 class="text-2xl font-bold font-headline mb-8 text-on-surface">Veg Pizza</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="vegGrid">
+
+    <!-- Card 1 -->
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Paneer Spice Supreme" data-type="veg">
+      <div class="relative h-48 overflow-hidden">
+        <img alt="Paneer Spice Supreme" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALD65-dLXDrZqsNy3SUNPr1fLJTah0d50F-FjwWTLhGazPBLtvXnlInwDketQ1mh52drjEJ8Lgo5K8VF_25LPfAEAuIcyqQWOP_BwJETg8EzvWUxENDHawi_Ff2KJ-j07EuMMYdmj9O_UyjA4uuQCuQMJZkWpeIFVPZMc5QYWkFgnBkqhdY1LHC9-Vgqh2g7v2A6TfQtGzuQuZgcI3nZwJ84K28ZYdAW9EWhco4nUU1_lvnYv9VSCuUGLoFWQdhBEy86hljvFl0p4"/>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
+      </div>
+      <div class="p-5 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-2">
+          <h3 class="text-white font-headline font-bold text-lg leading-tight">Paneer Spice Supreme</h3>
+          <span class="text-green-500 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">eco</span>
+        </div>
+        <p class="text-on-surface-variant text-xs leading-relaxed mb-6 opacity-80">Fresh paneer, spicy harissa sauce, red capsicum, and golden corn on a hand-tossed base.</p>
+        <div class="mt-auto flex items-center justify-between">
+          <span class="text-white font-headline font-extrabold text-xl">₹499</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Paneer Spice Supreme" data-price="499">
+            Add <span class="material-symbols-outlined text-sm">add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Garden Harvest Deluxe" data-type="veg">
+      <div class="relative h-48 overflow-hidden">
+        <img alt="Garden Harvest Deluxe" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhLs8xp1l775k13tx7s2A94wJmnMX07RhUcgoWAygwMqtX7IkWifedjnfbkXc9hVWLcW_TXf7X7wiqbMSNM-D8w7lr5vC0FoX2K-Y1HelUtqt2fxFgcICuPciZFO89t_sKdgbwvBxD8PLAAR_Mr1u-RVH2SZhzCQPQY3Gs_qdOn57NoRACBsS9aE9lISBm667QZTLdeQRVDZNVBLAfBRPhHVCA8lsu5Lg4D_q6aIc8nPOj0HmhOiz7ZMiEk8PMIEtSjHX-U-fPXmI"/>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
+      </div>
+      <div class="p-5 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-2">
+          <h3 class="text-white font-headline font-bold text-lg leading-tight">Garden Harvest Deluxe</h3>
+          <span class="text-green-500 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">eco</span>
+        </div>
+        <p class="text-on-surface-variant text-xs leading-relaxed mb-6 opacity-80">A medley of earthy mushrooms, black olives, crisp onions, and juicy tomatoes.</p>
+        <div class="mt-auto flex items-center justify-between">
+          <span class="text-white font-headline font-extrabold text-xl">₹399</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Garden Harvest Deluxe" data-price="399">
+            Add <span class="material-symbols-outlined text-sm">add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Fiery Red Pepper" data-type="veg">
+      <div class="relative h-48 overflow-hidden">
+        <img alt="Fiery Red Pepper" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6Vo1CNatyZzFM7EwQqyQMTq13_wo0f7Q4QafVMNMij8yztVBaXcAlKOHlO5wm7RHGqJwn4HS9ZACcaHBb3sr8Opg-SM4k0-rUV6XdwQlgvyyGvmqU1nGe6LgCqIMtG0QJVe2f2qsG656GR3GYviXau8U0B71KCBJOOAa2B5_3YERUgJMFAWEZfJwjAK59y9fFQWx0a42CPPQZYadTlpK7xbQ405vsa_jMhRYthO9XeBKmZn4dFtSydMkrOFmjVXlpVsP6lCUZ4KE"/>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
+      </div>
+      <div class="p-5 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-2">
+          <h3 class="text-white font-headline font-bold text-lg leading-tight">Fiery Red Pepper</h3>
+          <span class="text-green-500 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">eco</span>
+        </div>
+        <p class="text-on-surface-variant text-xs leading-relaxed mb-6 opacity-80">Bold spices meet roasted red peppers, jalapeños, and extra mozzarella cheese.</p>
+        <div class="mt-auto flex items-center justify-between">
+          <span class="text-white font-headline font-extrabold text-xl">₹449</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Fiery Red Pepper" data-price="449">
+            Add <span class="material-symbols-outlined text-sm">add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Classic Margherita" data-type="veg">
+      <div class="relative h-48 overflow-hidden">
+        <img alt="Classic Margherita" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnjA-UgtUATkVN_gidH61DVyyx5EyhXTt4c1ut5lJ8JYkzdo5SAdRlZznenp-ThPh7GU0pcl_i5cVfaXW9TyZOUWTYzC7Sd3ZsyvkVwUdq3FUnahGagNm105eHcasMyO1xqFOsfQBCx5kpycEN8HyddhheZ3kYC-Nb_8oDH-KdQ-ujolo6aR5g4QhbvNO6TY-b_3MbJaMzKJeqMT1Ac6vgz_vAxXzdUhdxQFgzbANDicX-jYBlVuT-fcce_ec3bKkpduP0au3IYWk"/>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
+      </div>
+      <div class="p-5 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-2">
+          <h3 class="text-white font-headline font-bold text-lg leading-tight">Classic Margherita</h3>
+          <span class="text-green-500 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">eco</span>
+        </div>
+        <p class="text-on-surface-variant text-xs leading-relaxed mb-6 opacity-80">The timeless classic with 100% real mozzarella cheese and signature herb tomato sauce.</p>
+        <div class="mt-auto flex items-center justify-between">
+          <span class="text-white font-headline font-extrabold text-xl">₹329</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Classic Margherita" data-price="329">
+            Add <span class="material-symbols-outlined text-sm">add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Tandoori Paneer" data-type="veg">
+      <div class="relative h-48 overflow-hidden">
+        <img alt="Tandoori Paneer" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwLbxUped8RTd8K1kC_xHUZFz5K5bqK51tFe0f1m9mhWNFD0Ts1ZcZR63dei1GZr1lHo1DC_ZNDW08jMZffeCrZGQH8V0yVvoik41lRS-CFnQu0RFPbxjOJ35PeQc2t4l0YVGTK7bNwsAx3f6cXmSvOjbf8UXwFIwljdL7kdC2czcg8xbuNDZwomOCLD2C6o8PK1DtXpuCt40Si4TSWSbkIoPWVcI5_p-HmgVuHUwTH1cPHZZfLqjYBxRmpZUujXOjmOuU7eu_X58"/>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
+      </div>
+      <div class="p-5 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-2">
+          <h3 class="text-white font-headline font-bold text-lg leading-tight">Tandoori Paneer</h3>
+          <span class="text-green-500 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">eco</span>
+        </div>
+        <p class="text-on-surface-variant text-xs leading-relaxed mb-6 opacity-80">Indian flavors with tandoori paneer, red paprika, and fresh coriander.</p>
+        <div class="mt-auto flex items-center justify-between">
+          <span class="text-white font-headline font-extrabold text-xl">₹549</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Tandoori Paneer" data-price="549">
+            Add <span class="material-symbols-outlined text-sm">add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Veggie Paradise" data-type="veg">
+      <div class="relative h-48 overflow-hidden">
+        <img alt="Veggie Paradise" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-V6E3rDoDrA7F2u3hohE21p46KGyCQcWaDM437HuHQasr79nqWLSIFDUjhDgPC1sZxTuHVAE0B61vHPZBaWschNPFH8V1FMA9uXzuiswmVMONPwNVw1JWCcQ2KfUcpejP0ryt-eYBwu9PXMzSEcbUWiQdih9oDHGyiJ-84NVpE2rRVPacNWGPjr3GfQAJ7jROoPRsKXUWcZgaDhPf3FJrrZXXBns94P8JKvKW1YPsdOsCtXjQqk--TuDCXPSC48SMDxiZizhzxeg"/>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
+      </div>
+      <div class="p-5 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-2">
+          <h3 class="text-white font-headline font-bold text-lg leading-tight">Veggie Paradise</h3>
+          <span class="text-green-500 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">eco</span>
+        </div>
+        <p class="text-on-surface-variant text-xs leading-relaxed mb-6 opacity-80">Gold corn, black olives, capsicum and red paprika. A vegetarian's dream.</p>
+        <div class="mt-auto flex items-center justify-between">
+          <span class="text-white font-headline font-extrabold text-xl">₹479</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Veggie Paradise" data-price="479">
+            Add <span class="material-symbols-outlined text-sm">add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Non-Veg Pizza Section ──────────────────────────────────── -->
+<section id="sec-nonveg" class="max-w-7xl mx-auto px-6 mt-16">
+  <h2 class="text-2xl font-bold font-headline mb-8 text-on-surface">Non-Veg Pizza</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+
+    <!-- Card 1 -->
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Chicken Tikka Burst" data-type="nonveg">
+      <div class="relative h-48 overflow-hidden">
+        <img alt="Chicken Tikka Burst" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVQV4waP8ZgJeEWKkcdwNR4gZur1IYuMATUvz16HAXmm0dzK-U3h61hl_mDEiEBW6aj6JRt4mSExyxKgwXp4GINhMalNXUwrB72Ma6vLpt88UAFiv2EFk9_1rKkfOxoVLG90lZZmIVvtb_6G-6zWjSeZsx66gAZWhshZDuX1Nxu3gcF0HZxvLc45aVI_1MUtFuSu-G7xxHKYZFE-U-rY8bvPlBtMRXOt2eNYTvU7qvqqnr15W0mL9mIoMg4tRthqyw4iD2c77vLRY"/>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
+      </div>
+      <div class="p-5 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-2">
+          <h3 class="text-white font-headline font-bold text-lg leading-tight">Chicken Tikka Burst</h3>
+          <span class="text-red-500 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">restaurant</span>
+        </div>
+        <p class="text-on-surface-variant text-xs leading-relaxed mb-6 opacity-80">Tender chicken tikka chunks with red onion and mint mayo drizzle.</p>
+        <div class="mt-auto flex items-center justify-between">
+          <span class="text-white font-headline font-extrabold text-xl">₹599</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Chicken Tikka Burst" data-price="599">
+            Add <span class="material-symbols-outlined text-sm">add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Classic Pepperoni" data-type="nonveg">
+      <div class="relative h-48 overflow-hidden">
+        <img alt="Classic Pepperoni" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoCxBX_giWsGv1M8TWgluFGmu_B6v8ojb2j49cc-dq-6bFYnnQdSOYvK8wP9E-tcZmbYOPCW-myX0PrAh_ZqPu4wQwhSDvp-PZLhl0NY02Xdv_y-xZ1UA9RZ-Cghs_Ro2hIhL5ulehCqtR_wewXQCXmVVf_IHvMnAOzvM556kZbCkKiq3SR_Fin0DZ5mlNdNAH2S2qUzaH-iP47ZPBE_9y7HL1Y5lheD04qgJbzOq3ZGi-03LfuJ-0kTa0PBNuP2sbV9IY2xJ78JI"/>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
+      </div>
+      <div class="p-5 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-2">
+          <h3 class="text-white font-headline font-bold text-lg leading-tight">Classic Pepperoni</h3>
+          <span class="text-red-500 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">restaurant</span>
+        </div>
+        <p class="text-on-surface-variant text-xs leading-relaxed mb-6 opacity-80">American classic loaded with extra pepperoni and 100% mozzarella.</p>
+        <div class="mt-auto flex items-center justify-between">
+          <span class="text-white font-headline font-extrabold text-xl">₹549</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Classic Pepperoni" data-price="549">
+            Add <span class="material-symbols-outlined text-sm">add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- No search results message -->
+<p id="noResults" class="hidden text-center text-gray-400 text-sm mt-16 pb-8">No items match your search.</p>
+
+</main>
+
+<!-- ── Bottom Navigation ──────────────────────────────────────── -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white px-6 pt-3 safe-bottom flex justify-between items-center z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+  <a href="index.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-red-700 transition-colors">
+    <span class="material-symbols-outlined">home</span>
+    <span class="text-[10px] font-label">Home</span>
+  </a>
+  <button class="flex flex-col items-center gap-1 text-red-700 font-bold">
+    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">menu_book</span>
+    <span class="text-[10px] font-label">Menu</span>
+  </button>
+  <button id="cartBarBtn" class="flex flex-col items-center gap-1 text-gray-400 hover:text-red-700 transition-colors relative">
+    <span class="material-symbols-outlined">shopping_cart</span>
+    <span class="text-[10px] font-label">Cart</span>
+    <span id="cartBadge2" class="hidden absolute -top-1 right-0 bg-red-600 text-white text-[8px] font-extrabold w-4 h-4 flex items-center justify-center rounded-full border-2 border-white">0</span>
+  </button>
+</nav>
+
+<!-- ── Cart Drawer ────────────────────────────────────────────── -->
+<!-- Backdrop -->
+<div id="cartBackdrop" class="hidden fixed inset-0 bg-black/40 z-[60]"></div>
+
+<!-- Drawer -->
+<div id="cartDrawer" class="fixed bottom-0 left-0 right-0 z-[70] bg-white rounded-t-2xl shadow-2xl transform translate-y-full transition-transform duration-300 max-h-[85vh] flex flex-col">
+  <div class="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+    <h2 class="font-headline font-extrabold text-lg text-on-surface">Your Cart</h2>
+    <button id="closeCartBtn" class="text-gray-400 hover:text-gray-600">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+  </div>
+
+  <!-- Empty state -->
+  <div id="cartEmpty" class="flex-1 flex flex-col items-center justify-center py-12 text-gray-400">
+    <span class="material-symbols-outlined text-5xl mb-3">shopping_cart</span>
+    <p class="text-sm font-medium">Your cart is empty</p>
+    <p class="text-xs mt-1">Add some pizzas to get started!</p>
+  </div>
+
+  <!-- Cart items list -->
+  <div id="cartItemsList" class="hidden flex-1 overflow-y-auto px-6 py-3 space-y-3"></div>
+
+  <!-- Cart footer -->
+  <div id="cartFooter" class="hidden px-6 py-4 safe-bottom border-t border-gray-100 bg-white">
+    <div class="flex justify-between items-center mb-4">
+      <span class="font-label font-semibold text-sm text-gray-600">Total</span>
+      <span id="cartTotal" class="font-headline font-extrabold text-xl text-on-surface">₹0</span>
+    </div>
+    <button id="checkoutBtn" class="w-full bg-red-700 text-white font-headline font-bold py-3 rounded-xl text-sm active:scale-95 transition-transform">
+      Proceed to Checkout
+    </button>
+  </div>
+</div>
+
+<script>
+  // ── Search ──────────────────────────────────────────────────
+  const searchToggleBtn = document.getElementById('searchToggleBtn');
+  const searchBar       = document.getElementById('searchBar');
+  const searchInput     = document.getElementById('searchInput');
+  const searchClearBtn  = document.getElementById('searchClearBtn');
+  const noResults       = document.getElementById('noResults');
+  const filterBar       = document.getElementById('filterBar');
+
+  searchToggleBtn.addEventListener('click', () => {
+    const open = searchBar.classList.toggle('hidden');
+    if (!open) {
+      searchInput.focus();
+      filterBar.style.top = '112px';
+      document.getElementById('mainContent').style.paddingTop = '112px';
+    } else {
+      filterBar.style.top = '64px';
+      document.getElementById('mainContent').style.paddingTop = '64px';
+      searchInput.value = '';
+      searchClearBtn.classList.add('hidden');
+      runSearch('');
+    }
+  });
+
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.trim();
+    searchClearBtn.classList.toggle('hidden', q === '');
+    runSearch(q);
+  });
+
+  searchClearBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    searchClearBtn.classList.add('hidden');
+    runSearch('');
+    searchInput.focus();
+  });
+
+  function runSearch(query) {
+    const q = query.toLowerCase();
+    const cards = document.querySelectorAll('.menu-card');
+    let visible = 0;
+    cards.forEach(card => {
+      const name = card.dataset.name.toLowerCase();
+      const show = q === '' || name.includes(q);
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    noResults.classList.toggle('hidden', visible > 0);
+  }
+
+  // ── Filter buttons ──────────────────────────────────────────
+  const activeFilterClass = ['bg-red-700', 'text-white'];
+  function setFilter(type) {
+    document.querySelectorAll('.menu-card').forEach(card => {
+      if (type === 'all') card.style.display = '';
+      else card.style.display = card.dataset.type === type ? '' : 'none';
+    });
+    [filterVeg, filterNonVeg, filterAll].forEach(btn => {
+      btn.classList.remove('bg-red-700', 'text-white');
+    });
+  }
+  const filterVeg    = document.getElementById('filterVeg');
+  const filterNonVeg = document.getElementById('filterNonVeg');
+  const filterAll    = document.getElementById('filterAll');
+  filterVeg.addEventListener('click',    () => { setFilter('veg');    filterVeg.classList.add('bg-red-700','text-white'); });
+  filterNonVeg.addEventListener('click', () => { setFilter('nonveg'); filterNonVeg.classList.add('bg-red-700','text-white'); });
+  filterAll.addEventListener('click',    () => { setFilter('all');    filterAll.classList.add('bg-red-700','text-white'); });
+
+  // ── Cart ────────────────────────────────────────────────────
+  const cart = {};   // { name: { price, qty } }
+
+  const cartDrawer    = document.getElementById('cartDrawer');
+  const cartBackdrop  = document.getElementById('cartBackdrop');
+  const cartEmpty     = document.getElementById('cartEmpty');
+  const cartItemsList = document.getElementById('cartItemsList');
+  const cartFooter    = document.getElementById('cartFooter');
+  const cartTotal     = document.getElementById('cartTotal');
+  const cartBadge     = document.getElementById('cartBadge');
+  const cartBadge2    = document.getElementById('cartBadge2');
+
+  function openCart() {
+    cartDrawer.classList.remove('translate-y-full');
+    cartBackdrop.classList.remove('hidden');
+  }
+  function closeCart() {
+    cartDrawer.classList.add('translate-y-full');
+    cartBackdrop.classList.add('hidden');
+  }
+
+  document.getElementById('cartNavBtn').addEventListener('click', openCart);
+  document.getElementById('cartBarBtn').addEventListener('click', openCart);
+  document.getElementById('closeCartBtn').addEventListener('click', closeCart);
+  cartBackdrop.addEventListener('click', closeCart);
+
+  function renderCart() {
+    const items = Object.values(cart).filter(i => i.qty > 0);
+    const total = items.reduce((s, i) => s + i.price * i.qty, 0);
+    const count = items.reduce((s, i) => s + i.qty, 0);
+
+    // Badge
+    [cartBadge, cartBadge2].forEach(b => {
+      if (count > 0) { b.classList.remove('hidden'); b.textContent = count; }
+      else b.classList.add('hidden');
+    });
+
+    cartTotal.textContent = '₹' + total;
+
+    if (items.length === 0) {
+      cartEmpty.classList.remove('hidden');
+      cartItemsList.classList.add('hidden');
+      cartFooter.classList.add('hidden');
+      return;
+    }
+    cartEmpty.classList.add('hidden');
+    cartItemsList.classList.remove('hidden');
+    cartFooter.classList.remove('hidden');
+
+    cartItemsList.innerHTML = items.map(item => `
+      <div class="flex items-center justify-between py-2">
+        <div class="flex-1 min-w-0">
+          <p class="text-sm font-semibold truncate">${item.name}</p>
+          <p class="text-xs text-gray-400">₹${item.price} each</p>
+        </div>
+        <div class="flex items-center gap-2 ml-4">
+          <button onclick="changeQty('${item.name}', -1)"
+            class="w-7 h-7 rounded-full border border-gray-300 flex items-center justify-center text-gray-600 hover:border-red-600 hover:text-red-600 transition-colors text-lg font-bold leading-none">−</button>
+          <span class="w-5 text-center text-sm font-bold">${item.qty}</span>
+          <button onclick="changeQty('${item.name}', 1)"
+            class="w-7 h-7 rounded-full border border-gray-300 flex items-center justify-center text-gray-600 hover:border-red-600 hover:text-red-600 transition-colors text-lg font-bold leading-none">+</button>
+        </div>
+        <span class="ml-4 text-sm font-extrabold text-on-surface w-16 text-right">₹${item.price * item.qty}</span>
+      </div>
+    `).join('');
+  }
+
+  function changeQty(name, delta) {
+    if (cart[name]) {
+      cart[name].qty = Math.max(0, cart[name].qty + delta);
+    }
+    updateAddButtons();
+    renderCart();
+  }
+
+  function updateAddButtons() {
+    document.querySelectorAll('.add-btn').forEach(btn => {
+      const name = btn.dataset.name;
+      const qty = cart[name] ? cart[name].qty : 0;
+      if (qty > 0) {
+        btn.innerHTML = `<span class="flex items-center gap-2">
+          <span onclick="event.stopPropagation();changeQty('${name}',-1)" class="font-extrabold text-base leading-none">−</span>
+          <span class="text-sm font-bold">${qty}</span>
+          <span onclick="event.stopPropagation();changeQty('${name}',1)" class="font-extrabold text-base leading-none">+</span>
+        </span>`;
+        btn.classList.add('min-w-[80px]', 'justify-center');
+      } else {
+        btn.innerHTML = `Add <span class="material-symbols-outlined text-sm">add</span>`;
+        btn.classList.remove('min-w-[80px]', 'justify-center');
+      }
+    });
+  }
+
+  document.querySelectorAll('.add-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const name  = btn.dataset.name;
+      const price = parseInt(btn.dataset.price);
+      // Also capture the image src from the parent card
+      const card  = btn.closest('.menu-card');
+      const img   = card ? card.querySelector('img') : null;
+      if (!cart[name]) cart[name] = { name, price, qty: 0, img: img ? img.src : '' };
+      cart[name].qty++;
+      updateAddButtons();
+      renderCart();
+    });
+  });
+
+  document.getElementById('checkoutBtn').addEventListener('click', () => {
+    const items = Object.values(cart).filter(i => i.qty > 0);
+    if (items.length === 0) return;
+    localStorage.setItem('go69_cart', JSON.stringify(items));
+    window.location.href = 'checkout.html';
+  });
+</script>
+</body></html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Delivery Details | Go69Pizza Areraj</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Work_Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "surface": "#f6f6f6",
+          "primary": "#ba0027",
+          "on-primary": "#ffefee",
+          "on-surface-variant": "#5a5c5c",
+          "on-background": "#2d2f2f",
+          "on-tertiary-container": "#005e44",
+          "tertiary-container": "#9ef4d0",
+          "surface-container-highest": "#dbdddd",
+          "primary-container": "#ff7577",
+          "primary-dim": "#a30021",
+          "on-surface": "#2d2f2f",
+          "surface-container-lowest": "#ffffff",
+          "surface-variant": "#dbdddd",
+          "surface-container-low": "#f0f1f1",
+          "surface-container": "#e7e8e8",
+          "tertiary": "#00694d",
+          "background": "#f6f6f6",
+          "outline-variant": "#acadad",
+          "outline": "#767777",
+        },
+        fontFamily: {
+          "headline": ["Plus Jakarta Sans"],
+          "body": ["Work Sans"],
+          "label": ["Plus Jakarta Sans"]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body { font-family: 'Work Sans', sans-serif; -webkit-tap-highlight-color: transparent; }
+  h1, h2, h3, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  input:focus, textarea:focus { outline: none; }
+  button, a { touch-action: manipulation; }
+  .safe-bottom { padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
+  /* Prevent double-tap zoom on form labels */
+  label { touch-action: manipulation; }
+</style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+
+<!-- Header -->
+<header class="bg-surface-container-lowest border-b border-zinc-100 sticky top-0 z-50">
+  <div class="flex justify-between items-center w-full px-6 py-4 max-w-3xl mx-auto">
+    <div class="flex items-center gap-4">
+      <button onclick="location.href='checkout.html'" class="p-2 hover:bg-zinc-50 rounded-full transition-colors" style="min-width:44px;min-height:44px;">
+        <span class="material-symbols-outlined text-on-surface">arrow_back</span>
+      </button>
+      <div class="flex flex-col">
+        <span class="text-2xl font-black text-red-700 italic font-headline leading-tight">Go69Pizza Areraj</span>
+        <span class="text-xs text-on-surface-variant font-medium">Delivery Details</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Step indicator -->
+<div class="max-w-3xl mx-auto px-6 pt-6">
+  <div class="flex items-center gap-2 overflow-x-auto pb-2">
+    <div class="flex items-center gap-2 text-zinc-400 px-4 py-2 shrink-0">
+      <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+      <span class="text-sm font-headline">Cart</span>
+    </div>
+    <div class="h-px w-8 bg-zinc-300"></div>
+    <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm text-red-700 font-semibold border border-red-100 shrink-0">
+      <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+      <span class="text-sm font-headline">Delivery</span>
+    </div>
+    <div class="h-px w-8 bg-zinc-200"></div>
+    <div class="flex items-center gap-2 text-zinc-400 px-4 py-2 shrink-0">
+      <span class="material-symbols-outlined text-sm">payments</span>
+      <span class="text-sm font-headline">Payment</span>
+    </div>
+  </div>
+</div>
+
+<main class="max-w-3xl mx-auto px-4 py-6 flex flex-col gap-5 pb-36">
+
+  <!-- Order Summary -->
+  <section class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+    <h2 class="text-lg font-extrabold font-headline mb-4 flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+      Order Summary
+    </h2>
+    <div id="orderSummaryList" class="space-y-2 text-sm"></div>
+    <div class="mt-4 pt-4 border-t border-zinc-100 space-y-1 text-sm">
+      <div class="flex justify-between">
+        <span class="text-on-surface-variant">Items Total</span>
+        <span id="summarySubtotal" class="font-medium">₹0.00</span>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-on-surface-variant">Taxes &amp; Charges</span>
+        <span id="summaryTax" class="font-medium">₹0.00</span>
+      </div>
+      <div class="flex justify-between text-base font-black font-headline pt-2 border-t border-zinc-100 mt-2">
+        <span>Grand Total</span>
+        <span id="summaryGrand" class="text-primary">₹0.00</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Delivery Info Form -->
+  <section class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+    <h2 class="text-lg font-extrabold font-headline mb-5 flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">person_pin_circle</span>
+      Your Details
+    </h2>
+
+    <form id="deliveryForm" class="space-y-5" onsubmit="return false;">
+      <!-- Name -->
+      <div class="flex flex-col gap-1">
+        <label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant" for="customerName">Full Name</label>
+        <div class="flex items-center gap-3 border border-outline-variant rounded-xl px-4 py-3 bg-surface-container-low focus-within:border-primary transition-colors">
+          <span class="material-symbols-outlined text-on-surface-variant text-lg">person</span>
+          <input
+            id="customerName"
+            type="text"
+            placeholder="Enter your name"
+            class="flex-1 bg-transparent text-base font-medium text-on-surface placeholder:text-zinc-400"
+            autocomplete="name"
+            autocapitalize="words"
+            autocorrect="off"
+            required
+          />
+        </div>
+      </div>
+
+      <!-- Phone -->
+      <div class="flex flex-col gap-1">
+        <label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant" for="customerPhone">Phone Number</label>
+        <div class="flex items-center gap-3 border border-outline-variant rounded-xl px-4 py-3 bg-surface-container-low focus-within:border-primary transition-colors">
+          <span class="material-symbols-outlined text-on-surface-variant text-lg">phone</span>
+          <span class="text-sm font-medium text-on-surface-variant">+91</span>
+          <input
+            id="customerPhone"
+            type="tel"
+            placeholder="98765 43210"
+            class="flex-1 bg-transparent text-base font-medium text-on-surface placeholder:text-zinc-400"
+            autocomplete="tel"
+            inputmode="numeric"
+            pattern="[0-9]{10}"
+            maxlength="10"
+            required
+          />
+        </div>
+      </div>
+
+      <!-- Address -->
+      <div class="flex flex-col gap-1">
+        <label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant" for="customerAddress">Delivery Address</label>
+        <div class="flex items-start gap-3 border border-outline-variant rounded-xl px-4 py-3 bg-surface-container-low focus-within:border-primary transition-colors">
+          <span class="material-symbols-outlined text-on-surface-variant text-lg mt-0.5">home</span>
+          <textarea
+            id="customerAddress"
+            rows="3"
+            placeholder="House/Flat no., Street, Area, Landmark..."
+            class="flex-1 bg-transparent text-base font-medium text-on-surface placeholder:text-zinc-400 resize-none"
+            autocomplete="street-address"
+            autocapitalize="sentences"
+            required
+          ></textarea>
+        </div>
+      </div>
+    </form>
+  </section>
+
+</main>
+
+<!-- Fixed bottom CTA -->
+<div class="fixed bottom-0 left-0 right-0 bg-surface-container-lowest border-t border-zinc-100 p-4 safe-bottom">
+  <button
+    id="whatsappBtn"
+    onclick="sendViaWhatsApp()"
+    class="w-full bg-[#25D366] text-white py-4 rounded-xl font-black font-headline flex items-center justify-center gap-3 shadow-lg active:scale-95 transition-transform text-base"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-white shrink-0" viewBox="0 0 24 24">
+      <path d="M20.52 3.48A11.93 11.93 0 0 0 12 0C5.37 0 0 5.37 0 12a11.92 11.92 0 0 0 1.6 6L0 24l6.19-1.62A11.93 11.93 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.23-3.48-8.52zM12 21.97a9.94 9.94 0 0 1-5.07-1.38l-.36-.22-3.74.98 1-3.64-.24-.38A9.93 9.93 0 0 1 2.03 12C2.03 6.47 6.47 2.03 12 2.03c2.65 0 5.14 1.03 7.01 2.9A9.87 9.87 0 0 1 21.97 12c0 5.53-4.44 9.97-9.97 9.97zm5.46-7.47c-.3-.15-1.77-.87-2.04-.97s-.47-.15-.67.15-.77.97-.94 1.17-.35.22-.64.07a8.14 8.14 0 0 1-2.39-1.48 8.98 8.98 0 0 1-1.65-2.06c-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52s.2-.3.3-.5.05-.37-.02-.52-.67-1.61-.91-2.2c-.24-.58-.48-.5-.67-.51H6.8c-.2 0-.52.07-.79.37s-1.04 1.02-1.04 2.48 1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.09 4.49.71.31 1.27.49 1.7.63.72.23 1.37.2 1.89.12.57-.09 1.77-.73 2.02-1.43s.25-1.3.17-1.43-.27-.2-.57-.35z"/>
+    </svg>
+    Place Order via WhatsApp
+  </button>
+</div>
+
+<script>
+  const TAX_RATE = 0.062;
+  const RESTAURANT_NUMBER = '9708775005';
+
+  function loadCart() {
+    try { return JSON.parse(localStorage.getItem('go69_cart') || '[]'); }
+    catch(e) { return []; }
+  }
+
+  function renderSummary() {
+    const items = loadCart();
+    const list = document.getElementById('orderSummaryList');
+
+    if (!items.length) {
+      list.innerHTML = '<p class="text-on-surface-variant text-sm">No items in cart.</p>';
+      return;
+    }
+
+    list.innerHTML = items.map(i =>
+      `<div class="flex justify-between">
+        <span class="text-on-surface font-medium">${i.name} <span class="text-on-surface-variant">x${i.qty}</span></span>
+        <span class="font-semibold">₹${(i.price * i.qty).toFixed(2)}</span>
+      </div>`
+    ).join('');
+
+    const subtotal = items.reduce((s, i) => s + i.price * i.qty, 0);
+    const tax = Math.round(subtotal * TAX_RATE);
+    const grand = subtotal + tax;
+
+    document.getElementById('summarySubtotal').textContent = '₹' + subtotal.toFixed(2);
+    document.getElementById('summaryTax').textContent = '₹' + tax.toFixed(2);
+    document.getElementById('summaryGrand').textContent = '₹' + grand.toFixed(2);
+  }
+
+  function sendViaWhatsApp() {
+    const name    = document.getElementById('customerName').value.trim();
+    const phone   = document.getElementById('customerPhone').value.trim();
+    const address = document.getElementById('customerAddress').value.trim();
+
+    if (!name || !phone || !address) {
+      alert('Please fill in your name, phone number, and address before placing the order.');
+      return;
+    }
+    if (!/^\d{10}$/.test(phone)) {
+      alert('Please enter a valid 10-digit phone number.');
+      return;
+    }
+
+    const items = loadCart();
+    if (!items.length) {
+      alert('Your cart is empty!');
+      return;
+    }
+
+    const subtotal = items.reduce((s, i) => s + i.price * i.qty, 0);
+    const tax = Math.round(subtotal * TAX_RATE);
+    const grand = subtotal + tax;
+
+    const orderLines = items.map(i =>
+      `  • ${i.name} x${i.qty}  —  ₹${(i.price * i.qty).toFixed(2)}`
+    ).join('\n');
+
+    const message =
+`🍕 *New Order — Go69Pizza Areraj*
+
+👤 *Customer Details*
+Name: ${name}
+Phone: +91 ${phone}
+Address: ${address}
+
+🛒 *Order Details*
+${orderLines}
+
+💰 *Bill Summary*
+Items Total : ₹${subtotal.toFixed(2)}
+Taxes       : ₹${tax.toFixed(2)}
+*Grand Total: ₹${grand.toFixed(2)}*
+
+_Order placed via website_`;
+
+    const url = `https://wa.me/${RESTAURANT_NUMBER}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  }
+
+  renderSummary();
+</script>
+</body>
+</html>
