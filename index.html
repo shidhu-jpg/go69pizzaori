@@ -50,7 +50,7 @@
 <body class="bg-background font-body text-on-surface antialiased" style="padding-bottom: calc(3.5rem + env(safe-area-inset-bottom))">
 
 <!-- ── Brand Header ─────────────────────────────────────────── -->
-<header class="bg-white shadow-sm sticky top-0 z-50 px-4 py-3 flex justify-between items-center">
+<header class="bg-white shadow-sm fixed top-0 left-0 right-0 z-50 px-4 py-3 flex justify-between items-center">
   <div>
     <h1 class="text-lg font-headline font-extrabold text-primary tracking-tight leading-none">Go69 Pizzza</h1>
     <div class="flex items-center gap-1 text-gray-500 mt-0.5">
@@ -66,7 +66,7 @@
   </div>
 </header>
 
-<main> 
+<main class="pt-[56px]">
 
 <!-- ── "What are you craving for?" Category Icons ───────────── -->
 <section class="bg-white pt-3 pb-2">
@@ -647,7 +647,7 @@
       <span class="text-[9px] font-extrabold">Home</span>
     </a>
     <a class="flex flex-col items-center gap-0.5 text-gray-400" href="menu.html">
-      <span class="material-symbols-outlined text-2xl">restaurant_menu</span>
+      <span class="material-symbols-outlined text-2xl" style="font-variation-settings:'FILL' 1;">menu_book</span>
       <span class="text-[9px] font-bold">Menu</span>
     </a>
     <button id="cart-nav-btn" class="flex flex-col items-center gap-0.5 text-gray-400 relative">
@@ -655,10 +655,6 @@
       <span class="text-[9px] font-bold">Cart</span>
       <span data-cart-badge class="absolute -top-1 right-0 bg-secondary text-white text-[8px] font-extrabold w-4 h-4 items-center justify-center rounded-full border-2 border-white hidden">0</span>
     </button>
-    <a class="flex flex-col items-center gap-0.5 text-gray-400" href="#">
-      <span class="material-symbols-outlined text-2xl">track_changes</span>
-      <span class="text-[9px] font-bold">Orders</span>
-    </a>
   </div>
 </nav>
 

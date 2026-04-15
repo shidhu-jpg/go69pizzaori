@@ -92,6 +92,8 @@
             scrollbar-width: none;
         }
         button, a { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+        header { transition: transform 0.25s ease; }
+        #filterBar { transition: top 0.25s ease, transform 0.25s ease; }
         .safe-bottom { padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
     </style>
 </head>
@@ -124,9 +126,9 @@
     <p id="searchNoResult" class="hidden mt-2 text-xs text-gray-400 text-center">No items match your search.</p>
   </div>
 </header>
-<main class="pt-16 pb-28" id="mainContent">
+<main class="pb-28" id="mainContent">
 <!-- Category & Filter Section -->
-<section class="bg-surface-container-lowest sticky z-40" id="filterBar" style="top:64px">
+<section class="bg-surface-container-lowest fixed left-0 right-0 w-full z-40" id="filterBar">
 <div class="max-w-7xl mx-auto px-6 py-4">
   <!-- Filters Row -->
   <div class="flex flex-wrap items-center gap-3 mb-4">
@@ -401,20 +403,46 @@
   const searchClearBtn  = document.getElementById('searchClearBtn');
   const noResults       = document.getElementById('noResults');
   const filterBar       = document.getElementById('filterBar');
+  const topHeader       = document.querySelector('header');
+  const mainContent     = document.getElementById('mainContent');
+
+  function reposition() {
+    filterBar.style.top = topHeader.offsetHeight + 'px';
+    mainContent.style.paddingTop = (topHeader.offsetHeight + filterBar.offsetHeight) + 'px';
+  }
+
+  // Run after fonts & layout settle
+  window.addEventListener('load', reposition);
+  reposition();
+
+  // ── Hide header on scroll down, show on scroll up ──────────
+  let lastScrollY = 0;
+  window.addEventListener('scroll', () => {
+    const currentY = window.scrollY;
+    if (currentY > lastScrollY && currentY > 60) {
+      // scrolling down — hide header and filter bar
+      topHeader.style.transform = 'translateY(-100%)';
+      filterBar.style.top = '0';
+      filterBar.style.transform = 'translateY(-100%)';
+    } else {
+      // scrolling up — restore header and filter bar
+      topHeader.style.transform = '';
+      filterBar.style.top = topHeader.offsetHeight + 'px';
+      filterBar.style.transform = '';
+    }
+    lastScrollY = currentY;
+  }, { passive: true });
 
   searchToggleBtn.addEventListener('click', () => {
     const open = searchBar.classList.toggle('hidden');
     if (!open) {
       searchInput.focus();
-      filterBar.style.top = '112px';
-      document.getElementById('mainContent').style.paddingTop = '112px';
     } else {
-      filterBar.style.top = '64px';
-      document.getElementById('mainContent').style.paddingTop = '64px';
       searchInput.value = '';
       searchClearBtn.classList.add('hidden');
       runSearch('');
     }
+    reposition();
   });
 
   searchInput.addEventListener('input', () => {
