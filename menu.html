@@ -143,12 +143,33 @@
     </button>
   </div>
   <!-- Horizontal Tabs -->
-  <nav class="flex items-center gap-8 overflow-x-auto hide-scrollbar border-b-0">
-    <a class="text-red-700 font-bold border-b-2 border-red-700 pb-2 whitespace-nowrap flex items-center gap-2" href="#sec-veg">
-      <span class="material-symbols-outlined text-[20px]">local_pizza</span> Veg Pizza
+  <nav class="flex items-center gap-6 overflow-x-auto hide-scrollbar border-b-0 pb-1">
+    <a class="text-red-700 font-bold border-b-2 border-red-700 pb-2 whitespace-nowrap flex items-center gap-1.5 text-sm" href="#sec-veg">
+      <span class="material-symbols-outlined text-[18px]">local_pizza</span> Veg Pizza
     </a>
-    <a class="text-gray-500 font-medium hover:text-red-600 transition-colors pb-2 whitespace-nowrap flex items-center gap-2" href="#sec-nonveg">
-      <span class="material-symbols-outlined text-[20px]">room_service</span> Non-Veg Pizza
+    <a class="text-gray-500 font-medium hover:text-red-600 transition-colors pb-2 whitespace-nowrap flex items-center gap-1.5 text-sm" href="#sec-veg-app">
+      <span class="material-symbols-outlined text-[18px]">restaurant_menu</span> Veg Sides
+    </a>
+    <a class="text-gray-500 font-medium hover:text-red-600 transition-colors pb-2 whitespace-nowrap flex items-center gap-1.5 text-sm" href="#sec-nonveg">
+      <span class="material-symbols-outlined text-[18px]">room_service</span> Non-Veg Pizza
+    </a>
+    <a class="text-gray-500 font-medium hover:text-red-600 transition-colors pb-2 whitespace-nowrap flex items-center gap-1.5 text-sm" href="#sec-chicken">
+      <span class="material-symbols-outlined text-[18px]">kebab_dining</span> Crispy Chicken
+    </a>
+    <a class="text-gray-500 font-medium hover:text-red-600 transition-colors pb-2 whitespace-nowrap flex items-center gap-1.5 text-sm" href="#sec-burgers">
+      <span class="material-symbols-outlined text-[18px]">lunch_dining</span> Burgers
+    </a>
+    <a class="text-gray-500 font-medium hover:text-red-600 transition-colors pb-2 whitespace-nowrap flex items-center gap-1.5 text-sm" href="#sec-pasta">
+      <span class="material-symbols-outlined text-[18px]">ramen_dining</span> Pasta
+    </a>
+    <a class="text-gray-500 font-medium hover:text-red-600 transition-colors pb-2 whitespace-nowrap flex items-center gap-1.5 text-sm" href="#sec-wraps">
+      <span class="material-symbols-outlined text-[18px]">flatbread</span> Wraps
+    </a>
+    <a class="text-gray-500 font-medium hover:text-red-600 transition-colors pb-2 whitespace-nowrap flex items-center gap-1.5 text-sm" href="#sec-drinks">
+      <span class="material-symbols-outlined text-[18px]">local_cafe</span> Drinks
+    </a>
+    <a class="text-gray-500 font-medium hover:text-red-600 transition-colors pb-2 whitespace-nowrap flex items-center gap-1.5 text-sm" href="#sec-offers">
+      <span class="material-symbols-outlined text-[18px]">sell</span> Offers
     </a>
   </nav>
 </div>
@@ -156,131 +177,438 @@
 
 <!-- ── Veg Pizza Section ───────────────────────────────────── -->
 <section id="sec-veg" class="max-w-7xl mx-auto px-6 mt-8">
-  <h2 class="text-2xl font-bold font-headline mb-8 text-on-surface">Veg Pizza</h2>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="vegGrid">
+  <h2 class="text-2xl font-bold font-headline mb-2 text-on-surface">Veg Pizza</h2>
+  <p class="text-xs text-gray-400 mb-6">Pizza Sizes: S = 7" &nbsp;|&nbsp; M = 10" &nbsp;|&nbsp; L = 12" &nbsp;|&nbsp; 5% GST extra</p>
 
-    <!-- Card 1 -->
-    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Paneer Spice Supreme" data-type="veg">
-      <div class="relative h-48 overflow-hidden">
-        <img alt="Paneer Spice Supreme" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALD65-dLXDrZqsNy3SUNPr1fLJTah0d50F-FjwWTLhGazPBLtvXnlInwDketQ1mh52drjEJ8Lgo5K8VF_25LPfAEAuIcyqQWOP_BwJETg8EzvWUxENDHawi_Ff2KJ-j07EuMMYdmj9O_UyjA4uuQCuQMJZkWpeIFVPZMc5QYWkFgnBkqhdY1LHC9-Vgqh2g7v2A6TfQtGzuQuZgcI3nZwJ84K28ZYdAW9EWhco4nUU1_lvnYv9VSCuUGLoFWQdhBEy86hljvFl0p4"/>
+  <!-- ── Classic Tier ── -->
+  <div class="flex items-center gap-3 mb-4">
+    <span class="bg-green-700 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Classic</span>
+    <div class="flex-1 h-px bg-gray-200"></div>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-10">
+
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Margherita" data-type="veg">
+      <div class="relative h-44 overflow-hidden">
+        <img alt="Margherita" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&q=80"/>
         <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
       </div>
-      <div class="p-5 flex flex-col flex-grow">
-        <div class="flex justify-between items-start mb-2">
-          <h3 class="text-white font-headline font-bold text-lg leading-tight">Paneer Spice Supreme</h3>
-          <span class="text-green-500 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">eco</span>
+      <div class="p-4 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-1">
+          <h3 class="text-white font-headline font-bold text-base leading-tight">Margherita</h3>
+          <span class="text-green-400 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">eco</span>
         </div>
-        <p class="text-on-surface-variant text-xs leading-relaxed mb-6 opacity-80">Fresh paneer, spicy harissa sauce, red capsicum, and golden corn on a hand-tossed base.</p>
+        <p class="text-gray-400 text-xs leading-relaxed mb-1">Tomato &amp; Herb</p>
+        <p class="text-gray-500 text-[10px] mb-3">S–₹130 / M–₹210 / L–₹380</p>
         <div class="mt-auto flex items-center justify-between">
-          <span class="text-white font-headline font-extrabold text-xl">₹499</span>
-          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Paneer Spice Supreme" data-price="499">
+          <span class="text-white font-headline font-extrabold text-lg">from ₹130</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Margherita" data-price="130">
             Add <span class="material-symbols-outlined text-sm">add</span>
           </button>
         </div>
       </div>
     </div>
 
-    <!-- Card 2 -->
-    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Garden Harvest Deluxe" data-type="veg">
-      <div class="relative h-48 overflow-hidden">
-        <img alt="Garden Harvest Deluxe" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhLs8xp1l775k13tx7s2A94wJmnMX07RhUcgoWAygwMqtX7IkWifedjnfbkXc9hVWLcW_TXf7X7wiqbMSNM-D8w7lr5vC0FoX2K-Y1HelUtqt2fxFgcICuPciZFO89t_sKdgbwvBxD8PLAAR_Mr1u-RVH2SZhzCQPQY3Gs_qdOn57NoRACBsS9aE9lISBm667QZTLdeQRVDZNVBLAfBRPhHVCA8lsu5Lg4D_q6aIc8nPOj0HmhOiz7ZMiEk8PMIEtSjHX-U-fPXmI"/>
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Double Cheese Pizza" data-type="veg">
+      <div class="relative h-44 overflow-hidden">
+        <img alt="Double Cheese Pizza" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400&q=80"/>
         <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
       </div>
-      <div class="p-5 flex flex-col flex-grow">
-        <div class="flex justify-between items-start mb-2">
-          <h3 class="text-white font-headline font-bold text-lg leading-tight">Garden Harvest Deluxe</h3>
-          <span class="text-green-500 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">eco</span>
+      <div class="p-4 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-1">
+          <h3 class="text-white font-headline font-bold text-base leading-tight">Double Cheese Pizza</h3>
+          <span class="text-green-400 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">eco</span>
         </div>
-        <p class="text-on-surface-variant text-xs leading-relaxed mb-6 opacity-80">A medley of earthy mushrooms, black olives, crisp onions, and juicy tomatoes.</p>
+        <p class="text-gray-400 text-xs leading-relaxed mb-1">Classic with topping of your choice</p>
+        <p class="text-gray-500 text-[10px] mb-3">S–₹180 / M–₹310 / L–₹440</p>
         <div class="mt-auto flex items-center justify-between">
-          <span class="text-white font-headline font-extrabold text-xl">₹399</span>
-          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Garden Harvest Deluxe" data-price="399">
+          <span class="text-white font-headline font-extrabold text-lg">from ₹180</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Double Cheese Pizza" data-price="180">
             Add <span class="material-symbols-outlined text-sm">add</span>
           </button>
         </div>
       </div>
     </div>
 
-    <!-- Card 3 -->
-    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Fiery Red Pepper" data-type="veg">
-      <div class="relative h-48 overflow-hidden">
-        <img alt="Fiery Red Pepper" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6Vo1CNatyZzFM7EwQqyQMTq13_wo0f7Q4QafVMNMij8yztVBaXcAlKOHlO5wm7RHGqJwn4HS9ZACcaHBb3sr8Opg-SM4k0-rUV6XdwQlgvyyGvmqU1nGe6LgCqIMtG0QJVe2f2qsG656GR3GYviXau8U0B71KCBJOOAa2B5_3YERUgJMFAWEZfJwjAK59y9fFQWx0a42CPPQZYadTlpK7xbQ405vsa_jMhRYthO9XeBKmZn4dFtSydMkrOFmjVXlpVsP6lCUZ4KE"/>
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Paneer & Corn Pizza" data-type="veg">
+      <div class="relative h-44 overflow-hidden">
+        <img alt="Paneer & Corn Pizza" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?w=400&q=80"/>
         <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
       </div>
-      <div class="p-5 flex flex-col flex-grow">
-        <div class="flex justify-between items-start mb-2">
-          <h3 class="text-white font-headline font-bold text-lg leading-tight">Fiery Red Pepper</h3>
-          <span class="text-green-500 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">eco</span>
+      <div class="p-4 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-1">
+          <h3 class="text-white font-headline font-bold text-base leading-tight">Paneer &amp; Corn Pizza</h3>
+          <span class="text-green-400 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">eco</span>
         </div>
-        <p class="text-on-surface-variant text-xs leading-relaxed mb-6 opacity-80">Bold spices meet roasted red peppers, jalapeños, and extra mozzarella cheese.</p>
+        <p class="text-gray-400 text-xs leading-relaxed mb-1">Makhani Paneer &amp; Corn</p>
+        <p class="text-gray-500 text-[10px] mb-3">S–₹180 / M–₹310 / L–₹440</p>
         <div class="mt-auto flex items-center justify-between">
-          <span class="text-white font-headline font-extrabold text-xl">₹449</span>
-          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Fiery Red Pepper" data-price="449">
+          <span class="text-white font-headline font-extrabold text-lg">from ₹180</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Paneer & Corn Pizza" data-price="180">
             Add <span class="material-symbols-outlined text-sm">add</span>
           </button>
         </div>
       </div>
     </div>
 
-    <!-- Card 4 -->
-    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Classic Margherita" data-type="veg">
-      <div class="relative h-48 overflow-hidden">
-        <img alt="Classic Margherita" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnjA-UgtUATkVN_gidH61DVyyx5EyhXTt4c1ut5lJ8JYkzdo5SAdRlZznenp-ThPh7GU0pcl_i5cVfaXW9TyZOUWTYzC7Sd3ZsyvkVwUdq3FUnahGagNm105eHcasMyO1xqFOsfQBCx5kpycEN8HyddhheZ3kYC-Nb_8oDH-KdQ-ujolo6aR5g4QhbvNO6TY-b_3MbJaMzKJeqMT1Ac6vgz_vAxXzdUhdxQFgzbANDicX-jYBlVuT-fcce_ec3bKkpduP0au3IYWk"/>
+  </div>
+
+  <!-- ── Perfecto Tier ── -->
+  <div class="flex items-center gap-3 mb-4">
+    <span class="bg-orange-600 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Perfecto</span>
+    <span class="text-[10px] text-gray-400 font-semibold">S–₹210 / M–₹380 / L–₹480</span>
+    <div class="flex-1 h-px bg-gray-200"></div>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-10">
+
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Veg. Medley" data-type="veg">
+      <div class="relative h-44 overflow-hidden">
+        <img alt="Veg. Medley" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400&q=80"/>
         <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
       </div>
-      <div class="p-5 flex flex-col flex-grow">
-        <div class="flex justify-between items-start mb-2">
-          <h3 class="text-white font-headline font-bold text-lg leading-tight">Classic Margherita</h3>
-          <span class="text-green-500 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">eco</span>
+      <div class="p-4 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-1">
+          <h3 class="text-white font-headline font-bold text-base leading-tight">Veg. Medley</h3>
+          <span class="text-green-400 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">eco</span>
         </div>
-        <p class="text-on-surface-variant text-xs leading-relaxed mb-6 opacity-80">The timeless classic with 100% real mozzarella cheese and signature herb tomato sauce.</p>
+        <p class="text-gray-400 text-xs leading-relaxed mb-3">Onion, Mushroom, Black Olive</p>
         <div class="mt-auto flex items-center justify-between">
-          <span class="text-white font-headline font-extrabold text-xl">₹329</span>
-          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Classic Margherita" data-price="329">
+          <span class="text-white font-headline font-extrabold text-lg">from ₹210</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Veg. Medley" data-price="210">
             Add <span class="material-symbols-outlined text-sm">add</span>
           </button>
         </div>
       </div>
     </div>
 
-    <!-- Card 5 -->
-    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Tandoori Paneer" data-type="veg">
-      <div class="relative h-48 overflow-hidden">
-        <img alt="Tandoori Paneer" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwLbxUped8RTd8K1kC_xHUZFz5K5bqK51tFe0f1m9mhWNFD0Ts1ZcZR63dei1GZr1lHo1DC_ZNDW08jMZffeCrZGQH8V0yVvoik41lRS-CFnQu0RFPbxjOJ35PeQc2t4l0YVGTK7bNwsAx3f6cXmSvOjbf8UXwFIwljdL7kdC2czcg8xbuNDZwomOCLD2C6o8PK1DtXpuCt40Si4TSWSbkIoPWVcI5_p-HmgVuHUwTH1cPHZZfLqjYBxRmpZUujXOjmOuU7eu_X58"/>
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Veg. Fiesta" data-type="veg">
+      <div class="relative h-44 overflow-hidden">
+        <img alt="Veg. Fiesta" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1528137871618-79d2761e3fd5?w=400&q=80"/>
         <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
       </div>
-      <div class="p-5 flex flex-col flex-grow">
-        <div class="flex justify-between items-start mb-2">
-          <h3 class="text-white font-headline font-bold text-lg leading-tight">Tandoori Paneer</h3>
-          <span class="text-green-500 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">eco</span>
+      <div class="p-4 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-1">
+          <h3 class="text-white font-headline font-bold text-base leading-tight">Veg. Fiesta</h3>
+          <span class="text-green-400 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">eco</span>
         </div>
-        <p class="text-on-surface-variant text-xs leading-relaxed mb-6 opacity-80">Indian flavors with tandoori paneer, red paprika, and fresh coriander.</p>
+        <p class="text-gray-400 text-xs leading-relaxed mb-3">Onion, Tomato, Capsicum, Corn</p>
         <div class="mt-auto flex items-center justify-between">
-          <span class="text-white font-headline font-extrabold text-xl">₹549</span>
-          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Tandoori Paneer" data-price="549">
+          <span class="text-white font-headline font-extrabold text-lg">from ₹210</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Veg. Fiesta" data-price="210">
             Add <span class="material-symbols-outlined text-sm">add</span>
           </button>
         </div>
       </div>
     </div>
 
-    <!-- Card 6 -->
-    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Veggie Paradise" data-type="veg">
-      <div class="relative h-48 overflow-hidden">
-        <img alt="Veggie Paradise" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-V6E3rDoDrA7F2u3hohE21p46KGyCQcWaDM437HuHQasr79nqWLSIFDUjhDgPC1sZxTuHVAE0B61vHPZBaWschNPFH8V1FMA9uXzuiswmVMONPwNVw1JWCcQ2KfUcpejP0ryt-eYBwu9PXMzSEcbUWiQdih9oDHGyiJ-84NVpE2rRVPacNWGPjr3GfQAJ7jROoPRsKXUWcZgaDhPf3FJrrZXXBns94P8JKvKW1YPsdOsCtXjQqk--TuDCXPSC48SMDxiZizhzxeg"/>
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Hot Mex Veggi" data-type="veg">
+      <div class="relative h-44 overflow-hidden">
+        <img alt="Hot Mex Veggi" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1548369937-47519962c11a?w=400&q=80"/>
         <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
       </div>
-      <div class="p-5 flex flex-col flex-grow">
-        <div class="flex justify-between items-start mb-2">
-          <h3 class="text-white font-headline font-bold text-lg leading-tight">Veggie Paradise</h3>
-          <span class="text-green-500 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">eco</span>
+      <div class="p-4 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-1">
+          <h3 class="text-white font-headline font-bold text-base leading-tight">Hot Mex Veggi</h3>
+          <span class="text-green-400 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">eco</span>
         </div>
-        <p class="text-on-surface-variant text-xs leading-relaxed mb-6 opacity-80">Gold corn, black olives, capsicum and red paprika. A vegetarian's dream.</p>
+        <p class="text-gray-400 text-xs leading-relaxed mb-3">Onion, Tomato, Soya Granules, Green Chilli, Chilli Salsa</p>
         <div class="mt-auto flex items-center justify-between">
-          <span class="text-white font-headline font-extrabold text-xl">₹479</span>
-          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Veggie Paradise" data-price="479">
+          <span class="text-white font-headline font-extrabold text-lg">from ₹210</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Hot Mex Veggi" data-price="210">
             Add <span class="material-symbols-outlined text-sm">add</span>
           </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Peri Peri Paneer" data-type="veg">
+      <div class="relative h-44 overflow-hidden">
+        <img alt="Peri Peri Paneer" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&q=80"/>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
+      </div>
+      <div class="p-4 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-1">
+          <h3 class="text-white font-headline font-bold text-base leading-tight">Peri Peri Paneer</h3>
+          <span class="text-green-400 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">eco</span>
+        </div>
+        <p class="text-gray-400 text-xs leading-relaxed mb-3">Onion, Peri Peri Paneer, Green Chilly, Coriander</p>
+        <div class="mt-auto flex items-center justify-between">
+          <span class="text-white font-headline font-extrabold text-lg">from ₹210</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Peri Peri Paneer" data-price="210">
+            Add <span class="material-symbols-outlined text-sm">add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Spicy Paneer" data-type="veg">
+      <div class="relative h-44 overflow-hidden">
+        <img alt="Spicy Paneer" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400&q=80"/>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
+        <div class="absolute top-2 left-2 bg-orange-500 text-white text-[9px] font-extrabold px-2 py-0.5 rounded-full">★ NEW</div>
+      </div>
+      <div class="p-4 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-1">
+          <h3 class="text-white font-headline font-bold text-base leading-tight">Spicy Paneer</h3>
+          <span class="text-green-400 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">eco</span>
+        </div>
+        <p class="text-gray-400 text-xs leading-relaxed mb-3">Capsicum, Corn, Red Paprika, Spicy Paneer</p>
+        <div class="mt-auto flex items-center justify-between">
+          <span class="text-white font-headline font-extrabold text-lg">from ₹210</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Spicy Paneer" data-price="210">
+            Add <span class="material-symbols-outlined text-sm">add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Pasta Pizza" data-type="veg">
+      <div class="relative h-44 overflow-hidden">
+        <img alt="Pasta Pizza" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?w=400&q=80"/>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
+        <div class="absolute top-2 left-2 bg-orange-500 text-white text-[9px] font-extrabold px-2 py-0.5 rounded-full">★ NEW</div>
+      </div>
+      <div class="p-4 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-1">
+          <h3 class="text-white font-headline font-bold text-base leading-tight">Pasta Pizza</h3>
+          <span class="text-green-400 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">eco</span>
+        </div>
+        <p class="text-gray-400 text-xs leading-relaxed mb-3">Onion, Capsicum, Pesto Pasta, Black Olives</p>
+        <div class="mt-auto flex items-center justify-between">
+          <span class="text-white font-headline font-extrabold text-lg">from ₹210</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Pasta Pizza" data-price="210">
+            Add <span class="material-symbols-outlined text-sm">add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── Signature Tier ── -->
+  <div class="flex items-center gap-3 mb-4">
+    <span class="bg-red-800 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Signature</span>
+    <span class="text-[10px] text-gray-400 font-semibold">S–₹250 / M–₹435 / L–₹600</span>
+    <div class="flex-1 h-px bg-gray-200"></div>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-10">
+
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Vegetarian Deluxe" data-type="veg">
+      <div class="relative h-44 overflow-hidden">
+        <img alt="Vegetarian Deluxe" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400&q=80"/>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
+      </div>
+      <div class="p-4 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-1">
+          <h3 class="text-white font-headline font-bold text-base leading-tight">Vegetarian Deluxe</h3>
+          <span class="text-green-400 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">eco</span>
+        </div>
+        <p class="text-gray-400 text-xs leading-relaxed mb-3">Onion, Mushroom, Red Paprika, Black Olive, Green Pepper</p>
+        <div class="mt-auto flex items-center justify-between">
+          <span class="text-white font-headline font-extrabold text-lg">from ₹250</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Vegetarian Deluxe" data-price="250">
+            Add <span class="material-symbols-outlined text-sm">add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Paneer Pataka" data-type="veg">
+      <div class="relative h-44 overflow-hidden">
+        <img alt="Paneer Pataka" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1528137871618-79d2761e3fd5?w=400&q=80"/>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
+      </div>
+      <div class="p-4 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-1">
+          <h3 class="text-white font-headline font-bold text-base leading-tight">Paneer Pataka</h3>
+          <span class="text-green-400 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">eco</span>
+        </div>
+        <p class="text-gray-400 text-xs leading-relaxed mb-3">Onion, Chipotle Paneer, Tomato, Capsicum, Red Paprika</p>
+        <div class="mt-auto flex items-center justify-between">
+          <span class="text-white font-headline font-extrabold text-lg">from ₹250</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Paneer Pataka" data-price="250">
+            Add <span class="material-symbols-outlined text-sm">add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Farmhouse" data-type="veg">
+      <div class="relative h-44 overflow-hidden">
+        <img alt="Farmhouse" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1548369937-47519962c11a?w=400&q=80"/>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
+      </div>
+      <div class="p-4 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-1">
+          <h3 class="text-white font-headline font-bold text-base leading-tight">Farmhouse</h3>
+          <span class="text-green-400 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">eco</span>
+        </div>
+        <p class="text-gray-400 text-xs leading-relaxed mb-3">Onion, Mushroom, Golden Corn, Tomato, Coriander</p>
+        <div class="mt-auto flex items-center justify-between">
+          <span class="text-white font-headline font-extrabold text-lg">from ₹250</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Farmhouse" data-price="250">
+            Add <span class="material-symbols-outlined text-sm">add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Spicy Tripple Tango" data-type="veg">
+      <div class="relative h-44 overflow-hidden">
+        <img alt="Spicy Tripple Tango" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&q=80"/>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
+      </div>
+      <div class="p-4 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-1">
+          <h3 class="text-white font-headline font-bold text-base leading-tight">Spicy Tripple Tango</h3>
+          <span class="text-green-400 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">eco</span>
+        </div>
+        <p class="text-gray-400 text-xs leading-relaxed mb-3">Onion, Jalapeno, Green Chilli, Red Paprika, Green Pepper</p>
+        <div class="mt-auto flex items-center justify-between">
+          <span class="text-white font-headline font-extrabold text-lg">from ₹250</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Spicy Tripple Tango" data-price="250">
+            Add <span class="material-symbols-outlined text-sm">add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Tandoori Paneer Pizza" data-type="veg">
+      <div class="relative h-44 overflow-hidden">
+        <img alt="Tandoori Paneer Pizza" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400&q=80"/>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
+        <div class="absolute top-2 left-2 bg-orange-500 text-white text-[9px] font-extrabold px-2 py-0.5 rounded-full">★ NEW</div>
+      </div>
+      <div class="p-4 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-1">
+          <h3 class="text-white font-headline font-bold text-base leading-tight">Tandoori Paneer Pizza</h3>
+          <span class="text-green-400 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">eco</span>
+        </div>
+        <p class="text-gray-400 text-xs leading-relaxed mb-3">Onion, Capsicum, Red Paprika, Tandoori Paneer, Coriander</p>
+        <div class="mt-auto flex items-center justify-between">
+          <span class="text-white font-headline font-extrabold text-lg">from ₹250</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Tandoori Paneer Pizza" data-price="250">
+            Add <span class="material-symbols-outlined text-sm">add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Veg Appetizers Section ─────────────────────────────────── -->
+<section id="sec-veg-app" class="max-w-7xl mx-auto px-6 mt-10">
+  <h2 class="text-2xl font-bold font-headline mb-6 text-on-surface">Veg Appetizers</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="French Fries With Dip" data-type="veg">
+      <img alt="French Fries With Dip" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=400&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-sm font-bold text-on-surface truncate">French Fries With Dip</p>
+        </div>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹99</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="French Fries With Dip" data-price="99">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Peri Peri Fries With Dip" data-type="veg">
+      <img alt="Peri Peri Fries With Dip" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-sm font-bold text-on-surface truncate">Peri Peri Fries With Dip</p>
+        </div>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹115</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Peri Peri Fries With Dip" data-price="115">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Veg. Pocket" data-type="veg">
+      <img alt="Veg. Pocket" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=400&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-sm font-bold text-on-surface truncate">Veg. Pocket</p>
+        </div>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹49</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Veg. Pocket" data-price="49">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Garlic Bread Sticks" data-type="veg">
+      <img alt="Garlic Bread Sticks" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-sm font-bold text-on-surface truncate">Garlic Bread Sticks</p>
+        </div>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹89</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Garlic Bread Sticks" data-price="89">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Cheese Garlic Bread" data-type="veg">
+      <img alt="Cheese Garlic Bread" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=400&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-sm font-bold text-on-surface truncate">Cheese Garlic Bread</p>
+        </div>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹99</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Cheese Garlic Bread" data-price="99">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Garlic Bread Spicy Supreme" data-type="veg">
+      <img alt="Garlic Bread Spicy Supreme" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-sm font-bold text-on-surface truncate">Garlic Bread Spicy Supreme</p>
+        </div>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹99</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Garlic Bread Spicy Supreme" data-price="99">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Veggi Delight Garlic Bread" data-type="veg">
+      <img alt="Veggi Delight Garlic Bread" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=400&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-sm font-bold text-on-surface truncate">Veggi Delight Garlic Bread</p>
+        </div>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹119</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Veggi Delight Garlic Bread" data-price="119">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Stuffed Garlic Bread" data-type="veg">
+      <img alt="Stuffed Garlic Bread" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-sm font-bold text-on-surface truncate">Stuffed Garlic Bread</p>
+        </div>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹119</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Stuffed Garlic Bread" data-price="119">Add <span class="material-symbols-outlined text-sm">add</span></button>
         </div>
       </div>
     </div>
@@ -289,46 +617,276 @@
 </section>
 
 <!-- ── Non-Veg Pizza Section ──────────────────────────────────── -->
-<section id="sec-nonveg" class="max-w-7xl mx-auto px-6 mt-16">
-  <h2 class="text-2xl font-bold font-headline mb-8 text-on-surface">Non-Veg Pizza</h2>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+<section id="sec-nonveg" class="max-w-7xl mx-auto px-6 mt-14">
+  <h2 class="text-2xl font-bold font-headline mb-2 text-on-surface">Non-Veg Pizza</h2>
+  <p class="text-xs text-gray-400 mb-6">Pizza Sizes: S = 7" &nbsp;|&nbsp; M = 10" &nbsp;|&nbsp; L = 12" &nbsp;|&nbsp; 5% GST extra</p>
 
-    <!-- Card 1 -->
-    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Chicken Tikka Burst" data-type="nonveg">
-      <div class="relative h-48 overflow-hidden">
-        <img alt="Chicken Tikka Burst" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVQV4waP8ZgJeEWKkcdwNR4gZur1IYuMATUvz16HAXmm0dzK-U3h61hl_mDEiEBW6aj6JRt4mSExyxKgwXp4GINhMalNXUwrB72Ma6vLpt88UAFiv2EFk9_1rKkfOxoVLG90lZZmIVvtb_6G-6zWjSeZsx66gAZWhshZDuX1Nxu3gcF0HZxvLc45aVI_1MUtFuSu-G7xxHKYZFE-U-rY8bvPlBtMRXOt2eNYTvU7qvqqnr15W0mL9mIoMg4tRthqyw4iD2c77vLRY"/>
+  <!-- ── Classic Tier ── -->
+  <div class="flex items-center gap-3 mb-4">
+    <span class="bg-red-700 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Classic</span>
+    <span class="text-[10px] text-gray-400 font-semibold">S–₹150 / M–₹380 / L–₹480</span>
+    <div class="flex-1 h-px bg-gray-200"></div>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-10">
+
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Cheesy Chicken" data-type="nonveg">
+      <div class="relative h-44 overflow-hidden">
+        <img alt="Cheesy Chicken" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1588315029754-2dd089d39a1a?w=400&q=80"/>
         <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
       </div>
-      <div class="p-5 flex flex-col flex-grow">
-        <div class="flex justify-between items-start mb-2">
-          <h3 class="text-white font-headline font-bold text-lg leading-tight">Chicken Tikka Burst</h3>
-          <span class="text-red-500 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">restaurant</span>
+      <div class="p-4 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-1">
+          <h3 class="text-white font-headline font-bold text-base leading-tight">Cheesy Chicken</h3>
+          <span class="text-red-400 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">restaurant</span>
         </div>
-        <p class="text-on-surface-variant text-xs leading-relaxed mb-6 opacity-80">Tender chicken tikka chunks with red onion and mint mayo drizzle.</p>
+        <p class="text-gray-400 text-xs leading-relaxed mb-1">Chicken Tikka &amp; Onion</p>
+        <p class="text-gray-500 text-[10px] mb-3">S–₹150 / M–₹380 / L–₹480</p>
         <div class="mt-auto flex items-center justify-between">
-          <span class="text-white font-headline font-extrabold text-xl">₹599</span>
-          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Chicken Tikka Burst" data-price="599">
+          <span class="text-white font-headline font-extrabold text-lg">from ₹150</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Cheesy Chicken" data-price="150">
             Add <span class="material-symbols-outlined text-sm">add</span>
           </button>
         </div>
       </div>
     </div>
 
-    <!-- Card 2 -->
-    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Classic Pepperoni" data-type="nonveg">
-      <div class="relative h-48 overflow-hidden">
-        <img alt="Classic Pepperoni" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoCxBX_giWsGv1M8TWgluFGmu_B6v8ojb2j49cc-dq-6bFYnnQdSOYvK8wP9E-tcZmbYOPCW-myX0PrAh_ZqPu4wQwhSDvp-PZLhl0NY02Xdv_y-xZ1UA9RZ-Cghs_Ro2hIhL5ulehCqtR_wewXQCXmVVf_IHvMnAOzvM556kZbCkKiq3SR_Fin0DZ5mlNdNAH2S2qUzaH-iP47ZPBE_9y7HL1Y5lheD04qgJbzOq3ZGi-03LfuJ-0kTa0PBNuP2sbV9IY2xJ78JI"/>
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Hot Chick" data-type="nonveg">
+      <div class="relative h-44 overflow-hidden">
+        <img alt="Hot Chick" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1506354666786-959d6d497f1a?w=400&q=80"/>
         <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
       </div>
-      <div class="p-5 flex flex-col flex-grow">
-        <div class="flex justify-between items-start mb-2">
-          <h3 class="text-white font-headline font-bold text-lg leading-tight">Classic Pepperoni</h3>
-          <span class="text-red-500 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">restaurant</span>
+      <div class="p-4 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-1">
+          <h3 class="text-white font-headline font-bold text-base leading-tight">Hot Chick</h3>
+          <span class="text-red-400 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">restaurant</span>
         </div>
-        <p class="text-on-surface-variant text-xs leading-relaxed mb-6 opacity-80">American classic loaded with extra pepperoni and 100% mozzarella.</p>
+        <p class="text-gray-400 text-xs leading-relaxed mb-1">Capsicum, Peri Peri Chicken Tikka</p>
+        <p class="text-gray-500 text-[10px] mb-3">S–₹150 / M–₹380 / L–₹480</p>
         <div class="mt-auto flex items-center justify-between">
-          <span class="text-white font-headline font-extrabold text-xl">₹549</span>
-          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Classic Pepperoni" data-price="549">
+          <span class="text-white font-headline font-extrabold text-lg">from ₹150</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Hot Chick" data-price="150">
+            Add <span class="material-symbols-outlined text-sm">add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── Perfecto Tier ── -->
+  <div class="flex items-center gap-3 mb-4">
+    <span class="bg-orange-700 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Perfecto</span>
+    <span class="text-[10px] text-gray-400 font-semibold">S–₹230 / M–₹435 / L–₹600</span>
+    <div class="flex-1 h-px bg-gray-200"></div>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-10">
+
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Chicken Medley" data-type="nonveg">
+      <div class="relative h-44 overflow-hidden">
+        <img alt="Chicken Medley" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1588315029754-2dd089d39a1a?w=400&q=80"/>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
+      </div>
+      <div class="p-4 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-1">
+          <h3 class="text-white font-headline font-bold text-base leading-tight">Chicken Medley</h3>
+          <span class="text-red-400 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">restaurant</span>
+        </div>
+        <p class="text-gray-400 text-xs leading-relaxed mb-3">Onion, Mushroom, Chicken Tikka, Black Olive</p>
+        <div class="mt-auto flex items-center justify-between">
+          <span class="text-white font-headline font-extrabold text-lg">from ₹230</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Chicken Medley" data-price="230">
+            Add <span class="material-symbols-outlined text-sm">add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Chicken Mexicana" data-type="nonveg">
+      <div class="relative h-44 overflow-hidden">
+        <img alt="Chicken Mexicana" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1506354666786-959d6d497f1a?w=400&q=80"/>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
+      </div>
+      <div class="p-4 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-1">
+          <h3 class="text-white font-headline font-bold text-base leading-tight">Chicken Mexicana</h3>
+          <span class="text-red-400 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">restaurant</span>
+        </div>
+        <p class="text-gray-400 text-xs leading-relaxed mb-3">Onion, Mexicana Chicken Kabab, Tomato, Jalapeno, Chilli Garlic</p>
+        <div class="mt-auto flex items-center justify-between">
+          <span class="text-white font-headline font-extrabold text-lg">from ₹230</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Chicken Mexicana" data-price="230">
+            Add <span class="material-symbols-outlined text-sm">add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Tikka Chicken Deluxe" data-type="nonveg">
+      <div class="relative h-44 overflow-hidden">
+        <img alt="Tikka Chicken Deluxe" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1588315029754-2dd089d39a1a?w=400&q=80"/>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
+      </div>
+      <div class="p-4 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-1">
+          <h3 class="text-white font-headline font-bold text-base leading-tight">Tikka Chicken Deluxe</h3>
+          <span class="text-red-400 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">restaurant</span>
+        </div>
+        <p class="text-gray-400 text-xs leading-relaxed mb-3">Tikka Chicken, Onion, Mushroom, Green Pepper</p>
+        <div class="mt-auto flex items-center justify-between">
+          <span class="text-white font-headline font-extrabold text-lg">from ₹230</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Tikka Chicken Deluxe" data-price="230">
+            Add <span class="material-symbols-outlined text-sm">add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Peri Peri Chicken" data-type="nonveg">
+      <div class="relative h-44 overflow-hidden">
+        <img alt="Peri Peri Chicken" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1506354666786-959d6d497f1a?w=400&q=80"/>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
+      </div>
+      <div class="p-4 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-1">
+          <h3 class="text-white font-headline font-bold text-base leading-tight">Peri Peri Chicken</h3>
+          <span class="text-red-400 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">restaurant</span>
+        </div>
+        <p class="text-gray-400 text-xs leading-relaxed mb-3">Onion, Peri Peri Chicken, Green Chilli, Coriander</p>
+        <div class="mt-auto flex items-center justify-between">
+          <span class="text-white font-headline font-extrabold text-lg">from ₹230</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Peri Peri Chicken" data-price="230">
+            Add <span class="material-symbols-outlined text-sm">add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Italian Chicken Sausage" data-type="nonveg">
+      <div class="relative h-44 overflow-hidden">
+        <img alt="Italian Chicken Sausage" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1588315029754-2dd089d39a1a?w=400&q=80"/>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
+        <div class="absolute top-2 left-2 bg-orange-500 text-white text-[9px] font-extrabold px-2 py-0.5 rounded-full">★ NEW</div>
+      </div>
+      <div class="p-4 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-1">
+          <h3 class="text-white font-headline font-bold text-base leading-tight">Italian Chicken Sausage</h3>
+          <span class="text-red-400 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">restaurant</span>
+        </div>
+        <p class="text-gray-400 text-xs leading-relaxed mb-3">Onion, Green Pepper, Chicken Sausages, Black Olives, Chili Garlic</p>
+        <div class="mt-auto flex items-center justify-between">
+          <span class="text-white font-headline font-extrabold text-lg">from ₹230</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Italian Chicken Sausage" data-price="230">
+            Add <span class="material-symbols-outlined text-sm">add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── Signature Tier ── -->
+  <div class="flex items-center gap-3 mb-4">
+    <span class="bg-red-900 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Signature</span>
+    <span class="text-[10px] text-gray-400 font-semibold">S–₹285 / M–₹545 / L–₹700</span>
+    <div class="flex-1 h-px bg-gray-200"></div>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-10">
+
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Tandoori Chicken" data-type="nonveg">
+      <div class="relative h-44 overflow-hidden">
+        <img alt="Tandoori Chicken" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1506354666786-959d6d497f1a?w=400&q=80"/>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
+      </div>
+      <div class="p-4 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-1">
+          <h3 class="text-white font-headline font-bold text-base leading-tight">Tandoori Chicken</h3>
+          <span class="text-red-400 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">restaurant</span>
+        </div>
+        <p class="text-gray-400 text-xs leading-relaxed mb-3">Onion, Green Pepper, Red Paprika, Tandoori Chicken, Coriander</p>
+        <div class="mt-auto flex items-center justify-between">
+          <span class="text-white font-headline font-extrabold text-lg">from ₹285</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Tandoori Chicken" data-price="285">
+            Add <span class="material-symbols-outlined text-sm">add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Chicken 69" data-type="nonveg">
+      <div class="relative h-44 overflow-hidden">
+        <img alt="Chicken 69" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1588315029754-2dd089d39a1a?w=400&q=80"/>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
+        <div class="absolute top-2 right-2 bg-yellow-500 text-black text-[9px] font-extrabold px-2 py-0.5 rounded-full">Chef's Pick</div>
+      </div>
+      <div class="p-4 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-1">
+          <h3 class="text-white font-headline font-bold text-base leading-tight">Chicken 69</h3>
+          <span class="text-red-400 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">restaurant</span>
+        </div>
+        <p class="text-gray-400 text-xs leading-relaxed mb-3">Onion, Green Pepper, Red Paprika, Makhani Chicken, Mushroom</p>
+        <div class="mt-auto flex items-center justify-between">
+          <span class="text-white font-headline font-extrabold text-lg">from ₹285</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Chicken 69" data-price="285">
+            Add <span class="material-symbols-outlined text-sm">add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Chicken Delight" data-type="nonveg">
+      <div class="relative h-44 overflow-hidden">
+        <img alt="Chicken Delight" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1506354666786-959d6d497f1a?w=400&q=80"/>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
+      </div>
+      <div class="p-4 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-1">
+          <h3 class="text-white font-headline font-bold text-base leading-tight">Chicken Delight</h3>
+          <span class="text-red-400 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">restaurant</span>
+        </div>
+        <p class="text-gray-400 text-xs leading-relaxed mb-3">Onion, Chicken Harissa Topping, Jalapeño, Red Paprika</p>
+        <div class="mt-auto flex items-center justify-between">
+          <span class="text-white font-headline font-extrabold text-lg">from ₹285</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Chicken Delight" data-price="285">
+            Add <span class="material-symbols-outlined text-sm">add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Something Meaty" data-type="nonveg">
+      <div class="relative h-44 overflow-hidden">
+        <img alt="Something Meaty" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1588315029754-2dd089d39a1a?w=400&q=80"/>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
+      </div>
+      <div class="p-4 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-1">
+          <h3 class="text-white font-headline font-bold text-base leading-tight">Something Meaty</h3>
+          <span class="text-red-400 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">restaurant</span>
+        </div>
+        <p class="text-gray-400 text-xs leading-relaxed mb-3">Chicken Kabab, Chicken Tikka, Peri Peri Chicken, Black Olive, Fresh Coriander</p>
+        <div class="mt-auto flex items-center justify-between">
+          <span class="text-white font-headline font-extrabold text-lg">from ₹285</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Something Meaty" data-price="285">
+            Add <span class="material-symbols-outlined text-sm">add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card group flex flex-col bg-inverse-surface rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:translate-y-[-4px]" data-name="Chicken Pataka" data-type="nonveg">
+      <div class="relative h-44 overflow-hidden">
+        <img alt="Chicken Pataka" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1506354666786-959d6d497f1a?w=400&q=80"/>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent"></div>
+      </div>
+      <div class="p-4 flex flex-col flex-grow">
+        <div class="flex justify-between items-start mb-1">
+          <h3 class="text-white font-headline font-bold text-base leading-tight">Chicken Pataka</h3>
+          <span class="text-red-400 material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">restaurant</span>
+        </div>
+        <p class="text-gray-400 text-xs leading-relaxed mb-3">Chipotle Chicken Tikka, Onion, Mushroom, Red Paprika, Green Pepper</p>
+        <div class="mt-auto flex items-center justify-between">
+          <span class="text-white font-headline font-extrabold text-lg">from ₹285</span>
+          <button class="add-btn bg-primary hover:bg-primary-dim text-on-primary px-4 py-2 rounded-lg font-label font-bold text-sm transition-all flex items-center gap-1" data-name="Chicken Pataka" data-price="285">
             Add <span class="material-symbols-outlined text-sm">add</span>
           </button>
         </div>
@@ -338,8 +896,943 @@
   </div>
 </section>
 
+<!-- ══════════════════════════════════════════════════════════
+     SECTION: CRISPY CRUNCHY CHICKEN + BONELESS STRIPS + NON-VEG APPETIZERS
+     ══════════════════════════════════════════════════════════ -->
+<section id="sec-chicken" class="px-4 pt-6 pb-2">
+  <h2 class="font-headline font-bold text-xl text-on-surface mb-1">Crispy Crunchy Chicken</h2>
+  <p class="text-xs text-gray-400 mb-4">Whole chicken pieces — crispy, juicy & full of flavour</p>
+
+  <!-- Pricing table -->
+  <div class="bg-inverse-surface rounded-xl overflow-hidden shadow mb-6">
+    <table class="w-full text-sm text-white">
+      <thead>
+        <tr class="bg-primary text-xs uppercase tracking-wider">
+          <th class="py-2 px-4 text-left">Piece</th>
+          <th class="py-2 px-4 text-center">Mix</th>
+          <th class="py-2 px-4 text-center">Leg</th>
+          <th class="py-2 px-4 text-center">Wings</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-700">
+        <tr><td class="py-2 px-4">2 Pcs</td><td class="py-2 px-4 text-center">₹119</td><td class="py-2 px-4 text-center">₹109</td><td class="py-2 px-4 text-center">₹109</td></tr>
+        <tr><td class="py-2 px-4">4 Pcs</td><td class="py-2 px-4 text-center">₹219</td><td class="py-2 px-4 text-center">₹209</td><td class="py-2 px-4 text-center">₹199</td></tr>
+        <tr><td class="py-2 px-4">6 Pcs</td><td class="py-2 px-4 text-center">₹319</td><td class="py-2 px-4 text-center">₹299</td><td class="py-2 px-4 text-center">₹289</td></tr>
+        <tr><td class="py-2 px-4">8 Pcs</td><td class="py-2 px-4 text-center">₹399</td><td class="py-2 px-4 text-center">₹379</td><td class="py-2 px-4 text-center">₹369</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Quick-add cards for Crispy Chicken -->
+  <div class="grid grid-cols-2 gap-3 mb-6">
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Crispy Chicken 2 Pcs Mix" data-type="nonveg">
+      <img alt="Crispy Chicken" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-red-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-red-600"></div></div>
+          <p class="text-xs font-bold text-on-surface truncate">2 Pcs Mix</p>
+        </div>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹119</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Crispy Chicken 2 Pcs Mix" data-price="119">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Crispy Chicken 4 Pcs Mix" data-type="nonveg">
+      <img alt="Crispy Chicken" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-red-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-red-600"></div></div>
+          <p class="text-xs font-bold text-on-surface truncate">4 Pcs Mix</p>
+        </div>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹219</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Crispy Chicken 4 Pcs Mix" data-price="219">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Crispy Chicken 6 Pcs Mix" data-type="nonveg">
+      <img alt="Crispy Chicken" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-red-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-red-600"></div></div>
+          <p class="text-xs font-bold text-on-surface truncate">6 Pcs Mix</p>
+        </div>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹319</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Crispy Chicken 6 Pcs Mix" data-price="319">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Crispy Chicken 8 Pcs Mix" data-type="nonveg">
+      <img alt="Crispy Chicken" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-red-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-red-600"></div></div>
+          <p class="text-xs font-bold text-on-surface truncate">8 Pcs Mix</p>
+        </div>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹399</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Crispy Chicken 8 Pcs Mix" data-price="399">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Boneless Strips -->
+  <h3 class="font-headline font-bold text-base text-on-surface mb-3">Boneless Strips</h3>
+  <div class="grid grid-cols-1 gap-3 mb-6">
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Boneless Strips 3 Pcs" data-type="nonveg">
+      <img alt="Boneless Strips" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1562967914-608f82629710?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-red-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-red-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Boneless Strips 3 Pcs</p>
+        </div>
+        <p class="text-xs text-gray-400">Tender boneless chicken strips, crispy fried</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹139</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Boneless Strips 3 Pcs" data-price="139">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Boneless Strips 6 Pcs" data-type="nonveg">
+      <img alt="Boneless Strips" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1562967914-608f82629710?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-red-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-red-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Boneless Strips 6 Pcs</p>
+        </div>
+        <p class="text-xs text-gray-400">Tender boneless chicken strips, crispy fried</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹259</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Boneless Strips 6 Pcs" data-price="259">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Boneless Strips 9 Pcs" data-type="nonveg">
+      <img alt="Boneless Strips" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1562967914-608f82629710?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-red-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-red-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Boneless Strips 9 Pcs</p>
+        </div>
+        <p class="text-xs text-gray-400">Tender boneless chicken strips, crispy fried</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹369</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Boneless Strips 9 Pcs" data-price="369">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Boneless Strips 12 Pcs" data-type="nonveg">
+      <img alt="Boneless Strips" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1562967914-608f82629710?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-red-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-red-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Boneless Strips 12 Pcs</p>
+        </div>
+        <p class="text-xs text-gray-400">Tender boneless chicken strips, crispy fried</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹469</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Boneless Strips 12 Pcs" data-price="469">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Non-Veg Appetizers -->
+  <h3 class="font-headline font-bold text-base text-on-surface mb-3">Non-Veg Appetizers</h3>
+  <div class="grid grid-cols-1 gap-3">
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Chicken Tikka" data-type="nonveg">
+      <img alt="Chicken Tikka" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-red-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-red-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Chicken Tikka</p>
+        </div>
+        <p class="text-xs text-gray-400">Marinated chicken grilled to perfection</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹199</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Chicken Tikka" data-price="199">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Chicken Seekh Kebab" data-type="nonveg">
+      <img alt="Chicken Seekh Kebab" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-red-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-red-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Chicken Seekh Kebab</p>
+        </div>
+        <p class="text-xs text-gray-400">Spiced minced chicken on skewers</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹199</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Chicken Seekh Kebab" data-price="199">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Chicken Wings" data-type="nonveg">
+      <img alt="Chicken Wings" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-red-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-red-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Chicken Wings</p>
+        </div>
+        <p class="text-xs text-gray-400">Saucy & crispy wings, tossed in house seasoning</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹179</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Chicken Wings" data-price="179">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION: BURGERS
+     ══════════════════════════════════════════════════════════ -->
+<section id="sec-burgers" class="px-4 pt-6 pb-2">
+  <h2 class="font-headline font-bold text-xl text-on-surface mb-1">Burgers</h2>
+  <p class="text-xs text-gray-400 mb-4">Stacked high, packed with flavour</p>
+  <div class="grid grid-cols-1 gap-3">
+    <!-- Veg Burgers -->
+    <div class="flex items-center gap-3 mb-2">
+      <span class="bg-green-600 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Veg</span>
+      <div class="flex-1 h-px bg-gray-200"></div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Veg Burger" data-type="veg">
+      <img alt="Veg Burger" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Veg Burger</p>
+        </div>
+        <p class="text-xs text-gray-400">Crispy veg patty, lettuce, cheese & sauces</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹89</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Veg Burger" data-price="89">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Paneer Burger" data-type="veg">
+      <img alt="Paneer Burger" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1550317138-10000687a72b?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Paneer Burger</p>
+        </div>
+        <p class="text-xs text-gray-400">Spiced paneer patty with crisp veggies & mayo</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹109</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Paneer Burger" data-price="109">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Double Patty Veg Burger" data-type="veg">
+      <img alt="Double Patty Veg Burger" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Double Patty Veg Burger</p>
+        </div>
+        <p class="text-xs text-gray-400">Double the crunch, double the flavour</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹139</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Double Patty Veg Burger" data-price="139">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+    <!-- Non-Veg Burgers -->
+    <div class="flex items-center gap-3 mb-2 mt-4">
+      <span class="bg-red-600 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Non-Veg</span>
+      <div class="flex-1 h-px bg-gray-200"></div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Chicken Burger" data-type="nonveg">
+      <img alt="Chicken Burger" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1550317138-10000687a72b?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-red-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-red-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Chicken Burger</p>
+        </div>
+        <p class="text-xs text-gray-400">Juicy chicken patty with fresh toppings</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹109</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Chicken Burger" data-price="109">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Crispy Chicken Burger" data-type="nonveg">
+      <img alt="Crispy Chicken Burger" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-red-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-red-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Crispy Chicken Burger</p>
+        </div>
+        <p class="text-xs text-gray-400">Crispy fried chicken fillet in a toasted bun</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹129</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Crispy Chicken Burger" data-price="129">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Peri Peri Chicken Burger" data-type="nonveg">
+      <img alt="Peri Peri Chicken Burger" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1582196016295-f8c8bd4b3a99?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-red-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-red-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Peri Peri Chicken Burger</p>
+        </div>
+        <p class="text-xs text-gray-400">Spicy peri peri glazed chicken fillet burger</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹149</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Peri Peri Chicken Burger" data-price="149">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Double Patty Chicken Burger" data-type="nonveg">
+      <img alt="Double Patty Chicken Burger" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-red-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-red-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Double Patty Chicken Burger</p>
+        </div>
+        <p class="text-xs text-gray-400">Two crispy chicken patties stacked with cheese</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹169</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Double Patty Chicken Burger" data-price="169">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Chicken Tikka Burger" data-type="nonveg">
+      <img alt="Chicken Tikka Burger" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1586816001966-79b736744398?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-red-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-red-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Chicken Tikka Burger</p>
+        </div>
+        <p class="text-xs text-gray-400">Tikka marinated chicken with mint chutney</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹149</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Chicken Tikka Burger" data-price="149">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION: PASTA
+     ══════════════════════════════════════════════════════════ -->
+<section id="sec-pasta" class="px-4 pt-6 pb-2">
+  <h2 class="font-headline font-bold text-xl text-on-surface mb-1">Pasta</h2>
+  <p class="text-xs text-gray-400 mb-4">Creamy, cheesy, loaded with love</p>
+
+  <!-- Veg Pasta -->
+  <div class="flex items-center gap-3 mb-4">
+    <span class="bg-green-600 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Veg Pasta</span>
+    <div class="flex-1 h-px bg-gray-200"></div>
+  </div>
+  <div class="grid grid-cols-1 gap-3 mb-6">
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Mac & Cheese" data-type="veg">
+      <img alt="Mac & Cheese" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1612152328957-5a59bf26a8a2?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Mac & Cheese</p>
+        </div>
+        <p class="text-xs text-gray-400">Classic macaroni in rich cheese sauce</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹149</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Mac & Cheese" data-price="149">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Arrabiata Pasta" data-type="veg">
+      <img alt="Arrabiata Pasta" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Arrabiata Pasta</p>
+        </div>
+        <p class="text-xs text-gray-400">Spicy tomato-based pasta with fresh herbs</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹149</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Arrabiata Pasta" data-price="149">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Peri Peri Pasta" data-type="veg">
+      <img alt="Peri Peri Pasta" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Peri Peri Pasta</p>
+        </div>
+        <p class="text-xs text-gray-400">Fiery peri peri sauce tossed with penne</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹149</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Peri Peri Pasta" data-price="149">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Pink Sauce Pasta" data-type="veg">
+      <img alt="Pink Sauce Pasta" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Pink Sauce Pasta</p>
+        </div>
+        <p class="text-xs text-gray-400">Creamy tomato blush sauce with penne</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹159</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Pink Sauce Pasta" data-price="159">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="White Sauce Pasta" data-type="veg">
+      <img alt="White Sauce Pasta" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1612152328957-5a59bf26a8a2?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">White Sauce Pasta</p>
+        </div>
+        <p class="text-xs text-gray-400">Creamy béchamel with penne & herbs</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹159</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="White Sauce Pasta" data-price="159">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chicken Pasta -->
+  <div class="flex items-center gap-3 mb-4">
+    <span class="bg-red-700 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Chicken Pasta</span>
+    <div class="flex-1 h-px bg-gray-200"></div>
+  </div>
+  <div class="grid grid-cols-1 gap-3">
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Chicken Mac & Cheese" data-type="nonveg">
+      <img alt="Chicken Mac & Cheese" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1612152328957-5a59bf26a8a2?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-red-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-red-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Chicken Mac & Cheese</p>
+        </div>
+        <p class="text-xs text-gray-400">Macaroni in rich cheese sauce with chicken</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹179</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Chicken Mac & Cheese" data-price="179">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Chicken Arrabiata" data-type="nonveg">
+      <img alt="Chicken Arrabiata" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-red-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-red-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Chicken Arrabiata</p>
+        </div>
+        <p class="text-xs text-gray-400">Spicy tomato pasta with tender chicken pieces</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹179</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Chicken Arrabiata" data-price="179">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Chicken Peri Peri Pasta" data-type="nonveg">
+      <img alt="Chicken Peri Peri Pasta" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-red-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-red-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Chicken Peri Peri Pasta</p>
+        </div>
+        <p class="text-xs text-gray-400">Spicy peri peri pasta with grilled chicken</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹179</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Chicken Peri Peri Pasta" data-price="179">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Chicken Pink Sauce Pasta" data-type="nonveg">
+      <img alt="Chicken Pink Sauce Pasta" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-red-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-red-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Chicken Pink Sauce Pasta</p>
+        </div>
+        <p class="text-xs text-gray-400">Blush sauce pasta with juicy chicken</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹189</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Chicken Pink Sauce Pasta" data-price="189">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Chicken White Sauce Pasta" data-type="nonveg">
+      <img alt="Chicken White Sauce Pasta" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1612152328957-5a59bf26a8a2?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-red-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-red-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Chicken White Sauce Pasta</p>
+        </div>
+        <p class="text-xs text-gray-400">Creamy béchamel with tender chicken & herbs</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹189</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Chicken White Sauce Pasta" data-price="189">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION: WRAPS
+     ══════════════════════════════════════════════════════════ -->
+<section id="sec-wraps" class="px-4 pt-6 pb-2">
+  <h2 class="font-headline font-bold text-xl text-on-surface mb-1">Wraps</h2>
+  <p class="text-xs text-gray-400 mb-4">Fresh, filling & packed with flavour</p>
+  <div class="grid grid-cols-1 gap-3">
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Veg Wrap" data-type="veg">
+      <img alt="Veg Wrap" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Veg Wrap</p>
+        </div>
+        <p class="text-xs text-gray-400">Crispy veg patty wrapped in soft tortilla</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹99</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Veg Wrap" data-price="99">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Paneer Wrap" data-type="veg">
+      <img alt="Paneer Wrap" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Paneer Wrap</p>
+        </div>
+        <p class="text-xs text-gray-400">Spiced paneer tikka in a soft tortilla wrap</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹119</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Paneer Wrap" data-price="119">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Chicken Wrap" data-type="nonveg">
+      <img alt="Chicken Wrap" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-red-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-red-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Chicken Wrap</p>
+        </div>
+        <p class="text-xs text-gray-400">Grilled chicken, fresh veggies & sauces in a wrap</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹119</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Chicken Wrap" data-price="119">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Crispy Chicken Wrap" data-type="nonveg">
+      <img alt="Crispy Chicken Wrap" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-red-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-red-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Crispy Chicken Wrap</p>
+        </div>
+        <p class="text-xs text-gray-400">Crispy fried chicken with crunchy slaw in a wrap</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹139</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Crispy Chicken Wrap" data-price="139">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION: DRINKS & DESSERTS
+     ══════════════════════════════════════════════════════════ -->
+<section id="sec-drinks" class="px-4 pt-6 pb-2">
+  <h2 class="font-headline font-bold text-xl text-on-surface mb-1">Drinks & Desserts</h2>
+  <p class="text-xs text-gray-400 mb-4">Cool down or sweeten up your meal</p>
+
+  <!-- Shakes -->
+  <div class="flex items-center gap-3 mb-4">
+    <span class="bg-purple-600 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Shakes</span>
+    <div class="flex-1 h-px bg-gray-200"></div>
+  </div>
+  <div class="grid grid-cols-2 gap-3 mb-6">
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Chocolate Shake" data-type="veg">
+      <img alt="Chocolate Shake" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-xs font-bold text-on-surface truncate">Chocolate Shake</p>
+        </div>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-xs font-extrabold text-primary">₹99</span>
+          <button class="add-btn bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-lg flex items-center gap-0.5" data-name="Chocolate Shake" data-price="99">Add <span class="material-symbols-outlined text-xs">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Strawberry Shake" data-type="veg">
+      <img alt="Strawberry Shake" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-xs font-bold text-on-surface truncate">Strawberry Shake</p>
+        </div>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-xs font-extrabold text-primary">₹99</span>
+          <button class="add-btn bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-lg flex items-center gap-0.5" data-name="Strawberry Shake" data-price="99">Add <span class="material-symbols-outlined text-xs">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Mango Shake" data-type="veg">
+      <img alt="Mango Shake" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-xs font-bold text-on-surface truncate">Mango Shake</p>
+        </div>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-xs font-extrabold text-primary">₹99</span>
+          <button class="add-btn bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-lg flex items-center gap-0.5" data-name="Mango Shake" data-price="99">Add <span class="material-symbols-outlined text-xs">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Vanilla Shake" data-type="veg">
+      <img alt="Vanilla Shake" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-xs font-bold text-on-surface truncate">Vanilla Shake</p>
+        </div>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-xs font-extrabold text-primary">₹99</span>
+          <button class="add-btn bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-lg flex items-center gap-0.5" data-name="Vanilla Shake" data-price="99">Add <span class="material-symbols-outlined text-xs">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Butterscotch Shake" data-type="veg">
+      <img alt="Butterscotch Shake" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-xs font-bold text-on-surface truncate">Butterscotch Shake</p>
+        </div>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-xs font-extrabold text-primary">₹109</span>
+          <button class="add-btn bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-lg flex items-center gap-0.5" data-name="Butterscotch Shake" data-price="109">Add <span class="material-symbols-outlined text-xs">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Oreo Shake" data-type="veg">
+      <img alt="Oreo Shake" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-xs font-bold text-on-surface truncate">Oreo Shake</p>
+        </div>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-xs font-extrabold text-primary">₹119</span>
+          <button class="add-btn bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-lg flex items-center gap-0.5" data-name="Oreo Shake" data-price="119">Add <span class="material-symbols-outlined text-xs">add</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cold Coffee -->
+  <div class="flex items-center gap-3 mb-4">
+    <span class="bg-amber-800 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Cold Coffee</span>
+    <div class="flex-1 h-px bg-gray-200"></div>
+  </div>
+  <div class="grid grid-cols-2 gap-3 mb-6">
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Cold Coffee" data-type="veg">
+      <img alt="Cold Coffee" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-xs font-bold text-on-surface truncate">Cold Coffee</p>
+        </div>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-xs font-extrabold text-primary">₹99</span>
+          <button class="add-btn bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-lg flex items-center gap-0.5" data-name="Cold Coffee" data-price="99">Add <span class="material-symbols-outlined text-xs">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Cold Coffee with Ice Cream" data-type="veg">
+      <img alt="Cold Coffee with Ice Cream" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-xs font-bold text-on-surface truncate">Cold Coffee + Ice Cream</p>
+        </div>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-xs font-extrabold text-primary">₹119</span>
+          <button class="add-btn bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-lg flex items-center gap-0.5" data-name="Cold Coffee with Ice Cream" data-price="119">Add <span class="material-symbols-outlined text-xs">add</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mocktails -->
+  <div class="flex items-center gap-3 mb-4">
+    <span class="bg-teal-600 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Mocktails</span>
+    <div class="flex-1 h-px bg-gray-200"></div>
+  </div>
+  <div class="grid grid-cols-2 gap-3 mb-6">
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Virgin Mojito" data-type="veg">
+      <img alt="Virgin Mojito" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-xs font-bold text-on-surface truncate">Virgin Mojito</p>
+        </div>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-xs font-extrabold text-primary">₹99</span>
+          <button class="add-btn bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-lg flex items-center gap-0.5" data-name="Virgin Mojito" data-price="99">Add <span class="material-symbols-outlined text-xs">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Blue Lagoon" data-type="veg">
+      <img alt="Blue Lagoon" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-xs font-bold text-on-surface truncate">Blue Lagoon</p>
+        </div>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-xs font-extrabold text-primary">₹109</span>
+          <button class="add-btn bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-lg flex items-center gap-0.5" data-name="Blue Lagoon" data-price="109">Add <span class="material-symbols-outlined text-xs">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Watermelon Cooler" data-type="veg">
+      <img alt="Watermelon Cooler" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-xs font-bold text-on-surface truncate">Watermelon Cooler</p>
+        </div>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-xs font-extrabold text-primary">₹109</span>
+          <button class="add-btn bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-lg flex items-center gap-0.5" data-name="Watermelon Cooler" data-price="109">Add <span class="material-symbols-outlined text-xs">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Lemon Mint Cooler" data-type="veg">
+      <img alt="Lemon Mint Cooler" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-xs font-bold text-on-surface truncate">Lemon Mint Cooler</p>
+        </div>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-xs font-extrabold text-primary">₹99</span>
+          <button class="add-btn bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-lg flex items-center gap-0.5" data-name="Lemon Mint Cooler" data-price="99">Add <span class="material-symbols-outlined text-xs">add</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Desserts -->
+  <div class="flex items-center gap-3 mb-4">
+    <span class="bg-pink-500 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Desserts</span>
+    <div class="flex-1 h-px bg-gray-200"></div>
+  </div>
+  <div class="grid grid-cols-1 gap-3">
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Choco Lava Cake" data-type="veg">
+      <img alt="Choco Lava Cake" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Choco Lava Cake</p>
+        </div>
+        <p class="text-xs text-gray-400">Warm chocolate cake with gooey molten centre</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹99</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Choco Lava Cake" data-price="99">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Brownie with Ice Cream" data-type="veg">
+      <img alt="Brownie with Ice Cream" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1564355808539-22fda35bed7e?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Brownie with Ice Cream</p>
+        </div>
+        <p class="text-xs text-gray-400">Fudgy brownie topped with a scoop of ice cream</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹119</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Brownie with Ice Cream" data-price="119">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 p-3" data-name="Gulab Jamun" data-type="veg">
+      <img alt="Gulab Jamun" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="https://images.unsplash.com/photo-1601303516533-9abeafbf8b6f?w=200&q=80"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-0.5">
+          <div class="w-3 h-3 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div></div>
+          <p class="text-sm font-bold text-on-surface">Gulab Jamun</p>
+        </div>
+        <p class="text-xs text-gray-400">Soft milk-solid dumplings soaked in rose syrup</p>
+        <div class="flex items-center justify-between mt-2">
+          <span class="text-sm font-extrabold text-primary">₹79</span>
+          <button class="add-btn bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Gulab Jamun" data-price="79">Add <span class="material-symbols-outlined text-sm">add</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION: OFFERS & SPECIAL PACKS
+     ══════════════════════════════════════════════════════════ -->
+<section id="sec-offers" class="px-4 pt-6 pb-4">
+  <h2 class="font-headline font-bold text-xl text-on-surface mb-1">Offers & Special Packs</h2>
+  <p class="text-xs text-gray-400 mb-4">Best value combos for families & groups</p>
+
+  <!-- Add-ons table -->
+  <h3 class="font-headline font-bold text-base text-on-surface mb-3">Pizza Add-ons</h3>
+  <div class="bg-inverse-surface rounded-xl overflow-hidden shadow mb-6">
+    <table class="w-full text-sm text-white">
+      <thead>
+        <tr class="bg-primary text-xs uppercase tracking-wider">
+          <th class="py-2 px-4 text-left">Add-on</th>
+          <th class="py-2 px-4 text-center">Small</th>
+          <th class="py-2 px-4 text-center">Medium</th>
+          <th class="py-2 px-4 text-center">Large</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-700">
+        <tr><td class="py-2 px-4">Extra Cheese</td><td class="py-2 px-4 text-center">₹30</td><td class="py-2 px-4 text-center">₹50</td><td class="py-2 px-4 text-center">₹70</td></tr>
+        <tr><td class="py-2 px-4">Extra Toppings</td><td class="py-2 px-4 text-center">₹20</td><td class="py-2 px-4 text-center">₹30</td><td class="py-2 px-4 text-center">₹40</td></tr>
+        <tr><td class="py-2 px-4">Extra Sauce</td><td class="py-2 px-4 text-center">₹15</td><td class="py-2 px-4 text-center">₹20</td><td class="py-2 px-4 text-center">₹25</td></tr>
+        <tr><td class="py-2 px-4">Stuffed Crust</td><td class="py-2 px-4 text-center">₹40</td><td class="py-2 px-4 text-center">₹60</td><td class="py-2 px-4 text-center">₹80</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Special Packs -->
+  <h3 class="font-headline font-bold text-base text-on-surface mb-3">Special Packs</h3>
+  <div class="grid grid-cols-1 gap-4 mb-6">
+    <div class="menu-card bg-gradient-to-br from-primary to-red-800 rounded-xl p-4 text-white shadow-lg" data-name="Family Pack" data-type="veg">
+      <div class="flex items-start justify-between mb-2">
+        <div>
+          <h4 class="font-headline font-bold text-lg">Family Pack</h4>
+          <p class="text-xs text-red-200 mt-0.5">Feeds 4–6 people</p>
+        </div>
+        <span class="bg-yellow-400 text-yellow-900 text-[10px] font-extrabold px-2 py-0.5 rounded-full">BEST VALUE</span>
+      </div>
+      <ul class="text-xs text-red-100 space-y-0.5 mb-3">
+        <li>• 2 Medium Pizzas (any flavour)</li>
+        <li>• 1 Portion Garlic Bread</li>
+        <li>• 4 Soft Drinks</li>
+      </ul>
+      <div class="flex items-center justify-between">
+        <span class="font-headline font-extrabold text-2xl">₹899</span>
+        <button class="add-btn bg-white text-primary text-xs font-bold px-4 py-2 rounded-lg flex items-center gap-1" data-name="Family Pack" data-price="899">Add <span class="material-symbols-outlined text-sm">add</span></button>
+      </div>
+    </div>
+    <div class="menu-card bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-4 text-white shadow-lg" data-name="Crispy Chicken Bucket" data-type="nonveg">
+      <div class="flex items-start justify-between mb-2">
+        <div>
+          <h4 class="font-headline font-bold text-lg">Crispy Chicken Bucket</h4>
+          <p class="text-xs text-gray-400 mt-0.5">Sharing bucket for the crew</p>
+        </div>
+        <span class="bg-orange-500 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full">★ HOT</span>
+      </div>
+      <ul class="text-xs text-gray-300 space-y-0.5 mb-3">
+        <li>• 8 Pcs Crispy Crunchy Chicken</li>
+        <li>• 2 Dips included</li>
+      </ul>
+      <div class="flex items-center justify-between">
+        <span class="font-headline font-extrabold text-2xl">₹299</span>
+        <button class="add-btn bg-primary text-white text-xs font-bold px-4 py-2 rounded-lg flex items-center gap-1" data-name="Crispy Chicken Bucket" data-price="299">Add <span class="material-symbols-outlined text-sm">add</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Everyday Offers -->
+  <h3 class="font-headline font-bold text-base text-on-surface mb-3">Everyday Offers</h3>
+  <div class="space-y-3">
+    <div class="bg-amber-50 border border-amber-200 rounded-xl p-4">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="material-symbols-outlined text-amber-500 text-base">local_offer</span>
+        <p class="font-bold text-sm text-amber-800">Buy 1 Get 1 — Tuesdays</p>
+      </div>
+      <p class="text-xs text-amber-700">Buy any Medium pizza and get a second Medium pizza free every Tuesday!</p>
+    </div>
+    <div class="bg-green-50 border border-green-200 rounded-xl p-4">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="material-symbols-outlined text-green-600 text-base">local_offer</span>
+        <p class="font-bold text-sm text-green-800">Student Discount — 10% Off</p>
+      </div>
+      <p class="text-xs text-green-700">Show your student ID and get 10% off your total order anytime!</p>
+    </div>
+    <div class="bg-blue-50 border border-blue-200 rounded-xl p-4">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="material-symbols-outlined text-blue-600 text-base">local_offer</span>
+        <p class="font-bold text-sm text-blue-800">Free Delivery — Orders above ₹499</p>
+      </div>
+      <p class="text-xs text-blue-700">Order ₹499 or more and enjoy free home delivery — every day!</p>
+    </div>
+  </div>
+</section>
+
 <!-- No search results message -->
 <p id="noResults" class="hidden text-center text-gray-400 text-sm mt-16 pb-8">No items match your search.</p>
+
+<!-- ── Size Picker Bottom Sheet ───────────────────────────────── -->
+<div id="sizeBackdrop" class="hidden fixed inset-0 bg-black/40 z-[80]"></div>
+<div id="sizePicker" class="fixed bottom-0 left-0 right-0 z-[90] bg-white rounded-t-2xl shadow-2xl transform translate-y-full transition-transform duration-300 safe-bottom">
+  <div class="w-12 h-1 bg-gray-300 rounded-full mx-auto mt-3 mb-1"></div>
+  <div class="flex items-center justify-between px-6 py-3 border-b border-gray-100">
+    <div>
+      <p class="text-[10px] text-gray-400 uppercase tracking-wider font-semibold mb-0.5">Choose Size</p>
+      <h3 id="sizePickerTitle" class="font-headline font-extrabold text-lg text-on-surface leading-tight"></h3>
+    </div>
+    <button id="closeSizePickerBtn" class="text-gray-400 hover:text-gray-600 ml-4 flex-shrink-0">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+  </div>
+  <p class="text-[10px] text-gray-400 px-6 pt-3 pb-1">S = 7" &nbsp;|&nbsp; M = 10" &nbsp;|&nbsp; L = 12" &nbsp;|&nbsp; 5% GST extra</p>
+  <div class="px-6 pb-6 space-y-3 mt-2">
+    <button id="sizeBtnS" class="w-full flex items-center justify-between px-4 py-3 rounded-xl border-2 border-gray-200 hover:border-red-600 hover:bg-red-50 active:scale-[0.98] transition-all">
+      <div class="flex items-center gap-3">
+        <span class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full font-headline font-extrabold text-sm text-on-surface">S</span>
+        <div class="text-left">
+          <p class="font-label font-bold text-sm text-on-surface">Small</p>
+          <p class="text-xs text-gray-400">7 inches</p>
+        </div>
+      </div>
+      <span id="priceS" class="font-headline font-extrabold text-base text-primary"></span>
+    </button>
+    <button id="sizeBtnM" class="w-full flex items-center justify-between px-4 py-3 rounded-xl border-2 border-gray-200 hover:border-red-600 hover:bg-red-50 active:scale-[0.98] transition-all">
+      <div class="flex items-center gap-3">
+        <span class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full font-headline font-extrabold text-sm text-on-surface">M</span>
+        <div class="text-left">
+          <p class="font-label font-bold text-sm text-on-surface">Medium</p>
+          <p class="text-xs text-gray-400">10 inches</p>
+        </div>
+      </div>
+      <span id="priceM" class="font-headline font-extrabold text-base text-primary"></span>
+    </button>
+    <button id="sizeBtnL" class="w-full flex items-center justify-between px-4 py-3 rounded-xl border-2 border-gray-200 hover:border-red-600 hover:bg-red-50 active:scale-[0.98] transition-all">
+      <div class="flex items-center gap-3">
+        <span class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full font-headline font-extrabold text-sm text-on-surface">L</span>
+        <div class="text-left">
+          <p class="font-label font-bold text-sm text-on-surface">Large</p>
+          <p class="text-xs text-gray-400">12 inches</p>
+        </div>
+      </div>
+      <span id="priceL" class="font-headline font-extrabold text-base text-primary"></span>
+    </button>
+  </div>
+</div>
 
 </main>
 
@@ -489,6 +1982,81 @@
   filterNonVeg.addEventListener('click', () => { setFilter('nonveg'); filterNonVeg.classList.add('bg-red-700','text-white'); });
   filterAll.addEventListener('click',    () => { setFilter('all');    filterAll.classList.add('bg-red-700','text-white'); });
 
+  // ── Pizza size prices [S, M, L] ─────────────────────────────
+  const pizzaPrices = {
+    'Margherita':             [130, 210, 380],
+    'Double Cheese Pizza':    [180, 310, 440],
+    'Paneer & Corn Pizza':    [180, 310, 440],
+    'Veg. Medley':            [210, 380, 480],
+    'Veg. Fiesta':            [210, 380, 480],
+    'Hot Mex Veggi':          [210, 380, 480],
+    'Peri Peri Paneer':       [210, 380, 480],
+    'Spicy Paneer':           [210, 380, 480],
+    'Pasta Pizza':            [210, 380, 480],
+    'Vegetarian Deluxe':      [250, 435, 600],
+    'Paneer Pataka':          [250, 435, 600],
+    'Farmhouse':              [250, 435, 600],
+    'Spicy Tripple Tango':    [250, 435, 600],
+    'Tandoori Paneer Pizza':  [250, 435, 600],
+    'Cheesy Chicken':         [150, 380, 480],
+    'Hot Chick':              [150, 380, 480],
+    'Chicken Medley':         [230, 435, 600],
+    'Chicken Mexicana':       [230, 435, 600],
+    'Tikka Chicken Deluxe':   [230, 435, 600],
+    'Peri Peri Chicken':      [230, 435, 600],
+    'Italian Chicken Sausage':[230, 435, 600],
+    'Tandoori Chicken':       [285, 545, 700],
+    'Chicken 69':             [285, 545, 700],
+    'Chicken Delight':        [285, 545, 700],
+    'Something Meaty':        [285, 545, 700],
+    'Chicken Pataka':         [285, 545, 700],
+  };
+
+  // ── Size Picker ──────────────────────────────────────────────
+  const sizeBackdrop     = document.getElementById('sizeBackdrop');
+  const sizePicker       = document.getElementById('sizePicker');
+  const sizePickerTitle  = document.getElementById('sizePickerTitle');
+  const priceS           = document.getElementById('priceS');
+  const priceM           = document.getElementById('priceM');
+  const priceL           = document.getElementById('priceL');
+
+  let activePizzaName = '';
+  let activePizzaImg  = '';
+
+  function openSizePicker(name, img) {
+    const p = pizzaPrices[name];
+    activePizzaName = name;
+    activePizzaImg  = img;
+    sizePickerTitle.textContent = name;
+    priceS.textContent = '₹' + p[0];
+    priceM.textContent = '₹' + p[1];
+    priceL.textContent = '₹' + p[2];
+    sizeBackdrop.classList.remove('hidden');
+    sizePicker.classList.remove('translate-y-full');
+  }
+
+  function closeSizePicker() {
+    sizeBackdrop.classList.add('hidden');
+    sizePicker.classList.add('translate-y-full');
+  }
+
+  function addPizzaSize(size) {
+    const idx   = { S: 0, M: 1, L: 2 }[size];
+    const price = pizzaPrices[activePizzaName][idx];
+    const key   = activePizzaName + ' (' + size + ')';
+    if (!cart[key]) cart[key] = { name: key, price, qty: 0, img: activePizzaImg };
+    cart[key].qty++;
+    closeSizePicker();
+    updateAddButtons();
+    renderCart();
+  }
+
+  sizeBackdrop.addEventListener('click', closeSizePicker);
+  document.getElementById('closeSizePickerBtn').addEventListener('click', closeSizePicker);
+  document.getElementById('sizeBtnS').addEventListener('click', () => addPizzaSize('S'));
+  document.getElementById('sizeBtnM').addEventListener('click', () => addPizzaSize('M'));
+  document.getElementById('sizeBtnL').addEventListener('click', () => addPizzaSize('L'));
+
   // ── Cart ────────────────────────────────────────────────────
   const cart = {};   // { name: { price, qty } }
 
@@ -567,6 +2135,7 @@
   function updateAddButtons() {
     document.querySelectorAll('.add-btn').forEach(btn => {
       const name = btn.dataset.name;
+      if (pizzaPrices[name]) return; // pizza buttons always show "Add" — size picker handles qty
       const qty = cart[name] ? cart[name].qty : 0;
       if (qty > 0) {
         btn.innerHTML = `<span class="flex items-center gap-2">
@@ -586,9 +2155,12 @@
     btn.addEventListener('click', () => {
       const name  = btn.dataset.name;
       const price = parseInt(btn.dataset.price);
-      // Also capture the image src from the parent card
       const card  = btn.closest('.menu-card');
       const img   = card ? card.querySelector('img') : null;
+      if (pizzaPrices[name]) {
+        openSizePicker(name, img ? img.src : '');
+        return;
+      }
       if (!cart[name]) cart[name] = { name, price, qty: 0, img: img ? img.src : '' };
       cart[name].qty++;
       updateAddButtons();
