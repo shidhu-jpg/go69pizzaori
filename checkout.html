@@ -220,20 +220,20 @@
 </div>
 <!-- Right Side: Sidebar -->
 <aside class="lg:w-1/3 space-y-6">
-<!-- Savings Banner -->
-<div class="bg-tertiary-container text-on-tertiary-container p-4 rounded-xl flex items-center gap-3">
+<!-- Savings / Delivery Progress Banner -->
+<div id="deliveryBanner" class="bg-tertiary-container text-on-tertiary-container p-4 rounded-xl flex items-center gap-3">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">celebration</span>
-<p class="text-sm font-bold font-headline">You saved ₹45 with FREE Delivery</p>
+<p class="text-sm font-bold font-headline" id="deliveryBannerText">You saved ₹45 with FREE Delivery</p>
 </div>
 <!-- Coupons Section -->
 <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-zinc-50">
 <h3 class="font-extrabold font-headline mb-4">Offers &amp; Rewards</h3>
-<div id="couponBox" class="flex items-center justify-between bg-surface-container-low p-4 rounded-xl border border-dashed border-primary-container">
+<div id="couponBox-SHIDHU" class="flex items-center justify-between bg-surface-container-low p-4 rounded-xl border border-dashed border-primary-container">
 <div class="flex flex-col">
-<span class="text-xs font-bold uppercase tracking-wider text-primary">GET30</span>
-<span class="text-xs text-on-surface font-medium">Save up to ₹30 on this order</span>
+<span class="text-xs font-bold uppercase tracking-wider text-primary">SHIDHU</span>
+<span class="text-xs text-on-surface font-medium">Save ₹30 — exclusive agency offer</span>
 </div>
-<button id="couponApplyBtn" onclick="toggleCoupon()" class="text-primary font-black text-sm hover:opacity-80 transition-opacity">APPLY</button>
+<button id="couponApplyBtn-SHIDHU" onclick="toggleCoupon('SHIDHU')" class="text-primary font-black text-sm hover:opacity-80 transition-opacity">APPLY</button>
 </div>
 <button class="w-full text-center text-xs font-bold text-on-surface-variant mt-4 hover:text-on-surface">View all coupons</button>
 </div>
@@ -247,14 +247,22 @@
 </div>
 <div class="flex justify-between text-sm items-center">
 <span class="text-on-surface-variant">Delivery Charges</span>
-<div class="flex items-center gap-2">
+<div class="flex items-center gap-2" id="deliveryChargeDisplay">
 <span class="line-through text-xs text-on-surface-variant">₹45</span>
 <span class="text-tertiary font-bold">FREE</span>
 </div>
 </div>
+<div id="freeDeliveryProgress" class="hidden">
+<div class="flex justify-between text-xs text-on-surface-variant mb-1">
+<span id="freeDeliveryProgressText">Add ₹200 more for free delivery</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-1.5">
+<div id="freeDeliveryBar" class="bg-primary h-1.5 rounded-full transition-all duration-300" style="width:0%"></div>
+</div>
+</div>
 <div class="flex justify-between text-sm hidden" id="couponDiscountRow">
 <div class="flex items-center gap-1">
-<span class="text-tertiary font-bold">Coupon (GET30)</span>
+<span class="text-tertiary font-bold" id="couponLabel">Coupon</span>
 <span class="material-symbols-outlined text-[14px] text-tertiary" style="font-variation-settings: 'FILL' 1;">sell</span>
 </div>
 <span class="font-bold text-tertiary" id="billDiscount">-₹0.00</span>
@@ -312,9 +320,10 @@
 <script>
   // ── Checkout Cart Logic ───────────────────────────────────
   const TAX_RATE = 0; // Tax included in item prices
-  let couponApplied = false;
-  const COUPON_CODE = 'GET30';
-  const COUPON_MAX_DISCOUNT = 30;
+  let activeCoupon = null;
+  const COUPONS = {
+    'SHIDHU': { discount: function() { return 30; } }
+  };
 
   function loadCart() {
     try { return JSON.parse(localStorage.getItem('go69_cart') || '[]'); }
@@ -324,11 +333,11 @@
     localStorage.setItem('go69_cart', JSON.stringify(items));
   }
 
-  function toggleCoupon() {
-    couponApplied = !couponApplied;
-    const btn = document.getElementById('couponApplyBtn');
-    const box = document.getElementById('couponBox');
-    if (couponApplied) {
+  function toggleCoupon(code) {
+    activeCoupon = (activeCoupon === code) ? null : code;
+    var btn = document.getElementById('couponApplyBtn-SHIDHU');
+    var box = document.getElementById('couponBox-SHIDHU');
+    if (activeCoupon === 'SHIDHU') {
       btn.textContent = 'REMOVE';
       btn.classList.remove('text-primary');
       btn.classList.add('text-error');
@@ -397,21 +406,61 @@
     updateTotals(subtotal);
   }
 
+  const FREE_DELIVERY_THRESHOLD = 200;
+  const DELIVERY_CHARGE = 45;
+
   function updateTotals(subtotal) {
-    const discount = couponApplied ? Math.min(COUPON_MAX_DISCOUNT, subtotal) : 0;
-    const discountedSubtotal = subtotal - discount;
-    const tax = Math.round(discountedSubtotal * TAX_RATE);
-    const grand = discountedSubtotal + tax;
+    const freeDelivery = subtotal >= FREE_DELIVERY_THRESHOLD;
+    const delivery = freeDelivery ? 0 : (subtotal > 0 ? DELIVERY_CHARGE : 0);
+    const discount = activeCoupon ? COUPONS[activeCoupon].discount(subtotal) : 0;
+    const grand = subtotal + delivery - discount;
 
     document.getElementById('billSubtotal').textContent = '₹' + subtotal.toFixed(2);
     document.getElementById('billTax').textContent = 'Included';
     document.getElementById('billGrand').textContent = '₹' + grand.toFixed(2);
     document.getElementById('footerGrand').textContent = '₹' + grand.toFixed(2);
 
+    // Delivery charge display
+    const deliveryDisplay = document.getElementById('deliveryChargeDisplay');
+    const progressEl = document.getElementById('freeDeliveryProgress');
+    const banner = document.getElementById('deliveryBanner');
+    const bannerText = document.getElementById('deliveryBannerText');
+
+    if (subtotal === 0) {
+      deliveryDisplay.innerHTML = '<span class="text-on-surface-variant font-medium">₹' + DELIVERY_CHARGE + '</span>';
+      progressEl.classList.add('hidden');
+      banner.classList.add('hidden');
+    } else if (freeDelivery) {
+      deliveryDisplay.innerHTML = '<span class="line-through text-xs text-on-surface-variant">₹' + DELIVERY_CHARGE + '</span><span class="text-tertiary font-bold">FREE</span>';
+      progressEl.classList.add('hidden');
+      banner.classList.remove('hidden');
+      bannerText.textContent = 'You saved ₹' + DELIVERY_CHARGE + ' with FREE Delivery!';
+    } else {
+      const remaining = FREE_DELIVERY_THRESHOLD - subtotal;
+      deliveryDisplay.innerHTML = '<span class="font-medium">₹' + DELIVERY_CHARGE + '</span>';
+      progressEl.classList.remove('hidden');
+      document.getElementById('freeDeliveryProgressText').textContent =
+        'Add ₹' + remaining.toFixed(0) + ' more for FREE delivery';
+      const pct = Math.min(100, (subtotal / FREE_DELIVERY_THRESHOLD) * 100);
+      document.getElementById('freeDeliveryBar').style.width = pct + '%';
+      banner.classList.remove('hidden');
+      bannerText.textContent = '₹' + remaining.toFixed(0) + ' away from FREE home delivery!';
+      banner.className = 'bg-surface-container text-on-surface p-4 rounded-xl flex items-center gap-3';
+      document.querySelector('#deliveryBanner .material-symbols-outlined').textContent = 'local_shipping';
+    }
+
+    if (freeDelivery || subtotal === 0) {
+      banner.className = subtotal === 0
+        ? 'hidden'
+        : 'bg-tertiary-container text-on-tertiary-container p-4 rounded-xl flex items-center gap-3';
+      if (subtotal > 0) document.querySelector('#deliveryBanner .material-symbols-outlined').textContent = 'celebration';
+    }
+
     const discountRow = document.getElementById('couponDiscountRow');
-    if (couponApplied && discount > 0) {
+    if (activeCoupon && discount > 0) {
       discountRow.classList.remove('hidden');
       document.getElementById('billDiscount').textContent = '-₹' + discount.toFixed(2);
+      document.getElementById('couponLabel').textContent = 'Coupon (' + activeCoupon + ')';
     } else {
       discountRow.classList.add('hidden');
     }
@@ -453,4 +502,11 @@
   // Initial render
   renderCheckout();
 </script>
+<div class="text-center py-4 text-[10px] text-on-surface-variant">
+  Website by <a href="https://buildwithshidhu.online" target="_blank" rel="noopener" class="font-bold hover:underline">Build with Shidhu</a>
+  &nbsp;·&nbsp;
+  <a href="admin.html" class="text-on-surface-variant hover:text-primary transition-colors" title="Admin Panel">
+    <span class="material-symbols-outlined" style="font-size:13px;vertical-align:middle;">admin_panel_settings</span>
+  </a>
+</div>
 </body></html>

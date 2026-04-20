@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Go69 Admin Panel</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<style>
+  body { font-family: 'Plus Jakarta Sans', sans-serif; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; vertical-align: middle; }
+  .sidebar-item.active { background: #fef2f2; color: #b91c1c; font-weight: 700; }
+  .item-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+  input, select, textarea { outline: none; }
+  input:focus, select:focus, textarea:focus { ring: 2px; }
+</style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+<!-- ══ PASSWORD GATE ═════════════════════════════════════════════ -->
+<div id="passwordGate" class="min-h-screen flex items-center justify-center px-4">
+  <div class="bg-white rounded-2xl shadow-xl p-8 w-full max-w-xs text-center">
+    <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-5">
+      <span class="material-symbols-outlined text-red-700 text-3xl">lock</span>
+    </div>
+    <h1 class="text-xl font-extrabold text-gray-800 mb-1">Admin Access</h1>
+    <p class="text-xs text-gray-400 mb-6">Enter the admin password to continue</p>
+    <div id="gateError" class="hidden mb-4 bg-red-50 border border-red-200 text-red-700 text-xs rounded-xl px-4 py-2">Incorrect password. Try again.</div>
+    <input id="gatePassword" type="password" placeholder="Enter password"
+      class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-center tracking-widest focus:border-red-500 focus:ring-2 focus:ring-red-100 mb-3"/>
+    <button id="gateBtn" class="w-full bg-red-700 hover:bg-red-800 text-white font-bold py-3 rounded-xl text-sm transition-colors">
+      Enter
+    </button>
+  </div>
+</div>
+
+<!-- ══ DASHBOARD ═════════════════════════════════════════════════ -->
+<div id="dashboard" class="hidden flex flex-col min-h-screen">
+
+  <!-- Header -->
+  <header class="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between sticky top-0 z-40 shadow-sm">
+    <div class="flex items-center gap-3">
+      <span class="text-xl font-extrabold text-red-700 tracking-tight">Go69 Admin</span>
+      <span class="hidden sm:inline text-xs bg-red-100 text-red-700 font-semibold px-2 py-0.5 rounded-full">Menu Manager</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <button id="seedBtn" title="Seed Firestore from menu-data.json (run once)"
+        class="hidden sm:flex items-center gap-2 text-xs font-semibold text-gray-600 hover:text-red-700 border border-gray-200 hover:border-red-300 px-3 py-2 rounded-xl transition-colors">
+        <span class="material-symbols-outlined text-base">upload</span> Seed Menu from JSON
+      </button>
+      <button id="addItemBtn"
+        class="flex items-center gap-2 bg-red-700 hover:bg-red-800 text-white text-xs font-bold px-4 py-2 rounded-xl transition-colors">
+        <span class="material-symbols-outlined text-base">add</span> Add Item
+      </button>
+      <button id="lockBtn" class="text-gray-400 hover:text-red-700 transition-colors" title="Lock admin">
+        <span class="material-symbols-outlined">lock</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="flex flex-1 overflow-hidden">
+
+    <!-- Sidebar -->
+    <aside class="hidden md:flex flex-col w-52 bg-white border-r border-gray-200 py-4 gap-1 shrink-0">
+      <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest px-4 mb-2">Categories</p>
+      <button class="sidebar-item active text-left px-4 py-2.5 rounded-lg mx-2 text-sm text-gray-700 flex items-center gap-2 transition-colors" data-cat="all">
+        <span class="material-symbols-outlined text-base">grid_view</span> All Items
+      </button>
+      <button class="sidebar-item text-left px-4 py-2.5 rounded-lg mx-2 text-sm text-gray-700 flex items-center gap-2 transition-colors" data-cat="veg-pizza">
+        <span class="material-symbols-outlined text-base">local_pizza</span> Veg Pizza
+      </button>
+      <button class="sidebar-item text-left px-4 py-2.5 rounded-lg mx-2 text-sm text-gray-700 flex items-center gap-2 transition-colors" data-cat="nonveg-pizza">
+        <span class="material-symbols-outlined text-base">room_service</span> Non-Veg Pizza
+      </button>
+      <button class="sidebar-item text-left px-4 py-2.5 rounded-lg mx-2 text-sm text-gray-700 flex items-center gap-2 transition-colors" data-cat="veg-sides">
+        <span class="material-symbols-outlined text-base">restaurant_menu</span> Veg Sides
+      </button>
+      <button class="sidebar-item text-left px-4 py-2.5 rounded-lg mx-2 text-sm text-gray-700 flex items-center gap-2 transition-colors" data-cat="crispy-chicken">
+        <span class="material-symbols-outlined text-base">kebab_dining</span> Crispy Chicken
+      </button>
+      <button class="sidebar-item text-left px-4 py-2.5 rounded-lg mx-2 text-sm text-gray-700 flex items-center gap-2 transition-colors" data-cat="burgers">
+        <span class="material-symbols-outlined text-base">lunch_dining</span> Burgers
+      </button>
+      <button class="sidebar-item text-left px-4 py-2.5 rounded-lg mx-2 text-sm text-gray-700 flex items-center gap-2 transition-colors" data-cat="pasta">
+        <span class="material-symbols-outlined text-base">ramen_dining</span> Pasta
+      </button>
+      <button class="sidebar-item text-left px-4 py-2.5 rounded-lg mx-2 text-sm text-gray-700 flex items-center gap-2 transition-colors" data-cat="wraps">
+        <span class="material-symbols-outlined text-base">flatbread</span> Wraps
+      </button>
+      <button class="sidebar-item text-left px-4 py-2.5 rounded-lg mx-2 text-sm text-gray-700 flex items-center gap-2 transition-colors" data-cat="drinks">
+        <span class="material-symbols-outlined text-base">local_cafe</span> Drinks
+      </button>
+      <button class="sidebar-item text-left px-4 py-2.5 rounded-lg mx-2 text-sm text-gray-700 flex items-center gap-2 transition-colors" data-cat="offers">
+        <span class="material-symbols-outlined text-base">sell</span> Offers
+      </button>
+    </aside>
+
+    <!-- Main content -->
+    <main class="flex-1 overflow-y-auto p-6">
+      <div class="flex items-center justify-between mb-5">
+        <h2 id="sectionTitle" class="text-lg font-bold text-gray-800">All Items</h2>
+        <span id="itemCount" class="text-xs text-gray-400 font-semibold"></span>
+      </div>
+
+      <!-- Toast -->
+      <div id="toast" class="hidden fixed top-4 right-4 z-50 bg-green-600 text-white text-sm font-semibold px-5 py-3 rounded-xl shadow-lg flex items-center gap-2">
+        <span class="material-symbols-outlined text-base">check_circle</span>
+        <span id="toastMsg">Saved!</span>
+      </div>
+
+      <!-- Loading state -->
+      <div id="loadingState" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div class="h-28 bg-gray-200 rounded-xl animate-pulse"></div>
+        <div class="h-28 bg-gray-200 rounded-xl animate-pulse"></div>
+        <div class="h-28 bg-gray-200 rounded-xl animate-pulse"></div>
+        <div class="h-28 bg-gray-200 rounded-xl animate-pulse"></div>
+      </div>
+
+      <!-- Items grid -->
+      <div id="itemsGrid" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"></div>
+      <p id="emptyMsg" class="hidden text-center text-gray-400 text-sm py-20">No items in this category yet.</p>
+    </main>
+  </div>
+</div>
+
+<!-- ══ EDIT / ADD MODAL ══════════════════════════════════════════ -->
+<div id="modalBackdrop" class="hidden fixed inset-0 bg-black/50 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4">
+  <div class="bg-white w-full sm:max-w-lg rounded-t-2xl sm:rounded-2xl shadow-2xl max-h-[95vh] overflow-y-auto">
+    <div class="sticky top-0 bg-white border-b border-gray-100 px-6 py-4 flex items-center justify-between rounded-t-2xl z-10">
+      <h3 id="modalTitle" class="font-bold text-gray-800 text-base">Add Menu Item</h3>
+      <button id="closeModalBtn" class="text-gray-400 hover:text-gray-700">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+
+    <form id="itemForm" class="px-6 py-5 space-y-4">
+      <input type="hidden" id="itemId"/>
+
+      <!-- Name -->
+      <div>
+        <label class="block text-xs font-semibold text-gray-600 mb-1">Item Name *</label>
+        <input id="fName" type="text" required placeholder="e.g. Margherita"
+          class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:border-red-400 focus:ring-2 focus:ring-red-100 transition"/>
+      </div>
+
+      <!-- Description -->
+      <div>
+        <label class="block text-xs font-semibold text-gray-600 mb-1">Description / Ingredients</label>
+        <textarea id="fDesc" rows="2" placeholder="e.g. Tomato & Herb"
+          class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:border-red-400 focus:ring-2 focus:ring-red-100 transition resize-none"></textarea>
+      </div>
+
+      <!-- Type + Category row -->
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block text-xs font-semibold text-gray-600 mb-1">Type *</label>
+          <select id="fType" class="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:border-red-400 focus:ring-2 focus:ring-red-100 transition bg-white">
+            <option value="veg">Veg</option>
+            <option value="nonveg">Non-Veg</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-gray-600 mb-1">Category *</label>
+          <select id="fCategory" class="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:border-red-400 focus:ring-2 focus:ring-red-100 transition bg-white">
+            <option value="veg-pizza">Veg Pizza</option>
+            <option value="nonveg-pizza">Non-Veg Pizza</option>
+            <option value="veg-sides">Veg Sides</option>
+            <option value="crispy-chicken">Crispy Chicken</option>
+            <option value="burgers">Burgers</option>
+            <option value="pasta">Pasta</option>
+            <option value="wraps">Wraps</option>
+            <option value="drinks">Drinks</option>
+            <option value="offers">Offers</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Tier -->
+      <div>
+        <label class="block text-xs font-semibold text-gray-600 mb-1">Tier / Sub-group <span class="text-gray-400 font-normal">(optional)</span></label>
+        <select id="fTier" class="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:border-red-400 focus:ring-2 focus:ring-red-100 transition bg-white">
+          <option value="">— None —</option>
+          <optgroup label="Pizza tiers">
+            <option value="classic">Classic</option>
+            <option value="perfecto">Perfecto</option>
+            <option value="signature">Signature</option>
+          </optgroup>
+          <optgroup label="Crispy Chicken">
+            <option value="crispy">Crispy Chicken</option>
+            <option value="strips">Boneless Strips</option>
+            <option value="appetizers">Non-Veg Appetizers</option>
+          </optgroup>
+          <optgroup label="Burgers / Pasta">
+            <option value="veg">Veg</option>
+            <option value="nonveg">Non-Veg / Chicken</option>
+          </optgroup>
+          <optgroup label="Drinks">
+            <option value="shakes">Shakes</option>
+            <option value="coffee">Cold Coffee</option>
+            <option value="mocktails">Mocktails</option>
+            <option value="desserts">Desserts</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <!-- Pricing -->
+      <div>
+        <label class="block text-xs font-semibold text-gray-600 mb-2">Pricing</label>
+        <div class="flex items-center gap-2 mb-3">
+          <label class="flex items-center gap-1.5 text-sm cursor-pointer">
+            <input type="radio" name="priceType" value="single" id="priceSingle" checked class="accent-red-600"/>
+            Single price
+          </label>
+          <label class="flex items-center gap-1.5 text-sm cursor-pointer">
+            <input type="radio" name="priceType" value="sizes" id="priceSizes" class="accent-red-600"/>
+            S / M / L sizes
+          </label>
+        </div>
+        <!-- Single price -->
+        <div id="singlePriceField">
+          <label class="block text-xs text-gray-500 mb-1">Price (₹)</label>
+          <input id="fBasePrice" type="number" min="0" placeholder="0"
+            class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:border-red-400 focus:ring-2 focus:ring-red-100 transition"/>
+        </div>
+        <!-- S/M/L prices -->
+        <div id="sizePriceFields" class="hidden grid grid-cols-3 gap-3">
+          <div>
+            <label class="block text-xs text-gray-500 mb-1">Small (₹)</label>
+            <input id="fPriceS" type="number" min="0" placeholder="0"
+              class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:border-red-400 focus:ring-2 focus:ring-red-100 transition"/>
+          </div>
+          <div>
+            <label class="block text-xs text-gray-500 mb-1">Medium (₹)</label>
+            <input id="fPriceM" type="number" min="0" placeholder="0"
+              class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:border-red-400 focus:ring-2 focus:ring-red-100 transition"/>
+          </div>
+          <div>
+            <label class="block text-xs text-gray-500 mb-1">Large (₹)</label>
+            <input id="fPriceL" type="number" min="0" placeholder="0"
+              class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:border-red-400 focus:ring-2 focus:ring-red-100 transition"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div>
+        <label class="block text-xs font-semibold text-gray-600 mb-2">Image</label>
+        <div class="flex gap-3 items-start">
+          <img id="imgPreview" src="" alt="" class="w-20 h-20 object-cover rounded-xl border border-gray-200 bg-gray-100 shrink-0 hidden"/>
+          <div class="flex-1 space-y-2">
+            <input id="fImageUrl" type="url" placeholder="Paste image URL (https://...)"
+              class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:border-red-400 focus:ring-2 focus:ring-red-100 transition"/>
+            <p class="text-xs text-gray-400">Upload photo to <a href="https://imgbb.com" target="_blank" class="text-red-600 underline">imgbb.com</a> (free) → copy link → paste above</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Badge + Sort order row -->
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block text-xs font-semibold text-gray-600 mb-1">Badge</label>
+          <select id="fBadge" class="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:border-red-400 focus:ring-2 focus:ring-red-100 transition bg-white">
+            <option value="">None</option>
+            <option value="NEW">★ NEW</option>
+            <option value="Chef's Pick">Chef's Pick</option>
+            <option value="BEST VALUE">BEST VALUE</option>
+            <option value="HOT">★ HOT</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-gray-600 mb-1">Sort Order</label>
+          <input id="fSortOrder" type="number" min="0" value="99" placeholder="99"
+            class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:border-red-400 focus:ring-2 focus:ring-red-100 transition"/>
+        </div>
+      </div>
+
+      <!-- Active toggle -->
+      <div class="flex items-center justify-between py-2">
+        <div>
+          <p class="text-sm font-semibold text-gray-700">Show on website</p>
+          <p class="text-xs text-gray-400">Toggle off to hide this item from customers</p>
+        </div>
+        <label class="relative inline-flex items-center cursor-pointer">
+          <input type="checkbox" id="fActive" class="sr-only peer" checked/>
+          <div class="w-11 h-6 bg-gray-200 rounded-full peer peer-checked:bg-red-600 transition-colors after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5"></div>
+        </label>
+      </div>
+
+      <!-- Save/Cancel -->
+      <div class="flex gap-3 pt-2 pb-2">
+        <button type="submit" id="saveBtn"
+          class="flex-1 bg-red-700 hover:bg-red-800 text-white font-bold py-3 rounded-xl text-sm transition-colors flex items-center justify-center gap-2">
+          <span class="material-symbols-outlined text-base">save</span> Save Item
+        </button>
+        <button type="button" id="cancelModalBtn"
+          class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-3 rounded-xl text-sm transition-colors">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ══ DELETE CONFIRM ════════════════════════════════════════════ -->
+<div id="deleteBackdrop" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+  <div class="bg-white rounded-2xl shadow-xl p-6 w-full max-w-sm text-center">
+    <span class="material-symbols-outlined text-red-500 text-4xl mb-3 block">delete</span>
+    <h3 class="font-bold text-gray-800 mb-1">Delete Item?</h3>
+    <p id="deleteItemName" class="text-sm text-gray-500 mb-5"></p>
+    <div class="flex gap-3">
+      <button id="confirmDeleteBtn" class="flex-1 bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 rounded-xl text-sm transition-colors">Delete</button>
+      <button id="cancelDeleteBtn" class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-2.5 rounded-xl text-sm transition-colors">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Password gate ───────────────────────────────────────────────
+const ADMIN_PASSWORD = 'mk10';
+
+function showDashboard() {
+  document.getElementById('passwordGate').classList.add('hidden');
+  document.getElementById('dashboard').classList.remove('hidden');
+  loadItems();
+}
+
+if (sessionStorage.getItem('gateOk') === '1') {
+  showDashboard();
+}
+
+function checkGate() {
+  const val = document.getElementById('gatePassword').value;
+  if (val === ADMIN_PASSWORD) {
+    sessionStorage.setItem('gateOk', '1');
+    showDashboard();
+  } else {
+    document.getElementById('gateError').classList.remove('hidden');
+    document.getElementById('gatePassword').value = '';
+    document.getElementById('gatePassword').focus();
+  }
+}
+document.getElementById('gateBtn').addEventListener('click', checkGate);
+document.getElementById('gatePassword').addEventListener('keydown', e => {
+  if (e.key === 'Enter') checkGate();
+});
+
+document.getElementById('lockBtn').addEventListener('click', () => {
+  sessionStorage.removeItem('gateOk');
+  location.reload();
+});
+
+// ── Firebase init ───────────────────────────────────────────────
+let db;
+try {
+  firebase.initializeApp(firebaseConfig);
+  db = firebase.firestore();
+} catch(e) {
+  console.error('Firebase init failed:', e);
+}
+
+// ── State ───────────────────────────────────────────────────────
+let allItems      = [];
+let currentCat    = 'all';
+let deleteTargetId = null;
+
+// ── Load items from Firestore ───────────────────────────────────
+async function loadItems() {
+  document.getElementById('loadingState').classList.remove('hidden');
+  document.getElementById('itemsGrid').classList.add('hidden');
+  document.getElementById('emptyMsg').classList.add('hidden');
+  try {
+    const snap = await db.collection('menu').orderBy('sortOrder').get();
+    allItems = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    renderItems();
+  } catch(e) {
+    alert('Error loading items: ' + e.message);
+  }
+  document.getElementById('loadingState').classList.add('hidden');
+}
+
+// ── Render item cards ───────────────────────────────────────────
+function renderItems() {
+  const filtered = currentCat === 'all' ? allItems : allItems.filter(i => i.category === currentCat);
+  const grid = document.getElementById('itemsGrid');
+  const empty = document.getElementById('emptyMsg');
+  document.getElementById('itemCount').textContent = filtered.length + ' item' + (filtered.length !== 1 ? 's' : '');
+
+  if (!filtered.length) {
+    grid.classList.add('hidden');
+    empty.classList.remove('hidden');
+    return;
+  }
+  empty.classList.add('hidden');
+  grid.classList.remove('hidden');
+
+  grid.innerHTML = filtered.map(item => {
+    const activeClass = item.active === false ? 'opacity-50' : '';
+    const activeLbl   = item.active === false
+      ? '<span class="text-[10px] bg-gray-200 text-gray-500 font-semibold px-2 py-0.5 rounded-full">Hidden</span>'
+      : '<span class="text-[10px] bg-green-100 text-green-700 font-semibold px-2 py-0.5 rounded-full">Visible</span>';
+    const priceStr = item.prices
+      ? `S:₹${item.prices.s} / M:₹${item.prices.m} / L:₹${item.prices.l}`
+      : `₹${item.basePrice}`;
+    return `
+      <div class="item-card bg-white rounded-xl border border-gray-100 overflow-hidden transition-shadow ${activeClass}">
+        <div class="relative">
+          <img src="${item.image||''}" alt="${item.name}" class="w-full h-32 object-cover bg-gray-100"
+            onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22%3E%3Crect fill=%22%23f3f4f6%22 width=%22100%25%22 height=%22100%25%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%239ca3af%22 font-size=%2212%22%3ENo Image%3C/text%3E%3C/svg%3E'"/>
+          <div class="absolute top-2 left-2 flex gap-1 flex-wrap">
+            <span class="text-[10px] ${item.type==='veg'?'bg-green-100 text-green-700':'bg-red-100 text-red-700'} font-bold px-1.5 py-0.5 rounded">${item.type==='veg'?'Veg':'Non-Veg'}</span>
+            ${item.badge?`<span class="text-[10px] bg-orange-100 text-orange-700 font-bold px-1.5 py-0.5 rounded">${item.badge}</span>`:''}
+          </div>
+        </div>
+        <div class="p-3">
+          <div class="flex items-start justify-between gap-2 mb-1">
+            <p class="text-sm font-bold text-gray-800 leading-tight flex-1">${item.name}</p>
+            ${activeLbl}
+          </div>
+          <p class="text-xs text-gray-400 truncate mb-1">${item.description||'—'}</p>
+          <p class="text-xs font-semibold text-red-700 mb-3">${priceStr}</p>
+          <div class="flex items-center gap-2">
+            <button onclick="openEdit('${item.id}')" class="flex-1 text-xs font-semibold bg-gray-100 hover:bg-gray-200 text-gray-700 py-2 rounded-lg transition-colors flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">edit</span> Edit
+            </button>
+            <button onclick="openDelete('${item.id}','${item.name.replace(/'/g,"&apos;")}')" class="text-xs font-semibold bg-red-50 hover:bg-red-100 text-red-600 py-2 px-3 rounded-lg transition-colors flex items-center gap-1">
+              <span class="material-symbols-outlined text-sm">delete</span>
+            </button>
+            <button onclick="toggleActive('${item.id}',${item.active!==false})" title="${item.active!==false?'Hide':'Show'}" class="text-xs font-semibold bg-gray-50 hover:bg-gray-100 text-gray-500 py-2 px-3 rounded-lg transition-colors flex items-center gap-1">
+              <span class="material-symbols-outlined text-sm">${item.active!==false?'visibility_off':'visibility'}</span>
+            </button>
+          </div>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+// ── Sidebar category filter ─────────────────────────────────────
+document.querySelectorAll('.sidebar-item').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.sidebar-item').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentCat = btn.dataset.cat;
+    const labels = {
+      all:'All Items','veg-pizza':'Veg Pizza','nonveg-pizza':'Non-Veg Pizza',
+      'veg-sides':'Veg Sides','crispy-chicken':'Crispy Chicken','burgers':'Burgers',
+      pasta:'Pasta',wraps:'Wraps',drinks:'Drinks & Desserts',offers:'Offers'
+    };
+    document.getElementById('sectionTitle').textContent = labels[currentCat] || currentCat;
+    renderItems();
+  });
+});
+
+// ── Toggle visibility ───────────────────────────────────────────
+async function toggleActive(id, currentlyActive) {
+  try {
+    await db.collection('menu').doc(id).update({ active: !currentlyActive });
+    const item = allItems.find(i => i.id === id);
+    if (item) item.active = !currentlyActive;
+    renderItems();
+    showToast(currentlyActive ? 'Item hidden from menu' : 'Item now visible');
+  } catch(e) { alert('Error: ' + e.message); }
+}
+
+// ── Delete ──────────────────────────────────────────────────────
+function openDelete(id, name) {
+  deleteTargetId = id;
+  document.getElementById('deleteItemName').textContent = '"' + name + '"';
+  document.getElementById('deleteBackdrop').classList.remove('hidden');
+}
+document.getElementById('cancelDeleteBtn').addEventListener('click', () => {
+  document.getElementById('deleteBackdrop').classList.add('hidden');
+});
+document.getElementById('confirmDeleteBtn').addEventListener('click', async () => {
+  document.getElementById('deleteBackdrop').classList.add('hidden');
+  try {
+    await db.collection('menu').doc(deleteTargetId).delete();
+    allItems = allItems.filter(i => i.id !== deleteTargetId);
+    renderItems();
+    showToast('Item deleted');
+  } catch(e) { alert('Error deleting: ' + e.message); }
+});
+
+// ── Modal: open for Add ─────────────────────────────────────────
+document.getElementById('addItemBtn').addEventListener('click', () => openModal(null));
+
+function openModal(item) {
+  const form = document.getElementById('itemForm');
+  form.reset();
+  document.getElementById('imgPreview').classList.add('hidden');
+  document.getElementById('imgPreview').src = '';
+  document.getElementById('singlePriceField').classList.remove('hidden');
+  document.getElementById('sizePriceFields').classList.add('hidden');
+  document.getElementById('priceSingle').checked = true;
+
+  if (item) {
+    document.getElementById('modalTitle').textContent = 'Edit Item';
+    document.getElementById('itemId').value = item.id;
+    document.getElementById('fName').value        = item.name || '';
+    document.getElementById('fDesc').value        = (item.description || '') + (item.features ? '\n' + item.features.join('\n') : '');
+    document.getElementById('fType').value        = item.type || 'veg';
+    document.getElementById('fCategory').value    = item.category || 'veg-pizza';
+    document.getElementById('fTier').value        = item.tier || '';
+    document.getElementById('fBadge').value       = item.badge || '';
+    document.getElementById('fSortOrder').value   = item.sortOrder || 0;
+    document.getElementById('fActive').checked    = item.active !== false;
+    document.getElementById('fImageUrl').value    = item.image || '';
+    if (item.image) {
+      document.getElementById('imgPreview').src = item.image;
+      document.getElementById('imgPreview').classList.remove('hidden');
+    }
+    if (item.prices) {
+      document.getElementById('priceSizes').checked = true;
+      document.getElementById('singlePriceField').classList.add('hidden');
+      document.getElementById('sizePriceFields').classList.remove('hidden');
+      document.getElementById('fPriceS').value = item.prices.s || '';
+      document.getElementById('fPriceM').value = item.prices.m || '';
+      document.getElementById('fPriceL').value = item.prices.l || '';
+    } else {
+      document.getElementById('fBasePrice').value = item.basePrice || '';
+    }
+  } else {
+    document.getElementById('modalTitle').textContent = 'Add Menu Item';
+    document.getElementById('itemId').value = '';
+  }
+
+  document.getElementById('modalBackdrop').classList.remove('hidden');
+}
+
+function closeModal() {
+  document.getElementById('modalBackdrop').classList.add('hidden');
+}
+document.getElementById('closeModalBtn').addEventListener('click', closeModal);
+document.getElementById('cancelModalBtn').addEventListener('click', closeModal);
+document.getElementById('modalBackdrop').addEventListener('click', e => {
+  if (e.target === document.getElementById('modalBackdrop')) closeModal();
+});
+
+// ── Edit item ───────────────────────────────────────────────────
+function openEdit(id) {
+  const item = allItems.find(i => i.id === id);
+  if (item) openModal(item);
+}
+
+// ── Price type toggle ───────────────────────────────────────────
+document.querySelectorAll('input[name="priceType"]').forEach(radio => {
+  radio.addEventListener('change', () => {
+    const sizes = document.getElementById('priceSizes').checked;
+    document.getElementById('singlePriceField').classList.toggle('hidden', sizes);
+    document.getElementById('sizePriceFields').classList.toggle('hidden', !sizes);
+  });
+});
+
+// ── Image URL preview ───────────────────────────────────────────
+document.getElementById('fImageUrl').addEventListener('input', () => {
+  const url = document.getElementById('fImageUrl').value.trim();
+  const preview = document.getElementById('imgPreview');
+  if (url) { preview.src = url; preview.classList.remove('hidden'); }
+  else preview.classList.add('hidden');
+});
+
+// ── Form submit (save item) ─────────────────────────────────────
+document.getElementById('itemForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const saveBtn = document.getElementById('saveBtn');
+  saveBtn.disabled = true;
+  saveBtn.textContent = 'Saving…';
+
+  const hasSizes = document.getElementById('priceSizes').checked;
+  let prices    = null;
+  let basePrice = 0;
+
+  if (hasSizes) {
+    const s = parseInt(document.getElementById('fPriceS').value) || 0;
+    const m = parseInt(document.getElementById('fPriceM').value) || 0;
+    const l = parseInt(document.getElementById('fPriceL').value) || 0;
+    prices    = { s, m, l };
+    basePrice = Math.min(s, m, l);
+  } else {
+    basePrice = parseInt(document.getElementById('fBasePrice').value) || 0;
+  }
+
+  const data = {
+    name:        document.getElementById('fName').value.trim(),
+    description: document.getElementById('fDesc').value.trim(),
+    type:        document.getElementById('fType').value,
+    category:    document.getElementById('fCategory').value,
+    tier:        document.getElementById('fTier').value || null,
+    prices,
+    basePrice,
+    image:       document.getElementById('fImageUrl').value.trim(),
+    badge:       document.getElementById('fBadge').value || null,
+    sortOrder:   parseInt(document.getElementById('fSortOrder').value) || 99,
+    active:      document.getElementById('fActive').checked,
+  };
+
+  const id = document.getElementById('itemId').value;
+  try {
+    if (id) {
+      await db.collection('menu').doc(id).update(data);
+      const idx = allItems.findIndex(i => i.id === id);
+      if (idx >= 0) allItems[idx] = { id, ...data };
+    } else {
+      const ref = await db.collection('menu').add(data);
+      allItems.push({ id: ref.id, ...data });
+    }
+    closeModal();
+    renderItems();
+    showToast(id ? 'Item updated!' : 'Item added!');
+  } catch(err) {
+    alert('Save failed: ' + err.message);
+  }
+  saveBtn.disabled = false;
+  saveBtn.innerHTML = '<span class="material-symbols-outlined text-base">save</span> Save Item';
+});
+
+// ── Seed Firestore from menu-data.json ──────────────────────────
+document.getElementById('seedBtn').addEventListener('click', async () => {
+  if (!confirm('This will upload all items from menu-data.json into Firestore.\nExisting items will NOT be deleted.\n\nContinue?')) return;
+  document.getElementById('seedBtn').textContent = 'Seeding…';
+  try {
+    const res   = await fetch('menu-data.json');
+    const items = await res.json();
+    const batch = db.batch();
+    items.forEach(item => {
+      const ref = db.collection('menu').doc();
+      batch.set(ref, item);
+    });
+    await batch.commit();
+    showToast('Menu seeded — ' + items.length + ' items added!');
+    loadItems();
+  } catch(err) {
+    alert('Seed failed: ' + err.message);
+  }
+  document.getElementById('seedBtn').innerHTML = '<span class="material-symbols-outlined text-base">upload</span> Seed Menu from JSON';
+});
+
+// ── Toast notification ──────────────────────────────────────────
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = msg;
+  toast.classList.remove('hidden');
+  setTimeout(() => toast.classList.add('hidden'), 2500);
+}
+</script>
+</body>
+</html>
