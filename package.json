@@ -1,0 +1,33 @@
+{
+  "name": "go69pizza---copy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "firebase-config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shidhu-jpg/go69pizzaori.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/shidhu-jpg/go69pizzaori/issues"
+  },
+  "homepage": "https://github.com/shidhu-jpg/go69pizzaori#readme",
+  "devDependencies": {
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/forms": "^0.5.11",
+    "tailwindcss": "^4.2.4"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/lexend": "^5.2.11",
+    "@fontsource/material-symbols-outlined": "^5.2.42",
+    "@fontsource/plus-jakarta-sans": "^5.2.8",
+    "@fontsource/work-sans": "^5.2.8"
+  }
+}
