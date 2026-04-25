@@ -290,10 +290,10 @@
         </tr>
       </thead>
       <tbody class="divide-y divide-gray-700">
-        <tr><td class="py-2 px-4">Extra Cheese</td><td class="py-2 px-4 text-center">₹32</td><td class="py-2 px-4 text-center">₹52</td><td class="py-2 px-4 text-center">₹74</td></tr>
-        <tr><td class="py-2 px-4">Extra Toppings</td><td class="py-2 px-4 text-center">₹21</td><td class="py-2 px-4 text-center">₹32</td><td class="py-2 px-4 text-center">₹42</td></tr>
-        <tr><td class="py-2 px-4">Extra Sauce</td><td class="py-2 px-4 text-center">₹16</td><td class="py-2 px-4 text-center">₹21</td><td class="py-2 px-4 text-center">₹26</td></tr>
-        <tr><td class="py-2 px-4">Stuffed Crust</td><td class="py-2 px-4 text-center">₹42</td><td class="py-2 px-4 text-center">₹63</td><td class="py-2 px-4 text-center">₹84</td></tr>
+        <tr><td class="py-2 px-4">Extra Cheese</td><td class="py-2 px-4 text-center">₹40</td><td class="py-2 px-4 text-center">₹60</td><td class="py-2 px-4 text-center">₹80</td></tr>
+        <tr><td class="py-2 px-4">Extra Toppings</td><td class="py-2 px-4 text-center">₹40</td><td class="py-2 px-4 text-center">₹60</td><td class="py-2 px-4 text-center">₹80</td></tr>
+        <tr><td class="py-2 px-4">Extra Sauce</td><td class="py-2 px-4 text-center">₹30</td><td class="py-2 px-4 text-center">₹45</td><td class="py-2 px-4 text-center">₹55</td></tr>
+        <tr><td class="py-2 px-4">Stuffed Crust</td><td class="py-2 px-4 text-center">₹50</td><td class="py-2 px-4 text-center">₹70</td><td class="py-2 px-4 text-center">₹90</td></tr>
       </tbody>
     </table>
   </div>
@@ -301,21 +301,23 @@
   <h3 class="font-headline font-bold text-base text-on-surface mb-3">Special Packs</h3>
   <div id="items-offers" class="grid grid-cols-1 gap-4 mb-6"></div>
 
-  <h3 class="font-headline font-bold text-base text-on-surface mb-3">Everyday Offers</h3>
+   
   <div class="space-y-3">
     <div class="bg-amber-50 border border-amber-200 rounded-xl p-4">
       <div class="flex items-center gap-2 mb-1">
         <span class="material-symbols-outlined text-amber-500 text-base">local_offer</span>
-        <p class="font-bold text-sm text-amber-800">Buy medium pizza get  a small pizza free. </p>
+        <p class="font-bold text-sm text-amber-800">Weekend Offers </p>
       </div>
-      <p class="text-xs text-amber-700">Buy any Medium pizza and get a second Medium pizza free every Tuesday!</p>
+      <p class="text-xs text-amber-700"> Buy medium pizza get  a small pizza free. </p>
+       <p class="text-xs text-amber-700"> Buy large  pizza get  a medium pizza free. </p>
     </div>
     <div class="bg-green-50 border border-green-200 rounded-xl p-4">
       <div class="flex items-center gap-2 mb-1">
         <span class="material-symbols-outlined text-green-600 text-base">local_offer</span>
-        <p class="font-bold text-sm text-green-800">Student Discount — 10% Off</p>
+        <p class="font-bold text-sm text-green-800">Every Day offer(Valid on signature range pizza) </p>
       </div>
-      <p class="text-xs text-green-700">Show your student ID and get 10% off your total order anytime!</p>
+      <p class="text-xs text-green-700">Buy two medium pizzas, get 15% off. </p>
+            <p class="text-xs text-green-700">Buy two large pizzas, get 20% off. </p>
     </div>
     <div class="bg-blue-50 border border-blue-200 rounded-xl p-4">
       <div class="flex items-center gap-2 mb-1">
@@ -430,7 +432,6 @@ const TIER_CFG = {
   'crispy-chicken': {
     crispy:     { label: 'Crispy Chicken Quick-Add', heading: true },
     strips:     { label: 'Boneless Strips',          heading: true },
-    appetizers: { label: 'Non-Veg Appetizers',       heading: true },
   },
   'burgers': {
     veg:    { label: 'Veg',     color: 'bg-green-600' },
