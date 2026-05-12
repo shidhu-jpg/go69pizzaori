@@ -149,6 +149,100 @@
                     Add more items
                 </a>
 </section>
+<!-- Pizza Add-ons Section -->
+<section class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+  <div class="flex items-center gap-2 mb-1">
+    <h2 class="text-xl font-extrabold font-headline">Pizza Add-ons</h2>
+    <span class="text-[10px] font-extrabold bg-primary text-white px-2 py-0.5 rounded-full uppercase tracking-wider">Optional</span>
+  </div>
+  <p class="text-xs text-on-surface-variant mb-5">Upgrade your pizza — pick the size that matches your order</p>
+  <div class="grid grid-cols-2 gap-3">
+    <!-- Extra Cheese -->
+    <div class="border border-zinc-100 rounded-xl p-3 bg-surface-container-low">
+      <div class="flex items-center gap-1.5 mb-2.5">
+        <span class="material-symbols-outlined text-primary text-base" style="font-variation-settings:'FILL' 1;">add_circle</span>
+        <p class="font-bold text-sm text-on-surface">Extra Cheese</p>
+      </div>
+      <div class="flex gap-1.5">
+        <button onclick="addAddon('Extra Cheese','S',40)" class="flex-1 flex flex-col items-center py-2 rounded-lg border border-zinc-200 hover:border-primary hover:bg-red-50 transition-all active:scale-95">
+          <span class="text-[10px] font-extrabold text-on-surface">S</span>
+          <span class="text-[11px] font-extrabold text-primary">₹40</span>
+        </button>
+        <button onclick="addAddon('Extra Cheese','M',60)" class="flex-1 flex flex-col items-center py-2 rounded-lg border border-zinc-200 hover:border-primary hover:bg-red-50 transition-all active:scale-95">
+          <span class="text-[10px] font-extrabold text-on-surface">M</span>
+          <span class="text-[11px] font-extrabold text-primary">₹60</span>
+        </button>
+        <button onclick="addAddon('Extra Cheese','L',80)" class="flex-1 flex flex-col items-center py-2 rounded-lg border border-zinc-200 hover:border-primary hover:bg-red-50 transition-all active:scale-95">
+          <span class="text-[10px] font-extrabold text-on-surface">L</span>
+          <span class="text-[11px] font-extrabold text-primary">₹80</span>
+        </button>
+      </div>
+    </div>
+    <!-- Extra Toppings -->
+    <div class="border border-zinc-100 rounded-xl p-3 bg-surface-container-low">
+      <div class="flex items-center gap-1.5 mb-2.5">
+        <span class="material-symbols-outlined text-primary text-base" style="font-variation-settings:'FILL' 1;">add_circle</span>
+        <p class="font-bold text-sm text-on-surface">Extra Toppings</p>
+      </div>
+      <div class="flex gap-1.5">
+        <button onclick="addAddon('Extra Toppings','S',40)" class="flex-1 flex flex-col items-center py-2 rounded-lg border border-zinc-200 hover:border-primary hover:bg-red-50 transition-all active:scale-95">
+          <span class="text-[10px] font-extrabold text-on-surface">S</span>
+          <span class="text-[11px] font-extrabold text-primary">₹40</span>
+        </button>
+        <button onclick="addAddon('Extra Toppings','M',60)" class="flex-1 flex flex-col items-center py-2 rounded-lg border border-zinc-200 hover:border-primary hover:bg-red-50 transition-all active:scale-95">
+          <span class="text-[10px] font-extrabold text-on-surface">M</span>
+          <span class="text-[11px] font-extrabold text-primary">₹60</span>
+        </button>
+        <button onclick="addAddon('Extra Toppings','L',80)" class="flex-1 flex flex-col items-center py-2 rounded-lg border border-zinc-200 hover:border-primary hover:bg-red-50 transition-all active:scale-95">
+          <span class="text-[10px] font-extrabold text-on-surface">L</span>
+          <span class="text-[11px] font-extrabold text-primary">₹80</span>
+        </button>
+      </div>
+    </div>
+    <!-- Extra Sauce -->
+    <div class="border border-zinc-100 rounded-xl p-3 bg-surface-container-low">
+      <div class="flex items-center gap-1.5 mb-2.5">
+        <span class="material-symbols-outlined text-primary text-base" style="font-variation-settings:'FILL' 1;">add_circle</span>
+        <p class="font-bold text-sm text-on-surface">Extra Sauce</p>
+      </div>
+      <div class="flex gap-1.5">
+        <button onclick="addAddon('Extra Sauce','S',30)" class="flex-1 flex flex-col items-center py-2 rounded-lg border border-zinc-200 hover:border-primary hover:bg-red-50 transition-all active:scale-95">
+          <span class="text-[10px] font-extrabold text-on-surface">S</span>
+          <span class="text-[11px] font-extrabold text-primary">₹30</span>
+        </button>
+        <button onclick="addAddon('Extra Sauce','M',45)" class="flex-1 flex flex-col items-center py-2 rounded-lg border border-zinc-200 hover:border-primary hover:bg-red-50 transition-all active:scale-95">
+          <span class="text-[10px] font-extrabold text-on-surface">M</span>
+          <span class="text-[11px] font-extrabold text-primary">₹45</span>
+        </button>
+        <button onclick="addAddon('Extra Sauce','L',55)" class="flex-1 flex flex-col items-center py-2 rounded-lg border border-zinc-200 hover:border-primary hover:bg-red-50 transition-all active:scale-95">
+          <span class="text-[10px] font-extrabold text-on-surface">L</span>
+          <span class="text-[11px] font-extrabold text-primary">₹55</span>
+        </button>
+      </div>
+    </div>
+    <!-- Stuffed Crust -->
+    <div class="border border-zinc-100 rounded-xl p-3 bg-surface-container-low">
+      <div class="flex items-center gap-1.5 mb-2.5">
+        <span class="material-symbols-outlined text-primary text-base" style="font-variation-settings:'FILL' 1;">add_circle</span>
+        <p class="font-bold text-sm text-on-surface">Stuffed Crust</p>
+      </div>
+      <div class="flex gap-1.5">
+        <button onclick="addAddon('Stuffed Crust','S',50)" class="flex-1 flex flex-col items-center py-2 rounded-lg border border-zinc-200 hover:border-primary hover:bg-red-50 transition-all active:scale-95">
+          <span class="text-[10px] font-extrabold text-on-surface">S</span>
+          <span class="text-[11px] font-extrabold text-primary">₹50</span>
+        </button>
+        <button onclick="addAddon('Stuffed Crust','M',70)" class="flex-1 flex flex-col items-center py-2 rounded-lg border border-zinc-200 hover:border-primary hover:bg-red-50 transition-all active:scale-95">
+          <span class="text-[10px] font-extrabold text-on-surface">M</span>
+          <span class="text-[11px] font-extrabold text-primary">₹70</span>
+        </button>
+        <button onclick="addAddon('Stuffed Crust','L',90)" class="flex-1 flex flex-col items-center py-2 rounded-lg border border-zinc-200 hover:border-primary hover:bg-red-50 transition-all active:scale-95">
+          <span class="text-[10px] font-extrabold text-on-surface">L</span>
+          <span class="text-[11px] font-extrabold text-primary">₹90</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- Upsell Section -->
 <section class="space-y-6">
 <div class="flex items-center justify-between">
@@ -478,6 +572,15 @@
     renderCheckout();
   }
 
+
+  function addAddon(name, size, price) {
+    const key = name + ' (' + size + ')';
+    let items = loadCart();
+    const existing = items.find(i => i.name === key);
+    if (existing) { existing.qty++; } else { items.push({ name: key, price, qty: 1, img: '' }); }
+    saveCart(items);
+    renderCheckout();
+  }
 
   function addUpsell(btn) {
     const name  = btn.dataset.name;

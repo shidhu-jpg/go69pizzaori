@@ -223,24 +223,33 @@
 <section id="sec-chicken" class="px-4 pt-6 pb-2" style="display:none">
   <h2 class="font-headline font-bold text-xl text-on-surface mb-1">Crispy Crunchy Chicken</h2>
   <p class="text-xs text-gray-400 mb-4">Whole chicken pieces — crispy, juicy &amp; full of flavour</p>
-  <div class="bg-inverse-surface rounded-xl overflow-hidden shadow mb-6">
-    <table class="w-full text-sm text-white">
-      <thead>
-        <tr class="bg-primary text-xs uppercase tracking-wider">
-          <th class="py-2 px-4 text-left">Piece</th>
-          <th class="py-2 px-4 text-center">Mix</th>
-          <th class="py-2 px-4 text-center">Leg</th>
-          <th class="py-2 px-4 text-center">Wings</th>
-        </tr>
-      </thead>
-      <tbody class="divide-y divide-gray-700">
-        <tr><td class="py-2 px-4">2 Pcs</td><td class="py-2 px-4 text-center">₹175</td><td class="py-2 px-4 text-center">₹149</td><td class="py-2 px-4 text-center">₹89</td></tr>
-        <tr><td class="py-2 px-4">4 Pcs</td><td class="py-2 px-4 text-center">₹299</td><td class="py-2 px-4 text-center">₹279</td><td class="py-2 px-4 text-center">₹129</td></tr>
-        <tr><td class="py-2 px-4">6 Pcs</td><td class="py-2 px-4 text-center">₹439</td><td class="py-2 px-4 text-center">₹419</td><td class="py-2 px-4 text-center">₹189</td></tr>
-        <tr><td class="py-2 px-4">8 Pcs</td><td class="py-2 px-4 text-center">₹599</td><td class="py-2 px-4 text-center">₹589</td><td class="py-2 px-4 text-center">₹249</td></tr>
-         <tr><td class="py-2 px-4">12 Pcs</td><td class="py-2 px-4 text-center">₹799</td><td class="py-2 px-4 text-center">₹899</td><td class="py-2 px-4 text-center">₹369</td></tr>
-      </tbody>
-    </table>
+  <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden mb-6" data-name="Whole Chicken Pieces" data-type="nonveg">
+    <div class="flex items-center gap-3 p-3">
+      <img alt="Whole Chicken Pieces" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" src="images/icon-chicken.png" loading="lazy"/>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-1 mb-1">
+          <div class="w-3 h-3 border-2 border-red-600 flex items-center justify-center rounded-sm flex-shrink-0"><div class="w-1.5 h-1.5 rounded-full bg-red-600"></div></div>
+          <p class="text-sm font-bold text-on-surface truncate">Whole Chicken Pieces</p>
+        </div>
+        <p class="text-[11px] text-gray-400 mb-2">Crispy &amp; juicy — choose your type and piece count</p>
+        <div class="flex gap-1.5 flex-wrap mb-2.5">
+          <span class="text-[10px] font-extrabold bg-red-50 text-red-600 border border-red-200 px-2 py-0.5 rounded-full">Mix</span>
+          <span class="text-[10px] font-extrabold bg-red-50 text-red-600 border border-red-200 px-2 py-0.5 rounded-full">Leg</span>
+          <span class="text-[10px] font-extrabold bg-red-50 text-red-600 border border-red-200 px-2 py-0.5 rounded-full">Wings</span>
+          <span class="text-[10px] font-semibold text-gray-400 border border-gray-200 px-2 py-0.5 rounded-full">2 · 4 · 6 · 8 · 12 Pcs</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-extrabold text-primary">From ₹89</span>
+          <button class="add-btn bg-primary text-white font-extrabold text-xs px-3 py-1.5 rounded-lg flex items-center gap-1" data-name="Whole Chicken Pieces" data-price="89">
+            Order <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="bg-amber-50 border-t border-amber-100 px-3 py-1.5 flex items-center gap-1.5">
+      <span class="material-symbols-outlined text-amber-500 text-sm">touch_app</span>
+      <p class="text-[10px] text-amber-700 font-semibold">Tap Order to pick your type &amp; piece count</p>
+    </div>
   </div>
   <div id="items-crispy-chicken"></div>
 </section>
@@ -344,29 +353,94 @@
       <span class="material-symbols-outlined">close</span>
     </button>
   </div>
-  <p class="text-[10px] text-gray-400 px-6 pt-3 pb-1">S = 7" &nbsp;|&nbsp; M = 10" &nbsp;|&nbsp; L = 12" &nbsp;|&nbsp; GST included in price</p>
-  <div class="px-6 pb-6 space-y-3 mt-2">
-    <button id="sizeBtnS" class="w-full flex items-center justify-between px-4 py-3 rounded-xl border-2 border-gray-200 hover:border-red-600 hover:bg-red-50 active:scale-[0.98] transition-all">
-      <div class="flex items-center gap-3">
-        <span class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full font-headline font-extrabold text-sm text-on-surface">S</span>
-        <div class="text-left"><p class="font-label font-bold text-sm text-on-surface">Small</p><p class="text-xs text-gray-400">7 inches</p></div>
-      </div>
-      <span id="priceS" class="font-headline font-extrabold text-base text-primary"></span>
+  <div class="overflow-y-auto max-h-[70vh]">
+    <p class="text-[10px] text-gray-400 px-6 pt-3 pb-2">S = 7" &nbsp;|&nbsp; M = 10" &nbsp;|&nbsp; L = 12" &nbsp;|&nbsp; GST included in price</p>
+
+    <!-- ── Size buttons ── -->
+    <div class="px-6 pb-6 space-y-3 mt-3">
+      <button id="sizeBtnS" class="w-full flex items-center justify-between px-4 py-3 rounded-xl border-2 border-gray-200 hover:border-red-600 hover:bg-red-50 active:scale-[0.98] transition-all">
+        <div class="flex items-center gap-3">
+          <span class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full font-headline font-extrabold text-sm text-on-surface">S</span>
+          <div class="text-left"><p class="font-label font-bold text-sm text-on-surface">Small</p><p class="text-xs text-gray-400">7 inches</p></div>
+        </div>
+        <span id="priceS" class="font-headline font-extrabold text-base text-primary"></span>
+      </button>
+      <button id="sizeBtnM" class="w-full flex items-center justify-between px-4 py-3 rounded-xl border-2 border-gray-200 hover:border-red-600 hover:bg-red-50 active:scale-[0.98] transition-all">
+        <div class="flex items-center gap-3">
+          <span class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full font-headline font-extrabold text-sm text-on-surface">M</span>
+          <div class="text-left"><p class="font-label font-bold text-sm text-on-surface">Medium</p><p class="text-xs text-gray-400">10 inches</p></div>
+        </div>
+        <span id="priceM" class="font-headline font-extrabold text-base text-primary"></span>
+      </button>
+      <button id="sizeBtnL" class="w-full flex items-center justify-between px-4 py-3 rounded-xl border-2 border-gray-200 hover:border-red-600 hover:bg-red-50 active:scale-[0.98] transition-all">
+        <div class="flex items-center gap-3">
+          <span class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full font-headline font-extrabold text-sm text-on-surface">L</span>
+          <div class="text-left"><p class="font-label font-bold text-sm text-on-surface">Large</p><p class="text-xs text-gray-400">12 inches</p></div>
+        </div>
+        <span id="priceL" class="font-headline font-extrabold text-base text-primary"></span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Chicken Pieces Picker Bottom Sheet ── -->
+<div id="chickBackdrop" class="hidden fixed inset-0 bg-black/40 z-[80]"></div>
+<div id="chickPicker" class="fixed bottom-0 left-0 right-0 z-[90] bg-white rounded-t-2xl shadow-2xl transform translate-y-full transition-transform duration-300 safe-bottom">
+  <div class="w-12 h-1 bg-gray-300 rounded-full mx-auto mt-3 mb-1"></div>
+  <div class="flex items-center justify-between px-6 py-3 border-b border-gray-100">
+    <div>
+      <p class="text-[10px] text-gray-400 uppercase tracking-wider font-semibold mb-0.5">Choose Type &amp; Pieces</p>
+      <h3 class="font-headline font-extrabold text-lg text-on-surface leading-tight">Whole Chicken Pieces</h3>
+    </div>
+    <button id="closeChickPickerBtn" class="text-gray-400 hover:text-gray-600 ml-4 flex-shrink-0">
+      <span class="material-symbols-outlined">close</span>
     </button>
-    <button id="sizeBtnM" class="w-full flex items-center justify-between px-4 py-3 rounded-xl border-2 border-gray-200 hover:border-red-600 hover:bg-red-50 active:scale-[0.98] transition-all">
-      <div class="flex items-center gap-3">
-        <span class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full font-headline font-extrabold text-sm text-on-surface">M</span>
-        <div class="text-left"><p class="font-label font-bold text-sm text-on-surface">Medium</p><p class="text-xs text-gray-400">10 inches</p></div>
-      </div>
-      <span id="priceM" class="font-headline font-extrabold text-base text-primary"></span>
-    </button>
-    <button id="sizeBtnL" class="w-full flex items-center justify-between px-4 py-3 rounded-xl border-2 border-gray-200 hover:border-red-600 hover:bg-red-50 active:scale-[0.98] transition-all">
-      <div class="flex items-center gap-3">
-        <span class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full font-headline font-extrabold text-sm text-on-surface">L</span>
-        <div class="text-left"><p class="font-label font-bold text-sm text-on-surface">Large</p><p class="text-xs text-gray-400">12 inches</p></div>
-      </div>
-      <span id="priceL" class="font-headline font-extrabold text-base text-primary"></span>
-    </button>
+  </div>
+  <div class="overflow-y-auto max-h-[70vh] px-6 py-4">
+    <p class="text-[10px] font-extrabold text-gray-400 uppercase tracking-widest mb-2">Type</p>
+    <div class="flex gap-2 mb-5">
+      <button class="chick-type flex-1 py-2.5 rounded-xl border-2 border-red-600 bg-red-50 font-extrabold text-sm text-red-600 transition-all active:scale-95" data-type="Mix">Mix</button>
+      <button class="chick-type flex-1 py-2.5 rounded-xl border-2 border-gray-200 font-extrabold text-sm text-gray-600 transition-all active:scale-95" data-type="Leg">Leg</button>
+      <button class="chick-type flex-1 py-2.5 rounded-xl border-2 border-gray-200 font-extrabold text-sm text-gray-600 transition-all active:scale-95" data-type="Wings">Wings</button>
+    </div>
+    <p class="text-[10px] font-extrabold text-gray-400 uppercase tracking-widest mb-2">Pieces</p>
+    <div class="space-y-2.5 pb-4">
+      <button class="chick-qty w-full flex items-center justify-between px-4 py-3 rounded-xl border-2 border-gray-200 hover:border-red-600 hover:bg-red-50 active:scale-[0.98] transition-all" data-qty="2">
+        <div class="flex items-center gap-3">
+          <span class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full font-headline font-extrabold text-sm text-on-surface">2</span>
+          <span class="font-label font-bold text-sm text-on-surface">2 Pieces</span>
+        </div>
+        <span class="chick-qty-price font-headline font-extrabold text-base text-primary"></span>
+      </button>
+      <button class="chick-qty w-full flex items-center justify-between px-4 py-3 rounded-xl border-2 border-gray-200 hover:border-red-600 hover:bg-red-50 active:scale-[0.98] transition-all" data-qty="4">
+        <div class="flex items-center gap-3">
+          <span class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full font-headline font-extrabold text-sm text-on-surface">4</span>
+          <span class="font-label font-bold text-sm text-on-surface">4 Pieces</span>
+        </div>
+        <span class="chick-qty-price font-headline font-extrabold text-base text-primary"></span>
+      </button>
+      <button class="chick-qty w-full flex items-center justify-between px-4 py-3 rounded-xl border-2 border-gray-200 hover:border-red-600 hover:bg-red-50 active:scale-[0.98] transition-all" data-qty="6">
+        <div class="flex items-center gap-3">
+          <span class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full font-headline font-extrabold text-sm text-on-surface">6</span>
+          <span class="font-label font-bold text-sm text-on-surface">6 Pieces</span>
+        </div>
+        <span class="chick-qty-price font-headline font-extrabold text-base text-primary"></span>
+      </button>
+      <button class="chick-qty w-full flex items-center justify-between px-4 py-3 rounded-xl border-2 border-gray-200 hover:border-red-600 hover:bg-red-50 active:scale-[0.98] transition-all" data-qty="8">
+        <div class="flex items-center gap-3">
+          <span class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full font-headline font-extrabold text-sm text-on-surface">8</span>
+          <span class="font-label font-bold text-sm text-on-surface">8 Pieces</span>
+        </div>
+        <span class="chick-qty-price font-headline font-extrabold text-base text-primary"></span>
+      </button>
+      <button class="chick-qty w-full flex items-center justify-between px-4 py-3 rounded-xl border-2 border-gray-200 hover:border-red-600 hover:bg-red-50 active:scale-[0.98] transition-all" data-qty="12">
+        <div class="flex items-center gap-3">
+          <span class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full font-headline font-extrabold text-sm text-on-surface">12</span>
+          <span class="font-label font-bold text-sm text-on-surface">12 Pieces</span>
+        </div>
+        <span class="chick-qty-price font-headline font-extrabold text-base text-primary"></span>
+      </button>
+    </div>
   </div>
 </div>
 
@@ -653,6 +727,39 @@ function renderMenu(items) {
   document.getElementById('menuLoading').style.display = 'none';
   reposition();
   updateSectionVisibility();
+  applyUrlParams();
+}
+
+function applyUrlParams() {
+  const params  = new URLSearchParams(location.search);
+  const section = params.get('section');
+  const filter  = params.get('filter');
+  const q       = params.get('q');
+
+  if (filter === 'veg') {
+    setFilter('veg');
+    filterVeg.classList.add('bg-red-700', 'text-white');
+  } else if (filter === 'nonveg') {
+    setFilter('nonveg');
+    filterNonVeg.classList.add('bg-red-700', 'text-white');
+  }
+
+  if (q) {
+    searchBar.classList.remove('hidden');
+    searchInput.value = decodeURIComponent(q);
+    searchClearBtn.classList.remove('hidden');
+    runSearch(decodeURIComponent(q));
+  }
+
+  if (section) {
+    const el = document.getElementById(section);
+    if (el) {
+      setTimeout(() => {
+        const top = el.getBoundingClientRect().top + window.scrollY - 160;
+        window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+      }, 150);
+    }
+  }
 }
 
 // ── Load menu from Firebase → fallback to JSON ──────────────────
@@ -892,6 +999,71 @@ function updateAddButtons() {
   });
 }
 
+// ── Chicken Pieces Picker ────────────────────────────────────────
+const CHICK_PRICES = {
+  Mix:   { 2: 175, 4: 299, 6: 439, 8: 599, 12: 799 },
+  Leg:   { 2: 149, 4: 279, 6: 419, 8: 589, 12: 899 },
+  Wings: { 2:  89, 4: 129, 6: 189, 8: 249, 12: 369 },
+};
+let activeChickType = 'Mix';
+
+const chickBackdrop = document.getElementById('chickBackdrop');
+const chickPicker   = document.getElementById('chickPicker');
+
+function openChickPicker() {
+  activeChickType = 'Mix';
+  document.querySelectorAll('.chick-type').forEach(b => {
+    const sel = b.dataset.type === 'Mix';
+    b.classList.toggle('border-red-600',  sel);
+    b.classList.toggle('bg-red-50',       sel);
+    b.classList.toggle('text-red-600',    sel);
+    b.classList.toggle('border-gray-200', !sel);
+    b.classList.toggle('text-gray-600',   !sel);
+  });
+  updateChickPrices();
+  chickBackdrop.classList.remove('hidden');
+  chickPicker.classList.remove('translate-y-full');
+}
+function closeChickPicker() {
+  chickBackdrop.classList.add('hidden');
+  chickPicker.classList.add('translate-y-full');
+}
+function updateChickPrices() {
+  document.querySelectorAll('.chick-qty').forEach(btn => {
+    btn.querySelector('.chick-qty-price').textContent = '₹' + CHICK_PRICES[activeChickType][parseInt(btn.dataset.qty)];
+  });
+}
+
+chickBackdrop.addEventListener('click', closeChickPicker);
+document.getElementById('closeChickPickerBtn').addEventListener('click', closeChickPicker);
+
+document.querySelectorAll('.chick-type').forEach(btn => {
+  btn.addEventListener('click', function() {
+    activeChickType = this.dataset.type;
+    document.querySelectorAll('.chick-type').forEach(b => {
+      const sel = b === this;
+      b.classList.toggle('border-red-600',  sel);
+      b.classList.toggle('bg-red-50',       sel);
+      b.classList.toggle('text-red-600',    sel);
+      b.classList.toggle('border-gray-200', !sel);
+      b.classList.toggle('text-gray-600',   !sel);
+    });
+    updateChickPrices();
+  });
+});
+
+document.querySelectorAll('.chick-qty').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const qty   = parseInt(this.dataset.qty);
+    const price = CHICK_PRICES[activeChickType][qty];
+    const key   = 'Chicken (' + activeChickType + ' \xd7 ' + qty + ')';
+    if (!cart[key]) cart[key] = { name: key, price, qty: 0, img: 'images/icon-chicken.png' };
+    cart[key].qty++;
+    closeChickPicker();
+    renderCart();
+  });
+});
+
 // ── Event delegation: Add button clicks ─────────────────────────
 document.getElementById('mainContent').addEventListener('click', e => {
   const btn = e.target.closest('.add-btn');
@@ -902,6 +1074,10 @@ document.getElementById('mainContent').addEventListener('click', e => {
   const img   = card ? (card.querySelector('img') || {}).src || '' : '';
   const item  = menuItemsMap[name];
 
+  if (name === 'Whole Chicken Pieces') {
+    openChickPicker();
+    return;
+  }
   if (item && item.prices) {
     openSizePicker(name, img);
     return;
