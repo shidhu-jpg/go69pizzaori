@@ -320,6 +320,16 @@
 <!-- Coupons Section -->
 <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-zinc-50">
 <h3 class="font-extrabold font-headline mb-4">Offers &amp; Rewards</h3>
+<div id="cartCouponBox" class="hidden items-center justify-between bg-green-50 p-4 rounded-xl border border-green-200 mb-3">
+  <div class="flex items-center gap-2">
+    <span class="material-symbols-outlined text-green-600 text-sm" style="font-variation-settings:'FILL' 1;">sell</span>
+    <div class="flex flex-col">
+      <span class="text-xs font-extrabold uppercase tracking-wider text-green-700" id="cartCouponCode"></span>
+      <span class="text-xs text-green-600 font-medium" id="cartCouponDesc"></span>
+    </div>
+  </div>
+  <span class="text-sm font-extrabold text-green-700" id="cartCouponSaving"></span>
+</div>
 <div id="couponBox-SHIDHU" class="flex items-center justify-between bg-surface-container-low p-4 rounded-xl border border-dashed border-primary-container">
 <div class="flex flex-col">
 <span class="text-xs font-bold uppercase tracking-wider text-primary">SHIDHU</span>
@@ -417,6 +427,18 @@
     'SHIDHU': { discount: function() { return 30; } }
   };
 
+  // Load coupon applied in the cart drawer (index.html)
+  let cartCoupon = null;
+  try { cartCoupon = JSON.parse(localStorage.getItem('go69_coupon')); } catch(e) {}
+  if (cartCoupon && cartCoupon.discount > 0) {
+    const box = document.getElementById('cartCouponBox');
+    box.classList.remove('hidden');
+    box.classList.add('flex');
+    document.getElementById('cartCouponCode').textContent = cartCoupon.code;
+    document.getElementById('cartCouponDesc').textContent = cartCoupon.label + ' — applied from cart';
+    document.getElementById('cartCouponSaving').textContent = '-₹' + cartCoupon.discount;
+  }
+
   function loadCart() {
     try { return JSON.parse(localStorage.getItem('go69_cart') || '[]'); }
     catch(e) { return []; }
@@ -504,7 +526,9 @@
   function updateTotals(subtotal) {
     const freeDelivery = subtotal >= FREE_DELIVERY_THRESHOLD;
     const delivery = freeDelivery ? 0 : (subtotal > 0 ? DELIVERY_CHARGE : 0);
-    const discount = activeCoupon ? COUPONS[activeCoupon].discount(subtotal) : 0;
+    const shidhuDisc = activeCoupon ? COUPONS[activeCoupon].discount(subtotal) : 0;
+    const cartDisc   = (cartCoupon && cartCoupon.discount) ? cartCoupon.discount : 0;
+    const discount   = shidhuDisc + cartDisc;
     const grand = subtotal + delivery - discount;
 
     document.getElementById('billSubtotal').textContent = '₹' + subtotal.toFixed(2);
@@ -549,10 +573,13 @@
     }
 
     const discountRow = document.getElementById('couponDiscountRow');
-    if (activeCoupon && discount > 0) {
+    if (discount > 0) {
       discountRow.classList.remove('hidden');
       document.getElementById('billDiscount').textContent = '-₹' + discount.toFixed(2);
-      document.getElementById('couponLabel').textContent = 'Coupon (' + activeCoupon + ')';
+      const labels = [];
+      if (cartCoupon && cartDisc > 0) labels.push(cartCoupon.code);
+      if (activeCoupon) labels.push(activeCoupon);
+      document.getElementById('couponLabel').textContent = 'Coupon' + (labels.length ? ' (' + labels.join(' + ') + ')' : '');
     } else {
       discountRow.classList.add('hidden');
     }
