@@ -938,7 +938,12 @@ document.getElementById('cartNavBtn').addEventListener('click', openCart);
 document.getElementById('cartBarBtn').addEventListener('click', openCart);
 document.getElementById('closeCartBtn').addEventListener('click', closeCart);
 cartBackdrop.addEventListener('click', closeCart);
-document.getElementById('checkoutBtn').addEventListener('click', () => { window.location.href = 'checkout.html'; });
+document.getElementById('checkoutBtn').addEventListener('click', () => {
+  const cartItems = Object.values(cart).filter(i => i.qty > 0);
+  localStorage.setItem('go69_cart', JSON.stringify(cartItems));
+  localStorage.setItem('go69_coupon', JSON.stringify(null));
+  window.location.href = 'checkout.html';
+});
 
 function renderCart() {
   const items = Object.values(cart).filter(i => i.qty > 0);
