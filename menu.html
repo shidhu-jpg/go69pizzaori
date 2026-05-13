@@ -1071,7 +1071,8 @@ document.getElementById('mainContent').addEventListener('click', e => {
   const name  = btn.dataset.name;
   const price = parseInt(btn.dataset.price);
   const card  = btn.closest('.menu-card');
-  const img   = card ? (card.querySelector('img') || {}).src || '' : '';
+  const imgEl = card ? card.querySelector('img') : null;
+  const img   = imgEl ? (imgEl.getAttribute('src') || '') : '';
   const item  = menuItemsMap[name];
 
   if (name === 'Whole Chicken Pieces') {
