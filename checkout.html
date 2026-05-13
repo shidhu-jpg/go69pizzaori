@@ -245,67 +245,78 @@
 </section>
 <!-- Upsell Section -->
 <section class="space-y-6">
-<div class="flex items-center justify-between">
+<div class="flex items-center justify-between flex-wrap gap-2">
 <h2 class="text-xl font-extrabold font-headline leading-none">Complete Your Meal With</h2>
 <div class="flex items-center gap-4 overflow-x-auto pb-1 custom-scrollbar">
-<span class="text-primary border-b-2 border-primary pb-1 font-bold text-sm cursor-pointer whitespace-nowrap">All</span>
-<span class="text-secondary font-medium text-sm hover:text-on-surface cursor-pointer whitespace-nowrap">Breads &amp; Dips</span>
-<span class="text-secondary font-medium text-sm hover:text-on-surface cursor-pointer whitespace-nowrap">Beverages</span>
-<span class="text-secondary font-medium text-sm hover:text-on-surface cursor-pointer whitespace-nowrap">Desserts</span>
+<span class="upsell-tab text-primary border-b-2 border-primary pb-1 font-bold text-sm cursor-pointer whitespace-nowrap" data-cat="all">All</span>
+<span class="upsell-tab text-secondary font-medium text-sm hover:text-on-surface cursor-pointer whitespace-nowrap pb-1" data-cat="breads">Breads &amp; Dips</span>
+<span class="upsell-tab text-secondary font-medium text-sm hover:text-on-surface cursor-pointer whitespace-nowrap pb-1" data-cat="beverages">Beverages</span>
+<span class="upsell-tab text-secondary font-medium text-sm hover:text-on-surface cursor-pointer whitespace-nowrap pb-1" data-cat="desserts">Desserts</span>
 </div>
 </div>
-<div class="flex gap-4 overflow-x-auto pb-4 custom-scrollbar snap-x">
-<!-- Upsell Card 1 -->
-<div class="min-w-[180px] w-1/4 snap-start bg-inverse-surface rounded-xl overflow-hidden shadow-lg group">
-<div class="h-32 overflow-hidden">
-<img alt="Garlic Breadsticks" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Golden brown oven-baked garlic breadsticks sprinkled with herbs on a dark background" src="images/garlicbread.jpeg"/>
+<div id="upsellRow" class="flex gap-4 overflow-x-auto pb-4 custom-scrollbar snap-x">
+<!-- Breads & Dips -->
+<div class="upsell-card min-w-[180px] w-1/4 snap-start bg-inverse-surface rounded-xl overflow-hidden shadow-lg group flex-shrink-0" data-category="breads">
+<div class="h-32 overflow-hidden"><img alt="Garlic Breadsticks" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="images/garlicbread.jpeg"/></div>
+<div class="p-4"><h4 class="text-white font-bold text-sm font-headline mb-1 leading-tight">Garlic Breadsticks</h4>
+<div class="flex items-center justify-between mt-4"><span class="text-white font-black text-sm">₹125</span>
+<button onclick="addUpsell(this)" data-name="Garlic Breadsticks" data-price="125" data-img="images/garlicbread.jpeg" class="bg-primary text-on-primary px-3 py-1 rounded-lg text-xs font-bold shadow-md active:scale-95 transition-all">Add +</button></div></div>
 </div>
-<div class="p-4 bg-gradient-to-t from-inverse-surface via-inverse-surface/80 to-transparent">
-<h4 class="text-white font-bold text-sm font-headline mb-1 leading-tight">Garlic Breadsticks</h4>
-<div class="flex items-center justify-between mt-4">
-<span class="text-white font-black text-sm">₹125</span>
-<button onclick="addUpsell(this)" data-name="Garlic Breadsticks" data-price="125" data-img="images/garlicbread.jpeg" class="bg-primary text-on-primary px-3 py-1 rounded-lg text-xs font-bold shadow-md hover:bg-primary-container transition-colors">Add +</button>
+<div class="upsell-card min-w-[180px] w-1/4 snap-start bg-inverse-surface rounded-xl overflow-hidden shadow-lg group flex-shrink-0" data-category="breads">
+<div class="h-32 overflow-hidden"><img alt="Cheesy Dip" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="images/cheesedip.jpeg"/></div>
+<div class="p-4"><h4 class="text-white font-bold text-sm font-headline mb-1 leading-tight">Cheesy Dip</h4>
+<div class="flex items-center justify-between mt-4"><span class="text-white font-black text-sm">₹30</span>
+<button onclick="addUpsell(this)" data-name="Cheesy Dip" data-price="30" data-img="images/cheesedip.jpeg" class="bg-primary text-on-primary px-3 py-1 rounded-lg text-xs font-bold shadow-md active:scale-95 transition-all">Add +</button></div></div>
 </div>
+<div class="upsell-card min-w-[180px] w-1/4 snap-start bg-inverse-surface rounded-xl overflow-hidden shadow-lg group flex-shrink-0" data-category="breads">
+<div class="h-32 overflow-hidden"><img alt="Garlic Sticks + Coke" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="images/combopizzapepsi,garlicbread.jpeg"/></div>
+<div class="p-4"><h4 class="text-white font-bold text-sm font-headline mb-1 leading-tight">Garlic Sticks + Coke</h4>
+<div class="flex items-center justify-between mt-4"><span class="text-white font-black text-sm">₹177</span>
+<button onclick="addUpsell(this)" data-name="Garlic Sticks + Coke" data-price="177" data-img="images/combopizzapepsi,garlicbread.jpeg" class="bg-primary text-on-primary px-3 py-1 rounded-lg text-xs font-bold shadow-md active:scale-95 transition-all">Add +</button></div></div>
 </div>
+<div class="upsell-card min-w-[180px] w-1/4 snap-start bg-inverse-surface rounded-xl overflow-hidden shadow-lg group flex-shrink-0" data-category="breads">
+<div class="h-32 overflow-hidden"><img alt="Stuffed Bread" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="images/cheesychicken.jpeg"/></div>
+<div class="p-4"><h4 class="text-white font-bold text-sm font-headline mb-1 leading-tight">Stuffed Bread</h4>
+<div class="flex items-center justify-between mt-4"><span class="text-white font-black text-sm">₹167</span>
+<button onclick="addUpsell(this)" data-name="Stuffed Bread" data-price="167" data-img="images/cheesychicken.jpeg" class="bg-primary text-on-primary px-3 py-1 rounded-lg text-xs font-bold shadow-md active:scale-95 transition-all">Add +</button></div></div>
 </div>
-<!-- Upsell Card 2 -->
-<div class="min-w-[180px] w-1/4 snap-start bg-inverse-surface rounded-xl overflow-hidden shadow-lg group">
-<div class="h-32 overflow-hidden">
-<img alt="Cheesy Dip" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Smooth creamy white cheese sauce in a small ramekin bowl with a swirl" src="images/cheesedip.jpeg"/>
+<!-- Beverages -->
+<div class="upsell-card min-w-[180px] w-1/4 snap-start bg-inverse-surface rounded-xl overflow-hidden shadow-lg group flex-shrink-0" data-category="beverages">
+<div class="h-32 overflow-hidden"><img alt="Mango Shake" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="images/mangoshake.jpeg"/></div>
+<div class="p-4"><h4 class="text-white font-bold text-sm font-headline mb-1 leading-tight">Mango Shake</h4>
+<div class="flex items-center justify-between mt-4"><span class="text-white font-black text-sm">₹104</span>
+<button onclick="addUpsell(this)" data-name="Mango Shake" data-price="104" data-img="images/mangoshake.jpeg" class="bg-primary text-on-primary px-3 py-1 rounded-lg text-xs font-bold shadow-md active:scale-95 transition-all">Add +</button></div></div>
 </div>
-<div class="p-4">
-<h4 class="text-white font-bold text-sm font-headline mb-1 leading-tight">Cheesy Dip</h4>
-<div class="flex items-center justify-between mt-4">
-<span class="text-white font-black text-sm">₹30</span>
-<button onclick="addUpsell(this)" data-name="Cheesy Dip" data-price="30" data-img="images/cheesedip.jpeg" class="bg-primary text-on-primary px-3 py-1 rounded-lg text-xs font-bold shadow-md hover:bg-primary-container transition-colors">Add +</button>
+<div class="upsell-card min-w-[180px] w-1/4 snap-start bg-inverse-surface rounded-xl overflow-hidden shadow-lg group flex-shrink-0" data-category="beverages">
+<div class="h-32 overflow-hidden"><img alt="Blue Lagoon" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="images/bluelaggon.jpeg"/></div>
+<div class="p-4"><h4 class="text-white font-bold text-sm font-headline mb-1 leading-tight">Blue Lagoon</h4>
+<div class="flex items-center justify-between mt-4"><span class="text-white font-black text-sm">₹109</span>
+<button onclick="addUpsell(this)" data-name="Blue Lagoon" data-price="109" data-img="images/bluelaggon.jpeg" class="bg-primary text-on-primary px-3 py-1 rounded-lg text-xs font-bold shadow-md active:scale-95 transition-all">Add +</button></div></div>
 </div>
+<div class="upsell-card min-w-[180px] w-1/4 snap-start bg-inverse-surface rounded-xl overflow-hidden shadow-lg group flex-shrink-0" data-category="beverages">
+<div class="h-32 overflow-hidden"><img alt="Virgin Mojito" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="images/virginmojito.jpeg"/></div>
+<div class="p-4"><h4 class="text-white font-bold text-sm font-headline mb-1 leading-tight">Virgin Mojito</h4>
+<div class="flex items-center justify-between mt-4"><span class="text-white font-black text-sm">₹109</span>
+<button onclick="addUpsell(this)" data-name="Virgin Mojito" data-price="109" data-img="images/virginmojito.jpeg" class="bg-primary text-on-primary px-3 py-1 rounded-lg text-xs font-bold shadow-md active:scale-95 transition-all">Add +</button></div></div>
 </div>
+<div class="upsell-card min-w-[180px] w-1/4 snap-start bg-inverse-surface rounded-xl overflow-hidden shadow-lg group flex-shrink-0" data-category="beverages">
+<div class="h-32 overflow-hidden"><img alt="Cold Coffee" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="images/coldcffee.jpeg"/></div>
+<div class="p-4"><h4 class="text-white font-bold text-sm font-headline mb-1 leading-tight">Cold Coffee</h4>
+<div class="flex items-center justify-between mt-4"><span class="text-white font-black text-sm">₹104</span>
+<button onclick="addUpsell(this)" data-name="Cold Coffee" data-price="104" data-img="images/coldcffee.jpeg" class="bg-primary text-on-primary px-3 py-1 rounded-lg text-xs font-bold shadow-md active:scale-95 transition-all">Add +</button></div></div>
 </div>
-<!-- Upsell Card 3 -->
-<div class="min-w-[180px] w-1/4 snap-start bg-inverse-surface rounded-xl overflow-hidden shadow-lg group">
-<div class="h-32 overflow-hidden">
-<img alt="Combo Meal" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Artisan garlic breadsticks next to a cold sparkling beverage in a tall glass with ice" src="images/combopizzapepsi,garlicbread.jpeg"/>
+<!-- Desserts -->
+<div class="upsell-card min-w-[180px] w-1/4 snap-start bg-inverse-surface rounded-xl overflow-hidden shadow-lg group flex-shrink-0" data-category="desserts">
+<div class="h-32 overflow-hidden"><img alt="Choco Lava Cake" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="images/chocolava.jpeg"/></div>
+<div class="p-4"><h4 class="text-white font-bold text-sm font-headline mb-1 leading-tight">Choco Lava Cake</h4>
+<div class="flex items-center justify-between mt-4"><span class="text-white font-black text-sm">₹104</span>
+<button onclick="addUpsell(this)" data-name="Choco Lava Cake" data-price="104" data-img="images/chocolava.jpeg" class="bg-primary text-on-primary px-3 py-1 rounded-lg text-xs font-bold shadow-md active:scale-95 transition-all">Add +</button></div></div>
 </div>
-<div class="p-4">
-<h4 class="text-white font-bold text-sm font-headline mb-1 leading-tight">Garlic Sticks + Coke</h4>
-<div class="flex items-center justify-between mt-4">
-<span class="text-white font-black text-sm">₹177</span>
-<button onclick="addUpsell(this)" data-name="Garlic Sticks + Coke" data-price="177" data-img="images/combopizzapepsi,garlicbread.jpeg" class="bg-primary text-on-primary px-3 py-1 rounded-lg text-xs font-bold shadow-md hover:bg-primary-container transition-colors">Add +</button>
-</div>
-</div>
-</div>
-<!-- Upsell Card 4 -->
-<div class="min-w-[180px] w-1/4 snap-start bg-inverse-surface rounded-xl overflow-hidden shadow-lg group">
-<div class="h-32 overflow-hidden">
-<img alt="Stuffed Bread" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Cross-section of golden baked bread stuffed with melted mozzarella cheese and corn kernels" src="images/cheesychicken.jpeg"/>
-</div>
-<div class="p-4">
-<h4 class="text-white font-bold text-sm font-headline mb-1 leading-tight">Stuffed Bread</h4>
-<div class="flex items-center justify-between mt-4">
-<span class="text-white font-black text-sm">₹167</span>
-<button onclick="addUpsell(this)" data-name="Stuffed Bread" data-price="167" data-img="images/cheesychicken.jpeg" class="bg-primary text-on-primary px-3 py-1 rounded-lg text-xs font-bold shadow-md hover:bg-primary-container transition-colors">Add +</button>
-</div>
-</div>
+<div class="upsell-card min-w-[180px] w-1/4 snap-start bg-inverse-surface rounded-xl overflow-hidden shadow-lg group flex-shrink-0" data-category="desserts">
+<div class="h-32 overflow-hidden"><img alt="Brownie with Ice Cream" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="images/dessert.png"/></div>
+<div class="p-4"><h4 class="text-white font-bold text-sm font-headline mb-1 leading-tight">Brownie + Ice Cream</h4>
+<div class="flex items-center justify-between mt-4"><span class="text-white font-black text-sm">₹125</span>
+<button onclick="addUpsell(this)" data-name="Brownie with Ice Cream" data-price="125" data-img="images/dessert.png" class="bg-primary text-on-primary px-3 py-1 rounded-lg text-xs font-bold shadow-md active:scale-95 transition-all">Add +</button></div></div>
 </div>
 </div>
 </section>
@@ -634,6 +645,23 @@
     }, 1500);
     document.getElementById('checkoutItemsList').closest('section').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
+  // ── Upsell category tabs ─────────────────────────────────────
+  document.querySelectorAll('.upsell-tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+      const cat = this.dataset.cat;
+      document.querySelectorAll('.upsell-tab').forEach(t => {
+        t.classList.remove('text-primary', 'border-b-2', 'border-primary', 'font-bold');
+        t.classList.add('text-secondary', 'font-medium');
+      });
+      this.classList.remove('text-secondary', 'font-medium');
+      this.classList.add('text-primary', 'border-b-2', 'border-primary', 'font-bold');
+      document.querySelectorAll('.upsell-card').forEach(card => {
+        card.style.display = (cat === 'all' || card.dataset.category === cat) ? '' : 'none';
+      });
+      document.getElementById('upsellRow').scrollLeft = 0;
+    });
+  });
+
   // Initial render
   renderCheckout();
 </script>
