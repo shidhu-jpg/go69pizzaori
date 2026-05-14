@@ -198,6 +198,7 @@
 <script>
   const TAX_RATE = 0.062;
   const RESTAURANT_NUMBER = '9708775005';
+  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzEblLmSCu2mYDT0FilxcH8hFDzVod6xc59nvBt7YJKBIkn_csX-NscTJ6FDits_CB2jQ/exec';
 
   function loadCart() {
     try { return JSON.parse(localStorage.getItem('go69_cart') || '[]'); }
@@ -274,6 +275,24 @@ Taxes       : ₹${tax.toFixed(2)}
 *Grand Total: ₹${grand.toFixed(2)}*
 
 _Order placed via website_`;
+
+    let couponDisc = 0;
+    try { const c = JSON.parse(localStorage.getItem('go69_coupon')); if (c && c.discount) couponDisc = c.discount; } catch(e) {}
+    const grandFinal = grand - couponDisc;
+
+    if (SHEET_URL !== 'PASTE_APPS_SCRIPT_URL_HERE') {
+      fetch(SHEET_URL, {
+        method: 'POST',
+        body: JSON.stringify({
+          name, phone, address,
+          items: items.map(i => `${i.name} x${i.qty}`).join(', '),
+          subtotal: subtotal.toFixed(2),
+          discount: couponDisc.toFixed(2),
+          tax: tax.toFixed(2),
+          grand: grandFinal.toFixed(2)
+        })
+      }).catch(() => {});
+    }
 
     const url = `https://wa.me/${RESTAURANT_NUMBER}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
