@@ -825,7 +825,7 @@
     var imgEl = card.querySelector('img');
     var name = nameEl ? nameEl.textContent.trim() : 'Item';
     var price = parseInt((priceEl ? priceEl.textContent : '0').replace(/[^\d]/g, '')) || 0;
-    var img = imgEl ? imgEl.src : '';
+    var img = imgEl ? (imgEl.getAttribute('src') || '') : '';
     return { name: name, price: price, img: img };
   }
 
