@@ -941,7 +941,6 @@ cartBackdrop.addEventListener('click', closeCart);
 document.getElementById('checkoutBtn').addEventListener('click', () => {
   const cartItems = Object.values(cart).filter(i => i.qty > 0);
   localStorage.setItem('go69_cart', JSON.stringify(cartItems));
-  localStorage.setItem('go69_coupon', JSON.stringify(null));
   window.location.href = 'checkout.html';
 });
 
