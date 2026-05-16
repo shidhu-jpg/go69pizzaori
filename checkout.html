@@ -468,12 +468,14 @@
       btn.classList.add('text-error');
       box.classList.add('border-tertiary');
       box.classList.remove('border-primary-container');
+      localStorage.setItem('go69_coupon', JSON.stringify({ code: 'SHIDHU', label: '₹30 off', discount: 30 }));
     } else {
       btn.textContent = 'APPLY';
       btn.classList.add('text-primary');
       btn.classList.remove('text-error');
       box.classList.remove('border-tertiary');
       box.classList.add('border-primary-container');
+      localStorage.setItem('go69_coupon', JSON.stringify(null));
     }
     renderCheckout();
   }
