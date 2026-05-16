@@ -104,8 +104,12 @@
         <span id="summarySubtotal" class="font-medium">₹0.00</span>
       </div>
       <div class="flex justify-between">
-        <span class="text-on-surface-variant">Taxes &amp; Charges</span>
-        <span id="summaryTax" class="font-medium">₹0.00</span>
+        <span class="text-on-surface-variant">Delivery</span>
+        <span id="summaryDelivery" class="font-medium">₹0.00</span>
+      </div>
+      <div id="summaryDiscountRow" class="flex justify-between hidden">
+        <span class="text-on-surface-variant">Discount</span>
+        <span id="summaryDiscount" class="font-medium text-tertiary">-₹0.00</span>
       </div>
       <div class="flex justify-between text-base font-black font-headline pt-2 border-t border-zinc-100 mt-2">
         <span>Grand Total</span>
@@ -196,7 +200,8 @@
 </div>
 
 <script>
-  const TAX_RATE = 0.062;
+  const FREE_DELIVERY_THRESHOLD = 200;
+  const DELIVERY_CHARGE = 45;
   const RESTAURANT_NUMBER = '9708775005';
   const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzEblLmSCu2mYDT0FilxcH8hFDzVod6xc59nvBt7YJKBIkn_csX-NscTJ6FDits_CB2jQ/exec';
 
@@ -222,12 +227,24 @@
     ).join('');
 
     const subtotal = items.reduce((s, i) => s + i.price * i.qty, 0);
-    const tax = Math.round(subtotal * TAX_RATE);
-    const grand = subtotal + tax;
+    const delivery = subtotal > 0 && subtotal < FREE_DELIVERY_THRESHOLD ? DELIVERY_CHARGE : 0;
+
+    let discount = 0;
+    try { const c = JSON.parse(localStorage.getItem('go69_coupon')); if (c && c.discount) discount = c.discount; } catch(e) {}
+
+    const grand = Math.max(0, subtotal + delivery - discount);
 
     document.getElementById('summarySubtotal').textContent = '₹' + subtotal.toFixed(2);
-    document.getElementById('summaryTax').textContent = '₹' + tax.toFixed(2);
+    document.getElementById('summaryDelivery').textContent = delivery === 0 ? 'FREE' : '₹' + delivery.toFixed(2);
     document.getElementById('summaryGrand').textContent = '₹' + grand.toFixed(2);
+
+    const discountRow = document.getElementById('summaryDiscountRow');
+    if (discount > 0) {
+      discountRow.classList.remove('hidden');
+      document.getElementById('summaryDiscount').textContent = '-₹' + discount.toFixed(2);
+    } else {
+      discountRow.classList.add('hidden');
+    }
   }
 
   function sendViaWhatsApp() {
@@ -251,12 +268,19 @@
     }
 
     const subtotal = items.reduce((s, i) => s + i.price * i.qty, 0);
-    const tax = Math.round(subtotal * TAX_RATE);
-    const grand = subtotal + tax;
+    const delivery = subtotal > 0 && subtotal < FREE_DELIVERY_THRESHOLD ? DELIVERY_CHARGE : 0;
+
+    let couponDisc = 0;
+    try { const c = JSON.parse(localStorage.getItem('go69_coupon')); if (c && c.discount) couponDisc = c.discount; } catch(e) {}
+
+    const grand = Math.max(0, subtotal + delivery - couponDisc);
 
     const orderLines = items.map(i =>
       `  • ${i.name} x${i.qty}  —  ₹${(i.price * i.qty).toFixed(2)}`
     ).join('\n');
+
+    const deliveryLine = delivery === 0 ? 'Delivery    : FREE' : `Delivery    : ₹${delivery.toFixed(2)}`;
+    const discountLine = couponDisc > 0 ? `\nDiscount    : -₹${couponDisc.toFixed(2)}` : '';
 
     const message =
 `🍕 *New Order — Go69Pizza Areraj*
@@ -271,14 +295,10 @@ ${orderLines}
 
 💰 *Bill Summary*
 Items Total : ₹${subtotal.toFixed(2)}
-Taxes       : ₹${tax.toFixed(2)}
+${deliveryLine}${discountLine}
 *Grand Total: ₹${grand.toFixed(2)}*
 
 _Order placed via website_`;
-
-    let couponDisc = 0;
-    try { const c = JSON.parse(localStorage.getItem('go69_coupon')); if (c && c.discount) couponDisc = c.discount; } catch(e) {}
-    const grandFinal = grand - couponDisc;
 
     if (SHEET_URL !== 'PASTE_APPS_SCRIPT_URL_HERE') {
       fetch(SHEET_URL, {
@@ -288,8 +308,8 @@ _Order placed via website_`;
           items: items.map(i => `${i.name} x${i.qty}`).join(', '),
           subtotal: subtotal.toFixed(2),
           discount: couponDisc.toFixed(2),
-          tax: tax.toFixed(2),
-          grand: grandFinal.toFixed(2)
+          tax: '0.00',
+          grand: grand.toFixed(2)
         })
       }).catch(() => {});
     }
